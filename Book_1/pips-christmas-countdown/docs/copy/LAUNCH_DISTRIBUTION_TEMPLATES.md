@@ -16,7 +16,7 @@ Brand: **Blobby World Official** (No personal or legal entity details)
 - **Title:** Pip's Christmas Countdown: 50 Cute Toddler Coloring Pages
 - **Description:** 
   Looking for a sweet, screen-free Christmas Eve box filler? Pip's Christmas Countdown features 25 nights of rhyming countdown pages + 25 bonus winter adventures! Big, simple shapes perfect for little hands ages 3-6.
-- **Destination Link:** `https://www.amazon.com/dp/9798166809148`
+- **Destination Link:** `https://www.amazon.com/dp/B0HPZ647J6`
 - **Image:** `output/marketing/ig_4_whats_inside.png`
 
 ---

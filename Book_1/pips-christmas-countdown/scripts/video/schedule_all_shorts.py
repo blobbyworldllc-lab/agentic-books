@@ -44,7 +44,7 @@ def schedule_short(day: int, publish_date_utc: str = None):
         f"🎁 Download the FREE 4-page Christmas countdown coloring pack:\n"
         f"{LANDING_URL}\n\n"
         f"Full 110-page paperback on Amazon:\n"
-        f"https://www.amazon.com/dp/9798166809148\n\n"
+        f"https://www.amazon.com/dp/B0HPZ647J6\n\n"
         f"#BlobbyWorld #ChristmasColoring #ToddlerActivities #ColoringBook #KidsChristmas #ChristmasCountdown #Shorts"
     )
 
