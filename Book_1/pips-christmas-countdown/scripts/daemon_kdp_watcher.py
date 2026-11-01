@@ -86,8 +86,19 @@ def activate_day_1_youtube():
         log(f"Failed to activate YouTube Short: {e}")
         return False
 
+import subprocess
+
+def self_kill_windows_task():
+    try:
+        log("Unregistering Windows Scheduled Task 'KDP_Book_Live_Activator'...")
+        cmd = 'Unregister-ScheduledTask -TaskName "KDP_Book_Live_Activator" -Confirm:$false'
+        subprocess.run(["powershell", "-Command", cmd], capture_output=True, text=True)
+        log("Windows Scheduled Task 'KDP_Book_Live_Activator' deleted successfully.")
+    except Exception as e:
+        log(f"Error unregistering task: {e}")
+
 def run_once():
-    log("Running check for KDP book status...")
+    log("Running 24-hour check for KDP book status...")
     amazon_live = check_amazon_product()
     gmail_live = check_gmail_notification()
 
@@ -96,10 +107,12 @@ def run_once():
         log(f"BOOK IS CONFIRMED LIVE ({reason})! Activating campaign...")
         success = activate_day_1_youtube()
         if success:
-            log("Campaign activated successfully.")
+            log("Campaign activated successfully. Day 1 is PUBLIC.")
+            # Unregister and kill the Windows daemon task
+            self_kill_windows_task()
             return True
     else:
-        log("Book is not live yet. Will continue monitoring.")
+        log("Book is not live yet. Will continue daily 24-hour monitoring.")
         return False
 
 if __name__ == "__main__":
