@@ -1,0 +1,17 @@
+{
+  "books": [
+    {
+      "slug": "pips-christmas-countdown",
+      "folder": "Book_1/pips-christmas-countdown",
+      "title": "Pip's Christmas Countdown",
+      "type": "seasonal",
+      "isbn": "9798166809148",
+      "asin": null,
+      "kdp_title_id": "A49EK461TNS",
+      "price": 9.99,
+      "submitted": "2026-10-31",
+      "status": "in_review",
+      "metrics": []
+    }
+  ]
+}
