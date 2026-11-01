@@ -4,6 +4,8 @@ Brand: Blobby World Official
 """
 import os
 import sys
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout.reconfigure(encoding='utf-8')
 import json
 import urllib.request
 import urllib.parse
@@ -15,7 +17,7 @@ TOKEN_FILE = SOCIAL_DIR / "buffer_token.json"
 
 LANDING_URL = "https://blobbyworldllc-lab.github.io/agentic-books/"
 AMAZON_ASIN_URL = "https://www.amazon.com/dp/B0HPZ647J6"
-CDN_BASE = "https://blobbyworldllc-lab.github.io/agentic-books"
+CDN_BASE = "https://raw.githubusercontent.com/blobbyworldllc-lab/agentic-books/main/docs"
 
 BUFFER_GQL = "https://api.buffer.com/graphql"
 
@@ -67,7 +69,7 @@ def get_channels():
     ch_res = gql_request(query, {"orgId": org_id})
     return ch_res.get("data", {}).get("channels", [])
 
-def create_post(channel_id, text, image_url=None):
+def create_post(channel_id, text, image_url=None, service="instagram"):
     mutation = """
     mutation CreatePost($input: CreatePostInput!) {
         createPost(input: $input) {
@@ -86,11 +88,24 @@ def create_post(channel_id, text, image_url=None):
     post_input = {
         "channelId": channel_id,
         "text": text,
-        "schedulingType": "queue"
+        "mode": "addToQueue",
+        "schedulingType": "automatic",
+        "needsApproval": False,
+        "assets": []
     }
     if image_url:
-        post_input["attachments"] = {
-            "images": [{"url": image_url}]
+        post_input["assets"].append({
+            "image": {
+                "url": image_url
+            }
+        })
+    
+    if service == "instagram":
+        post_input["metadata"] = {
+            "instagram": {
+                "type": "post",
+                "shouldShareToFeed": True
+            }
         }
     
     return gql_request(mutation, {"input": post_input})
@@ -120,13 +135,13 @@ def dispatch_all():
                 f"Full 110-page paperback on Amazon: {AMAZON_ASIN_URL}"
             )
             img = f"{CDN_BASE}/pin_1_coloring_pages.png"
-            res = create_post(cid, text, img)
-            print(f"[✓] Pinterest Pin queued: {res}")
+            res = create_post(cid, text, img, service="pinterest")
+            print(f"[OK] Pinterest Pin queued: {res}")
             dispatched += 1
 
         elif service == "instagram":
             text = (
-                "NEW for Christmas! 🐧🎄 Meet Pip, a little penguin with a big countdown!\n\n"
+                "NEW for Christmas! Pip's Christmas Countdown is now LIVE on Amazon! 🐧🎄\n\n"
                 "A tiny star lands on his nose and plays hide-and-seek every night until Christmas. "
                 "Read one rhyme, color one page, find Little Star! 25 nights + 25 bonus winter adventures for ages 3-6.\n\n"
                 f"Full paperback now live on Amazon: {AMAZON_ASIN_URL}\n"
@@ -134,8 +149,8 @@ def dispatch_all():
                 "#BlobbyWorld #ChristmasColoring #ToddlerActivities #ColoringBook #KidsChristmas #ChristmasCountdown"
             )
             img = f"{CDN_BASE}/ig_1_launch.png"
-            res = create_post(cid, text, img)
-            print(f"[✓] Instagram Post queued: {res}")
+            res = create_post(cid, text, img, service="instagram")
+            print(f"[OK] Instagram Post queued: {res}")
             dispatched += 1
 
         elif service == "facebook":
@@ -150,8 +165,8 @@ def dispatch_all():
                 f"Full 110-page paperback on Amazon: {AMAZON_ASIN_URL}"
             )
             img = f"{CDN_BASE}/ig_3_free_page.png"
-            res = create_post(cid, text, img)
-            print(f"[✓] Facebook Post queued: {res}")
+            res = create_post(cid, text, img, service="facebook")
+            print(f"[OK] Facebook Post queued: {res}")
             dispatched += 1
 
     return dispatched > 0
