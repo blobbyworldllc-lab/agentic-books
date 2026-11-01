@@ -3,5 +3,6 @@
 **/*.pyc
 **/build/
 **/models/
+**/shorts/temp/
 .venv/
 env/

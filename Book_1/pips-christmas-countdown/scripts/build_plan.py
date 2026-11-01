@@ -46,7 +46,7 @@ S.append(tbl([
     ['2', 'YouTube Shorts / TikTok / Reels', 'Short videos of a page being colored, with the rhyme read aloud, get pushed to strangers for free. You already have the BlobbyWorld video pipeline.', 'One 20-40 second "color with Pip" video per countdown day.'],
     ['3', 'Instagram (feed + Stories)', 'Builds the brand; Stories polls and "find the star" questions get replies.', '3 feed posts a week + daily Story in December.'],
     ['4', 'Facebook parent and homeschool groups', 'Huge, active audiences who ask for "Christmas activities for kids". Only post the FREE pack, and only where group rules allow.', 'The free pack, with a short friendly note. Never a sales link alone.'],
-    ['5', 'Teachers / preschools', 'One preschool teacher printing Day 1 for a class puts the book in front of 20 families.', 'Email the free pack to local preschools, libraries and daycares in Wesley Chapel.'],
+    ['5', 'Teachers / preschools', 'One preschool teacher printing Day 1 for a class puts the book in front of 20 families.', 'Email the free pack to local preschools, libraries and daycares.'],
     ['6', 'Amazon itself (free)', 'Author Central page links all 3 Blobby World books; A+ Content (free) adds big images to the listing.', 'Set up Author Central bio + A+ Content once the book is live.'],
 ], [0.3 * inch, 1.25 * inch, 2.65 * inch, 2.55 * inch]))
 

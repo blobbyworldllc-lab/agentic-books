@@ -13,7 +13,7 @@ A children's **story coloring book** published as a print-on-demand paperback on
 | Title | Pip's Christmas Countdown |
 | Subtitle | A Story Coloring Book for Kids Ages 3-6: 25 Nights to Christmas + 25 Bonus Winter Adventures, 50 Big & Easy Pages with a Find-Little-Star Game |
 | Author (pen name) | **Blobby World Official** (same pen name as the owner's Glitch Boy books) |
-| KDP account / payee | Bizatree LLC (owner: Vijay Rangaraj) |
+| KDP account / payee | Blobby World Official |
 | Format | Paperback, 8.5 x 11 in, black & white interior on white paper, no bleed, matte cover |
 | Page count | 110 (all art printed one side only, blank backs) |
 | ISBN | 9798166809148 (free KDP ISBN; imprint shows "Independently published") |
@@ -106,7 +106,7 @@ Generated in **Google Gemini** (logged-in Chrome, image generation on the Pro pl
 Full plan with captions, hashtags, schedule and video script: `output/marketing/Pip_Free_Launch_Campaign.pdf`.
 
 - **Core idea:** give away a free printable pack (tracker + Day 1 + Day 2) everywhere; it points back to the Amazon listing. Every post uses the "Can you find Little Star?" comment game.
-- **Channels by priority:** Pinterest (biggest free channel for printables) → YouTube Shorts / TikTok / Reels "color with Pip" per countdown day (can reuse the owner's BlobbyWorld Python video pipeline: storyboard → narration → MP4) → Instagram → Facebook parent/homeschool groups (free pack only, follow group rules) → local preschools/libraries (Wesley Chapel, FL) → Amazon Author Central + A+ Content.
+- **Channels by priority:** Pinterest (biggest free channel for printables) → YouTube Shorts / TikTok / Reels "color with Pip" per countdown day (can reuse the BlobbyWorld Python video pipeline: storyboard → narration → MP4) → Instagram → Facebook parent/homeschool groups (free pack only, follow group rules) → local preschools/libraries → Amazon Author Central + A+ Content.
 - **Graphics:** `ig_1_launch`, `ig_2_find_little_star`, `ig_3_free_page`, `ig_4_whats_inside`, `pin_1_coloring_pages`.
 - **Rules:** never trade anything for Amazon reviews; don't use copyrighted music; post only with the owner's approval.
 - **Optional paid:** Amazon Sponsored Products, capped ~$5/day, keywords "christmas coloring book for toddlers", "advent activity book for kids", "penguin coloring book". Owner previously ran ads on the Glitch Boy books with no sales, so keep any spend small and measured.
