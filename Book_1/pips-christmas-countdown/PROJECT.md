@@ -113,6 +113,9 @@ Full plan with captions, hashtags, schedule and video script: `output/marketing/
 
 ## 7. Next steps (in order)
 
+> Catalog strategy and the weekly Friday-6pm cycle live in `docs/WEEKLY_PLAYBOOK.md`. Read it before picking the next book.
+
+
 1. [ ] Confirm the book is **Live** on the KDP Bookshelf (~Nov 3-4) and grab the Amazon product URL/ASIN; add it to this file.
 2. [ ] Host the free printable pack somewhere linkable (e.g. Google Drive share link or a simple page) and put the link in the Instagram bio.
 3. [ ] Post launch graphics (owner approval needed before anything is posted publicly).
@@ -128,3 +131,4 @@ Full plan with captions, hashtags, schedule and video script: `output/marketing/
 |---|---|
 | 2026-10-31 | Niche research → chose toddler/preschool Christmas countdown story coloring book. Wrote 50 captions. Generated 50 pages + color cover in Gemini via Chrome. Built interior (110 pp) and full-wrap cover. Created KDP paperback, uploaded, Previewer approved with no issues, priced $9.99, **submitted for publication**. |
 | 2026-11-01 | Built $0 launch campaign (plan PDF, free printable pack, 5 social graphics). Nothing posted yet. Packaged this project folder. |
+| 2026-11-01 | Wrote catalog strategy + weekly playbook (docs/WEEKLY_PLAYBOOK.md); scheduled Friday 6pm ET weekly research/launch-kit run (cloud task). |
