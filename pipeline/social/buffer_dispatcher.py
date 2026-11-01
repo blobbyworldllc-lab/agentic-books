@@ -69,7 +69,7 @@ def get_channels():
     ch_res = gql_request(query, {"orgId": org_id})
     return ch_res.get("data", {}).get("channels", [])
 
-def create_post(channel_id, text, image_url=None, service="instagram"):
+def create_post(channel_id, text, image_url=None, service="instagram", board_id=None):
     mutation = """
     mutation CreatePost($input: CreatePostInput!) {
         createPost(input: $input) {
@@ -105,6 +105,14 @@ def create_post(channel_id, text, image_url=None, service="instagram"):
             "instagram": {
                 "type": "post",
                 "shouldShareToFeed": True
+            }
+        }
+    elif service == "pinterest" and board_id:
+        post_input["metadata"] = {
+            "pinterest": {
+                "boardServiceId": board_id,
+                "title": "Free Christmas Countdown Coloring Pages for Kids (Printable PDF)",
+                "url": LANDING_URL
             }
         }
     
@@ -153,20 +161,17 @@ def dispatch_all():
             print(f"[OK] Instagram Post queued: {res}")
             dispatched += 1
 
-        elif service == "facebook":
-            text = (
-                "Free 25-Day Christmas Countdown Coloring Tracker for Little Ones! 🐧⭐\n\n"
-                "We put together a free 4-page Christmas Countdown printable pack for toddlers and preschoolers (ages 3–6) "
-                "to make December quiet time fun.\n\n"
-                "• 25-night Star Countdown Chart\n"
-                "• Day 1 & Day 2 rhyming story coloring pages\n"
-                "• 'Find Little Star' seek-and-find game on every page\n\n"
-                f"Free printable PDF download: {LANDING_URL}\n"
-                f"Full 110-page paperback on Amazon: {AMAZON_ASIN_URL}"
+        elif service in ["twitter", "x"]:
+            x_text = (
+                "Pip's Christmas Countdown is LIVE on Amazon! 🐧🎄\n\n"
+                "A 25-night story coloring book for kids ages 3-6 with rhyming read-alouds & hidden star game!\n\n"
+                f"Amazon: {AMAZON_ASIN_URL}\n"
+                f"Free Printables: {LANDING_URL}"
             )
-            img = f"{CDN_BASE}/ig_3_free_page.png"
-            res = create_post(cid, text, img, service="facebook")
-            print(f"[OK] Facebook Post queued: {res}")
+            img = f"{CDN_BASE}/ig_1_launch.png"
+            res = create_post(cid, x_text, img, service="twitter")
+            print(f"[OK] X/Twitter Post queued: {res}")
+            dispatched += 1
             dispatched += 1
 
     return dispatched > 0
