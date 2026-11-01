@@ -1,0 +1,7 @@
+reportlab>=4.0
+pypdf>=4.0
+Pillow>=10.0
+numpy
+opencv-contrib-python   # process.py; cv2.dnn_superres used only to upscale new cover art
+fonttools               # only needed to regenerate static Fredoka weights
+# system: poppler-utils (pdftoppm, pdffonts) for previews and checks

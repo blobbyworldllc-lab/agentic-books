@@ -1,0 +1,7 @@
+# Root .gitignore for agentic-books
+**/__pycache__/
+**/*.pyc
+**/build/
+**/models/
+.venv/
+env/
