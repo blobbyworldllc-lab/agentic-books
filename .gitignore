@@ -6,5 +6,6 @@
 **/shorts/temp/
 *.log
 token_blobby_gmail.json
+pipeline/social/buffer_token.json
 .venv/
 env/
