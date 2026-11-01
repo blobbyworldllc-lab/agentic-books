@@ -1,14 +1,6 @@
 """
-Buffer API Dispatcher for Pip's Christmas Countdown & Future Catalog Books
+Buffer GraphQL Dispatcher for Pip's Christmas Countdown & Future Catalog Books
 Brand: Blobby World Official
-
-Automates scheduling of Pinterest Pins, Instagram Posts, and Facebook Posts
-across all connected channels using the Buffer API.
-
-Documentation / Setup:
-1. Connect your Pinterest, Instagram, and Facebook profiles to Buffer (https://buffer.com).
-2. Generate an Access Token at: https://buffer.com/developers/api
-3. Place your token in `pipeline/social/buffer_token.json` or env `BUFFER_ACCESS_TOKEN`.
 """
 import os
 import sys
@@ -19,16 +11,15 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SOCIAL_DIR = BASE_DIR / "pipeline" / "social"
-CONFIG_FILE = SOCIAL_DIR / "buffer_config.json"
 TOKEN_FILE = SOCIAL_DIR / "buffer_token.json"
 
 LANDING_URL = "https://blobbyworldllc-lab.github.io/agentic-books/"
 AMAZON_ASIN_URL = "https://www.amazon.com/dp/B0HPZ647J6"
 CDN_BASE = "https://blobbyworldllc-lab.github.io/agentic-books"
 
-BUFFER_API = "https://api.bufferapp.com/1"
+BUFFER_GQL = "https://api.buffer.com/graphql"
 
-def get_access_token():
+def get_token():
     if os.environ.get("BUFFER_ACCESS_TOKEN"):
         return os.environ.get("BUFFER_ACCESS_TOKEN").strip()
     if TOKEN_FILE.exists():
@@ -36,128 +27,134 @@ def get_access_token():
         return data.get("access_token", "").strip()
     return None
 
-def buffer_request(endpoint, post_data=None):
-    token = get_access_token()
+def gql_request(query, variables=None):
+    token = get_token()
     if not token:
-        raise ValueError(f"No Buffer access token found. Put token in {TOKEN_FILE} or set BUFFER_ACCESS_TOKEN.")
+        raise ValueError("Buffer access token missing.")
     
-    url = f"{BUFFER_API}/{endpoint}.json?access_token={token}"
-    req = urllib.request.Request(url)
-    if post_data is not None:
-        req.data = urllib.parse.urlencode(post_data).encode("utf-8")
-        req.method = "POST"
-    
-    try:
-        with urllib.request.urlopen(req, timeout=20) as resp:
-            return json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        err_msg = e.read().decode("utf-8")
-        raise RuntimeError(f"Buffer API Error ({e.code}): {err_msg}")
+    payload = {"query": query}
+    if variables:
+        payload["variables"] = variables
 
-def list_profiles():
-    """Lists all connected profiles (Pinterest, Instagram, Facebook)."""
-    profiles = buffer_request("profiles")
-    print(f"Found {len(profiles)} connected Buffer profile(s):")
-    profiles_summary = []
-    for p in profiles:
-        summary = {
-            "id": p["id"],
-            "service": p.get("service"),
-            "formatted_username": p.get("formatted_username") or p.get("service_username")
+    req = urllib.request.Request(
+        BUFFER_GQL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json"
         }
-        profiles_summary.append(summary)
-        print(f" - [{summary['service'].upper()}] ID: {summary['id']} (@{summary['formatted_username']})")
-    
-    CONFIG_FILE.write_text(json.dumps({"profiles": profiles_summary}, indent=2), encoding="utf-8")
-    return profiles_summary
+    )
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        return json.loads(resp.read().decode("utf-8"))
 
-def queue_post(profile_ids, text, media_url=None, link_url=None, now=False):
-    """Queues a post to the specified profiles."""
-    payload = {
-        "text": text,
-        "now": "true" if now else "false",
-        "shorten": "false"
+def get_channels():
+    acc_res = gql_request("query { account { id email organizations { id name } } }")
+    orgs = acc_res.get("data", {}).get("account", {}).get("organizations", [])
+    if not orgs:
+        return []
+    org_id = orgs[0]["id"]
+    
+    query = """
+    query GetChannels($orgId: OrganizationId!) {
+        channels(input: { organizationId: $orgId }) {
+            id
+            name
+            service
+            displayName
+        }
     }
-    for idx, pid in enumerate(profile_ids):
-        payload[f"profile_ids[{idx}]"] = pid
+    """
+    ch_res = gql_request(query, {"orgId": org_id})
+    return ch_res.get("data", {}).get("channels", [])
+
+def create_post(channel_id, text, image_url=None):
+    mutation = """
+    mutation CreatePost($input: CreatePostInput!) {
+        createPost(input: $input) {
+            ... on PostActionSuccess {
+                post {
+                    id
+                    status
+                }
+            }
+            ... on MutationError {
+                message
+            }
+        }
+    }
+    """
+    post_input = {
+        "channelId": channel_id,
+        "text": text,
+        "schedulingType": "queue"
+    }
+    if image_url:
+        post_input["attachments"] = {
+            "images": [{"url": image_url}]
+        }
     
-    if media_url:
-        payload["media[photo]"] = media_url
-    if link_url:
-        payload["media[link]"] = link_url
+    return gql_request(mutation, {"input": post_input})
+
+def dispatch_all():
+    channels = get_channels()
+    if not channels:
+        print("[!] No social channels currently connected in Buffer.")
+        print("Please link your Pinterest, Instagram, or Facebook account inside https://buffer.com")
+        return False
+
+    print(f"Connected channels found ({len(channels)}):")
+    for ch in channels:
+        print(f" - [{ch['service'].upper()}] {ch.get('displayName') or ch.get('name')} (ID: {ch['id']})")
+
+    dispatched = 0
+    for ch in channels:
+        service = ch["service"].lower()
+        cid = ch["id"]
         
-    res = buffer_request("updates/create", post_data=payload)
-    return res
+        if service == "pinterest":
+            text = (
+                "Free Christmas Countdown Coloring Pages for Kids Ages 3-6 (Printable PDF)! 🐧⭐\n\n"
+                "Cute penguin Christmas coloring pages for toddlers and preschoolers. "
+                "Free printable countdown tracker + Day 1 & Day 2 story pages featuring Pip and Little Star.\n\n"
+                f"Instant free download: {LANDING_URL}\n"
+                f"Full 110-page paperback on Amazon: {AMAZON_ASIN_URL}"
+            )
+            img = f"{CDN_BASE}/pin_1_coloring_pages.png"
+            res = create_post(cid, text, img)
+            print(f"[✓] Pinterest Pin queued: {res}")
+            dispatched += 1
 
-def queue_launch_campaign():
-    """Queues the complete launch campaign across Pinterest, Instagram, and Facebook."""
-    token = get_access_token()
-    if not token:
-        print(f"[ACTION REQUIRED] Please add your Buffer access token to:\n{TOKEN_FILE}\n")
-        print("Steps:")
-        print("1. Log in to Buffer (https://buffer.com) and link your Pinterest, Instagram & Facebook.")
-        print("2. Create an App token at https://buffer.com/developers/api")
-        print('3. Save as: {"access_token": "YOUR_TOKEN"}')
-        return False
+        elif service == "instagram":
+            text = (
+                "NEW for Christmas! 🐧🎄 Meet Pip, a little penguin with a big countdown!\n\n"
+                "A tiny star lands on his nose and plays hide-and-seek every night until Christmas. "
+                "Read one rhyme, color one page, find Little Star! 25 nights + 25 bonus winter adventures for ages 3-6.\n\n"
+                f"Full paperback now live on Amazon: {AMAZON_ASIN_URL}\n"
+                f"Grab the FREE 4-page starter printable pack from the link in bio!\n\n"
+                "#BlobbyWorld #ChristmasColoring #ToddlerActivities #ColoringBook #KidsChristmas #ChristmasCountdown"
+            )
+            img = f"{CDN_BASE}/ig_1_launch.png"
+            res = create_post(cid, text, img)
+            print(f"[✓] Instagram Post queued: {res}")
+            dispatched += 1
 
-    profiles = list_profiles()
-    if not profiles:
-        print("[!] No profiles connected in Buffer.")
-        return False
+        elif service == "facebook":
+            text = (
+                "Free 25-Day Christmas Countdown Coloring Tracker for Little Ones! 🐧⭐\n\n"
+                "We put together a free 4-page Christmas Countdown printable pack for toddlers and preschoolers (ages 3–6) "
+                "to make December quiet time fun.\n\n"
+                "• 25-night Star Countdown Chart\n"
+                "• Day 1 & Day 2 rhyming story coloring pages\n"
+                "• 'Find Little Star' seek-and-find game on every page\n\n"
+                f"Free printable PDF download: {LANDING_URL}\n"
+                f"Full 110-page paperback on Amazon: {AMAZON_ASIN_URL}"
+            )
+            img = f"{CDN_BASE}/ig_3_free_page.png"
+            res = create_post(cid, text, img)
+            print(f"[✓] Facebook Post queued: {res}")
+            dispatched += 1
 
-    pin_ids = [p["id"] for p in profiles if p["service"] == "pinterest"]
-    ig_ids = [p["id"] for p in profiles if p["service"] == "instagram"]
-    fb_ids = [p["id"] for p in profiles if p["service"] == "facebook"]
-
-    # 1. Post to Pinterest
-    if pin_ids:
-        pin_text = (
-            "Free Christmas Countdown Coloring Pages for Kids Ages 3-6 (Printable PDF)! 🐧⭐\n\n"
-            "Cute penguin Christmas coloring pages for toddlers and preschoolers. "
-            "Free printable countdown tracker + Day 1 & Day 2 story pages featuring Pip and Little Star. "
-            f"Instant free download: {LANDING_URL}"
-        )
-        pin_img = f"{CDN_BASE}/pin_1_coloring_pages.png"
-        print("Queueing Pinterest pin...")
-        queue_post(pin_ids, pin_text, media_url=pin_img, link_url=LANDING_URL)
-        print("✓ Pinterest pin queued successfully!")
-
-    # 2. Post to Instagram
-    if ig_ids:
-        ig_text = (
-            "NEW for Christmas! 🐧🎄 Meet Pip, a little penguin with a big countdown!\n\n"
-            "A tiny star lands on his nose and plays hide-and-seek every night until Christmas. "
-            "Read one rhyme, color one page, find Little Star! 25 nights + 25 bonus winter adventures for ages 3-6.\n\n"
-            f"Full paperback now live on Amazon: {AMAZON_ASIN_URL}\n"
-            f"Grab the FREE 4-page starter printable pack from the link in bio!\n\n"
-            "#BlobbyWorld #ChristmasColoring #ToddlerActivities #ColoringBook #KidsChristmas #ChristmasCountdown"
-        )
-        ig_img = f"{CDN_BASE}/ig_1_launch.png"
-        print("Queueing Instagram launch post...")
-        queue_post(ig_ids, ig_text, media_url=ig_img, link_url=LANDING_URL)
-        print("✓ Instagram post queued successfully!")
-
-    # 3. Post to Facebook
-    if fb_ids:
-        fb_text = (
-            "Free 25-Day Christmas Countdown Coloring Tracker for Little Ones! 🐧⭐\n\n"
-            "We put together a free 4-page Christmas Countdown printable pack for toddlers and preschoolers (ages 3–6) "
-            "to make December quiet time fun.\n\n"
-            "• 25-night Star Countdown Chart\n"
-            "• Day 1 & Day 2 rhyming story coloring pages\n"
-            "• 'Find Little Star' seek-and-find game on every page\n\n"
-            f"Free printable PDF download: {LANDING_URL}\n"
-            f"Full 110-page paperback on Amazon: {AMAZON_ASIN_URL}"
-        )
-        fb_img = f"{CDN_BASE}/ig_3_free_page.png"
-        print("Queueing Facebook post...")
-        queue_post(fb_ids, fb_text, media_url=fb_img, link_url=LANDING_URL)
-        print("✓ Facebook post queued successfully!")
-
-    return True
+    return dispatched > 0
 
 if __name__ == "__main__":
-    if "--profiles" in sys.argv:
-        list_profiles()
-    else:
-        queue_launch_campaign()
+    dispatch_all()
