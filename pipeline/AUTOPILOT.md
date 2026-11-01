@@ -8,6 +8,18 @@ Owner: Vijay (Bizatree LLC, pen name Blobby World Official). Standing instructio
 - Book_N/<slug>/ : one folder per book, same layout as Book_1/pips-christmas-countdown (PROJECT.md, scripts, art/, output/kdp, output/marketing).
 - Book_1/pips-christmas-countdown/docs/WEEKLY_PLAYBOOK.md : strategy, backlog, deadlines, scoring.
 
+
+## WORK WINDOW AND TOKEN BUDGET (Vijay, 2026-11-01)
+Claude usage must happen ONLY between Friday 6:00 pm ET and Saturday 11:59 pm ET (weekly limits end then). Outside that window no Claude run does work; scheduled tasks exist only inside it.
+- Friday 6:07 pm: (a) weekly sales review of launched books (stage 10, Chrome, keep it to one KDP Reports page + one Amazon page per book), then (b) start the new book: research -> kit. Friday 9:07 pm: art (resume).
+- Saturday 7:07, 10:07, 13:07, 16:07, 19:07, 22:07: art -> build -> gate -> KDP upload -> SUBMIT, then ALL marketing materials prepared and PRE-SCHEDULED. The 22:07 run must finish: submit to KDP and finish scheduling, or write the exact blocker to state.json. Never run after 11:59 pm Saturday.
+- Target: one 30-40 page book per window (Gemini allows ~45 images/account/day; a 50-page book does not fit). 
+- Token savers: contact sheets (6-8 pages per image) for page QA instead of one image per page; low-resolution screenshots; use find/read_page/javascript_tool instead of screenshots wherever possible; never re-read large files; write kit files once; commit once per run.
+- After the window the pipeline runs with ZERO Claude tokens: pre-scheduled posts (YouTube Studio scheduled publish, Pinterest scheduler, Meta Business Suite scheduler for Instagram/Facebook), plus the laptop script pipeline/launch_watcher.py (Windows Task Scheduler, every 30 min) which detects Live, records the ASIN in catalog.json, and flips the book's prepared YouTube videos public.
+- Marketing that goes live after Live must be fully prepared in the window: free pack, graphics, pin copy, 10+ pins, 3+ IG/FB posts, short videos, A+ content images, back-matter updates, and listed in Book_N/<slug>/launch_manifest.json (see pipeline/launch_manifest.example.json).
+- Because the Live date is unknown (KDP: up to 72 h), schedule public posts for Wednesday onward and link them to the FREE PACK landing page. The watcher flips only items listed under "on_live". Never schedule a post that links to Amazon before the watcher confirms Live.
+- Seasonal deadline rule: a seasonal book must be SUBMITTED at least 4 days before its "live by" date.
+
 ## Stages (one book in flight at a time; at most 1 new title per 7 days)
 0 idle -> 1 research -> 2 kit -> 3 art -> 4 build -> 5 gate -> 6 kdp_upload -> 7 publish -> 8 wait_live -> 9 marketing -> 10 monitor (forever)
 Each run: load state, do the NEXT unfinished work for the current stage, update state, commit explicit paths, push to main (never force-push, never commit tokens/logs/*.json credentials). Stop when the stage needs time (art generation, KDP review). Many runs per week advance the same book.

@@ -1,0 +1,12 @@
+{
+  "slug": "example-book",
+  "title": "Example Title",
+  "isbn13": "979XXXXXXXXXX",
+  "asin": null,
+  "submitted": "YYYY-MM-DD",
+  "live": false,
+  "on_live": {
+    "youtube_public": ["VIDEO_ID_1"],
+    "notes": "Everything else (Pinterest/IG/FB) is pre-scheduled in the platform schedulers for Wed onward and links to the free pack page."
+  }
+}
