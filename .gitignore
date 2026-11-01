@@ -4,5 +4,7 @@
 **/build/
 **/models/
 **/shorts/temp/
+*.log
+token_blobby_gmail.json
 .venv/
 env/
