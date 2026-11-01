@@ -37,7 +37,7 @@ def upload_short(day: int, privacy: str = "public"):
 
     description = (
         f"Day {day} of 25: Pip's Christmas Countdown! ⭐\n\n"
-        f"Can you find Little Star hiding in this picture before the video ends? Drop your answer in the comments! 👇\n\n"
+        f"Can you find Little Star hiding in this picture before the video ends? Tell a grown-up where she is hiding! 👇\n\n"
         f"🎁 Download the FREE 4-page Christmas countdown coloring pack:\n"
         f"{LANDING_URL}\n\n"
         f"Full 110-page paperback on Amazon:\n"

@@ -5,6 +5,7 @@ When live:
 1. Automatically sets Day 1 YouTube Short to PUBLIC.
 2. Updates PROJECT.md status log.
 """
+import html
 import urllib.request
 import urllib.error
 import time
@@ -24,7 +25,9 @@ def is_amazon_book_live():
         with urllib.request.urlopen(req, timeout=10) as resp:
             content = resp.read().decode('utf-8', errors='ignore')
             # If "Currently unavailable" or dog page 404, not live yet
-            if "Pip's Christmas Countdown" in content and "Currently unavailable" not in content:
+            page = html.unescape(content)
+            if ("Pip's Christmas Countdown" in page and ('id="productTitle"' in page or 'add-to-cart-button' in page)
+                    and "Currently unavailable" not in page):
                 return True
             return False
     except urllib.error.HTTPError as e:

@@ -12,6 +12,7 @@ When the book is confirmed LIVE:
 import os
 import sys
 import time
+import html
 import urllib.request
 import urllib.error
 from datetime import datetime
@@ -44,7 +45,9 @@ def check_amazon_product():
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
             content = resp.read().decode('utf-8', errors='ignore')
-            if "Pip's Christmas Countdown" in content and "Currently unavailable" not in content and "Dog of Amazon" not in content:
+            page = html.unescape(content)
+            if ("Pip's Christmas Countdown" in page and ('id="productTitle"' in page or 'add-to-cart-button' in page)
+                    and "Currently unavailable" not in page and "Dog of Amazon" not in page):
                 return True
     except Exception as e:
         pass
@@ -57,7 +60,7 @@ def check_gmail_notification():
         creds = Credentials.from_authorized_user_file(GMAIL_TOKEN_PATH, ['https://www.googleapis.com/auth/gmail.readonly'])
         service = build('gmail', 'v1', credentials=creds)
         # Search for recent KDP live approval emails
-        query = 'from:(kdp-support@amazon.com OR "Kindle Direct Publishing") ("Pip\'s Christmas Countdown" OR "is now available" OR "is live")'
+        query = 'from:(amazon.com) "Pip\'s Christmas Countdown" ("is now available" OR "is live" OR "now live") -"under review" -"in review" -"received" -"submitted"'
         results = service.users().messages().list(userId='me', q=query, maxResults=5).execute()
         messages = results.get('messages', [])
         return len(messages) > 0
