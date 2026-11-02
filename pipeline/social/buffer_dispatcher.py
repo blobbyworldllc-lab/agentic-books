@@ -194,4 +194,9 @@ def dispatch_all():
     return dispatched > 0
 
 if __name__ == "__main__":
+    import sys
+    if "--book1-repost" not in sys.argv:
+        print("This dispatcher carries the hardcoded Book 1 payload (Pip's Christmas Countdown) and already ran. "
+              "Pass --book1-repost only to deliberately queue it again. New books need their own payload.")
+        sys.exit(0)
     dispatch_all()

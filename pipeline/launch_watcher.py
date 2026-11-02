@@ -68,12 +68,8 @@ def main():
             cat.write_text(json.dumps(c, indent=2), encoding='utf-8')
             changed += [str(mf), str(cat)]
             print(f"{m['slug']}: LIVE, ASIN {asin}")
-            try:
-                disp_script = repo / 'pipeline' / 'social' / 'buffer_dispatcher.py'
-                if disp_script.exists():
-                    subprocess.run([sys.executable, str(disp_script)], cwd=repo, capture_output=True, timeout=60)
-            except Exception as se:
-                print('social dispatch trigger failed:', se)
+            # Social posts for each book are queued per book during the Fri-Sat window with book-specific payloads;
+            # never trigger the Book 1 dispatcher here (it would repost the wrong book).
     if changed:
         subprocess.run(['git', 'add'] + changed, cwd=repo)
         subprocess.run(['git', 'commit', '-m', 'watcher: book is live, ASIN recorded'], cwd=repo)

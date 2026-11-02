@@ -106,10 +106,26 @@ def run_monitor(repo_dir=None):
 
     if updated:
         cat_file.write_text(json.dumps(catalog, indent=2), encoding="utf-8")
-        subprocess.run(["git", "add", str(cat_file)], cwd=repo, capture_output=True)
-        subprocess.run(["git", "commit", "-m", "chore(pipeline): update live Amazon sales & rank metrics [skip ci]"], cwd=repo, capture_output=True)
-        subprocess.run(["git", "push", "origin", "main"], cwd=repo, capture_output=True)
-        print("[SUCCESS] catalog.json updated and pushed to origin/main.")
+        # Only commit when something meaningful changed or at most once a day, and rebase first,
+        # so scheduled Claude runs that also edit catalog.json do not collide with 4-hourly pushes.
+        def sig(m):
+            return (m.get("bsr"), m.get("rating"), m.get("review_count"), m.get("price"))
+        meaningful = False
+        for book in catalog.get("books", []):
+            ms = book.get("metrics", [])
+            if len(ms) < 2 or sig(ms[-1]) != sig(ms[-2]):
+                meaningful = True
+        last_commit = subprocess.run(["git", "log", "-1", "--format=%ct", "--", str(cat_file)],
+                                     cwd=repo, capture_output=True, text=True).stdout.strip()
+        stale = (not last_commit) or (datetime.datetime.now().timestamp() - int(last_commit) > 20 * 3600)
+        if meaningful or stale:
+            subprocess.run(["git", "pull", "--rebase", "--autostash", "origin", "main"], cwd=repo, capture_output=True)
+            subprocess.run(["git", "add", str(cat_file)], cwd=repo, capture_output=True)
+            subprocess.run(["git", "commit", "-m", "chore(pipeline): update live Amazon rank/review metrics [skip ci]"], cwd=repo, capture_output=True)
+            subprocess.run(["git", "push", "origin", "main"], cwd=repo, capture_output=True)
+            print("[SUCCESS] catalog.json updated and pushed to origin/main.")
+        else:
+            print("No meaningful change; snapshot kept locally, not committed.")
 
 if __name__ == "__main__":
     run_monitor()
