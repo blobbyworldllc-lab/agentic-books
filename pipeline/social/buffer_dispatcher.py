@@ -1,6 +1,11 @@
 """
-Buffer GraphQL Dispatcher for Pip's Christmas Countdown & Future Catalog Books
+Buffer Autonomous Publisher for Pip's Christmas Countdown & Catalog Books
 Brand: Blobby World Official
+
+Fully autonomous publishing across all connected channels:
+- Instagram: Scheduled & Queued
+- X (Twitter): Scheduled & Queued
+- Pinterest: Injected directly into Buffer drafts/queue with full asset and copy
 """
 import os
 import sys
@@ -8,7 +13,6 @@ if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
 import json
 import urllib.request
-import urllib.parse
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -63,13 +67,21 @@ def get_channels():
             name
             service
             displayName
+            metadata {
+                ... on PinterestMetadata {
+                    boards {
+                        id
+                        name
+                    }
+                }
+            }
         }
     }
     """
     ch_res = gql_request(query, {"orgId": org_id})
     return ch_res.get("data", {}).get("channels", [])
 
-def create_post(channel_id, text, image_url=None, service="instagram", board_id=None):
+def create_post(channel_id, text, image_url=None, service="instagram", board_id=None, save_as_draft=False):
     mutation = """
     mutation CreatePost($input: CreatePostInput!) {
         createPost(input: $input) {
@@ -91,6 +103,7 @@ def create_post(channel_id, text, image_url=None, service="instagram", board_id=
         "mode": "addToQueue",
         "schedulingType": "automatic",
         "needsApproval": False,
+        "saveToDraft": save_as_draft,
         "assets": []
     }
     if image_url:
@@ -122,7 +135,6 @@ def dispatch_all():
     channels = get_channels()
     if not channels:
         print("[!] No social channels currently connected in Buffer.")
-        print("Please link your Pinterest, Instagram, or Facebook account inside https://buffer.com")
         return False
 
     print(f"Connected channels found ({len(channels)}):")
@@ -135,16 +147,22 @@ def dispatch_all():
         cid = ch["id"]
         
         if service == "pinterest":
-            text = (
+            boards = ch.get("metadata", {}).get("boards", [])
+            board_id = boards[0]["id"] if boards else None
+            
+            pin_text = (
                 "Free Christmas Countdown Coloring Pages for Kids Ages 3-6 (Printable PDF)! 🐧⭐\n\n"
                 "Cute penguin Christmas coloring pages for toddlers and preschoolers. "
                 "Free printable countdown tracker + Day 1 & Day 2 story pages featuring Pip and Little Star.\n\n"
                 f"Instant free download: {LANDING_URL}\n"
                 f"Full 110-page paperback on Amazon: {AMAZON_ASIN_URL}"
             )
-            img = f"{CDN_BASE}/pin_1_coloring_pages.png"
-            res = create_post(cid, text, img, service="pinterest")
-            print(f"[OK] Pinterest Pin queued: {res}")
+            pin_img = f"{CDN_BASE}/pin_1_coloring_pages.png"
+            
+            # If board not yet synced in metadata, inject directly into Buffer drafts/queue with full assets
+            save_draft = (board_id is None)
+            res = create_post(cid, pin_text, pin_img, service="pinterest", board_id=board_id, save_as_draft=save_draft)
+            print(f"[OK] Pinterest Pin created in Buffer: {res}")
             dispatched += 1
 
         elif service == "instagram":
@@ -171,7 +189,6 @@ def dispatch_all():
             img = f"{CDN_BASE}/ig_1_launch.png"
             res = create_post(cid, x_text, img, service="twitter")
             print(f"[OK] X/Twitter Post queued: {res}")
-            dispatched += 1
             dispatched += 1
 
     return dispatched > 0
