@@ -89,6 +89,17 @@ def run_monitor(repo_dir=None):
         if not asin or book.get("status") != "live":
             continue
 
+        # Once a day is enough: skip if checked within the last 20 hours (the Windows task may fire more often).
+        lc = book.get("last_checked")
+        if lc:
+            try:
+                age = datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromisoformat(lc)
+                if age < datetime.timedelta(hours=20):
+                    print(f"Skipping {book.get('title')}: last checked {age.total_seconds()/3600:.1f}h ago.")
+                    continue
+            except Exception:
+                pass
+
         print(f"Checking metrics for {book.get('title')} (ASIN: {asin})...")
         metrics = parse_amazon_metrics(asin)
         if metrics:

@@ -70,4 +70,4 @@ Push (SendUserMessage) only for: a book launched, a book Live, a gate failure or
 ## Social posting notes (2026-11-01)
 - Buffer (Pinterest, Instagram, X) and the Meta Graph publisher (Facebook) are the posting rails. pipeline/social/buffer_dispatcher.py holds the Book 1 payload ONLY and refuses to rerun; each new book gets its own payload file queued during the Fri-Sat window (addToQueue, about one post per channel per day, never a burst).
 - launch_watcher.py does not trigger social posts; it records the ASIN and flips prepared YouTube videos.
-- pipeline/sales_monitor.py (Windows task, every 4 hours) records public Amazon rank/rating/review count only. It does NOT show units sold; real sales still come from KDP Reports in the Friday review. BSR/rating stay null until the first sale/review.
+- pipeline/sales_monitor.py (Windows task; self-throttles to one check per 20+ hours) records public Amazon rank/rating/review count only. It does NOT show units sold; real sales still come from KDP Reports in the Friday review. BSR/rating stay null until the first sale/review.
