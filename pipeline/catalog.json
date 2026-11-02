@@ -11,7 +11,17 @@
       "price": 9.99,
       "submitted": "2026-10-31",
       "status": "live",
-      "metrics": []
+      "metrics": [
+        {
+          "timestamp": "2026-11-02T00:49:14.993741+00:00",
+          "bsr": null,
+          "category_ranks": [],
+          "rating": null,
+          "review_count": null,
+          "price": 9.99
+        }
+      ],
+      "last_checked": "2026-11-02T00:49:14.993741+00:00"
     }
   ]
 }
