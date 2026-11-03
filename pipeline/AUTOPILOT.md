@@ -108,3 +108,19 @@ Push (SendUserMessage) only for: a book launched, a book Live, a gate failure or
   - Instagram: High-contrast 2026 icon header block (`✨ AVAILABLE NOW ON AMAZON PRIME ✨` / `🛒 TAP TO ORDER HERE ➔ https://www.amazon.com/dp/{asin}`), story rhyme body, clean footer box, and dedicated first comment (`🛒 DIRECT AMAZON PURCHASE LINK: 👉 https://www.amazon.com/dp/{asin}`).
   - Threads, Facebook, X, Pinterest, YouTube, TikTok: Direct Amazon buy link on top line with 2026 icon block + direct buy link in first comment.
 - ENFORCEMENT: Enforced programmatically at code level via `format_promotional_copy()` and `validate_post_content(..., require_amazon_link=True)` in `pipeline/safety_guard.py` and across all dispatchers (`dual_buffer_dispatcher.py`, `buffer_dispatcher.py`).
+
+## Authentic Content & Selling Strategy Standards (2026-11-03)
+- VERIFIED PRODUCT CLAIMS ONLY: All promotional copy must reflect features physically present in the book:
+  - 25 countdown story pages + 25 bonus winter adventures (50 coloring designs, 110 pages total, 8.5x11).
+  - Short rhyming read-aloud on every single page.
+  - "Find Little Star" hidden visual tracking challenge on every scene.
+  - Big, bold outlines engineered specifically for toddler & preschool hands (ages 3–6).
+  - Single-sided printing on white paper so markers/crayons never bleed through.
+  - Extras: Countdown tracker, Letter to Santa, and official Coloring Champion certificate.
+- HONEST ORIGIN RULE: Use "Tampa-based creator" / "Designed with love in Tampa, FL". Never claim "Made in USA" because Amazon KDP print-on-demand facilities are assigned dynamically worldwide based on customer delivery location.
+- LOCATION STRATEGY: Include "Tampa, Florida, USA" in profile bio, captions, and hashtags (`#TampaMoms #TampaKids #TampaBay`). Apply in-app location tag on phone posts (note: third-party Reel schedulers do not support direct Reel geotags).
+- GROUP POSTING RULE: In parenting, homeschool, and preschool Facebook/Reddit groups, post ONLY the 100% free printable starter pack. Never post commercial sales links in community groups.
+- COMMUNITY GROWTH PLAYS:
+  1. "Color With Us" Nightly Bedtime Challenge: Encourage parents to share their child coloring the day's page and tag `@blobbyworldofficial` (#ColorWithPip).
+  2. Micro-Creator Gifting: Gift author copies to small coloring, preschool, and motherhood creators for organic flip-through videos.
+  3. Tampa Community Outreach: Donate free printable activity packs to local Tampa libraries, daycares, and preschool circle times.

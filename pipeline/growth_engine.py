@@ -23,12 +23,28 @@ MARKETING_ANGLES = [
         "badge": "📵 Screen-Free Essential • Fine Motor Skills Development"
     },
     {
-        "theme": "Local Tampa, FL Creator & Made in USA",
-        "hook": "Support local creators! Designed with love right here in Tampa, Florida and printed locally in the USA with guaranteed Amazon Prime fast delivery before Christmas.",
-        "target_audience": "Florida locals, American-made supporters, gift shoppers",
-        "keywords": ["made in usa coloring book", "tampa florida kids gifts", "prime holiday shipping"],
+        "theme": "Tampa-Based Creator & Local Pride",
+        "hook": "Support independent creators! Pip's Christmas Countdown was designed with love right here in Tampa, Florida by Blobby World Official. Fast delivery via Amazon Prime!",
+        "target_audience": "Tampa Bay locals, Florida parenting communities, gift shoppers",
+        "keywords": ["tampa-based author", "tampa florida kids gifts", "prime holiday shipping", "tampamoms"],
         "location_tag": "Tampa, Florida, USA",
-        "badge": "🇺🇸 Designed in Tampa, FL • Printed in USA"
+        "badge": "📍 Designed in Tampa, FL • Fast Amazon Prime Shipping"
+    },
+    {
+        "theme": "'Color With Us' Nightly Challenge & User-Generated Content",
+        "hook": "Join our 25-night bedtime tradition! Color one page each evening from Dec 1 to Christmas, tag @blobbyworldofficial with #ColorWithPip, and showcase your little artist!",
+        "target_audience": "Engaged parents, TikTok/Instagram families, bedtime routine seekers",
+        "keywords": ["color with pip", "december bedtime challenge", "toddler coloring challenge"],
+        "location_tag": "Tampa, Florida",
+        "badge": "⭐ Nightly Bedtime Tradition • Tag @blobbyworldofficial"
+    },
+    {
+        "theme": "Community Gifting & Preschool / Library Outreach",
+        "hook": "Sharing the holiday cheer locally! We are providing 100% free printable starter packs to Tampa preschools, daycares, and public library story times.",
+        "target_audience": "Preschool directors, librarians, local educators",
+        "keywords": ["tampa preschool activities", "library storytime printables", "free coloring sheets"],
+        "location_tag": "Tampa, Florida",
+        "badge": "📚 Tampa Community Outreach • 100% Free Educational Resource"
     },
     {
         "theme": "25-Night Bedtime Wind-Down Ritual",

@@ -126,7 +126,7 @@ def format_promotional_copy(base_caption, platform, asin="B0HPZ647J6"):
     
     # 1. Instagram / IG formatting:
     # High-contrast 2026 header block with clean directional icons,
-    # screen-free & fine-motor developmental benefits, Tampa/Made in USA geotags,
+    # screen-free & fine-motor developmental benefits, Tampa-based creator callouts,
     # and dedicated first comment.
     if platform.lower() in ["instagram", "ig"]:
         header = (
@@ -137,7 +137,7 @@ def format_promotional_copy(base_caption, platform, asin="B0HPZ647J6"):
         footer = (
             f"{divider}\n"
             f"📵 100% SCREEN-FREE • MOTOR SKILLS & BEDTIME FOCUS\n"
-            f"📍 Tampa, Florida • 🇺🇸 Printed in USA with Prime Delivery\n"
+            f"📍 Tampa-based Creator • Single-Sided No Bleed Pages\n"
             f"📦 FAST PRIME SHIPPING ➔ {amazon_url}\n"
             f"🎁 FREE ACTIVITY PACK ➔ {landing_url}\n"
             f"👉 Also available via bio: @blobbyworldofficial"
@@ -148,7 +148,7 @@ def format_promotional_copy(base_caption, platform, asin="B0HPZ647J6"):
             f"🛒 DIRECT AMAZON PURCHASE LINK:\n"
             f"👉 {amazon_url}\n"
             f"━━━━━━━━━━━━━━━━━━━━\n"
-            f"📵 100% Screen-Free Motor Skills | 🇺🇸 Made in USA\n"
+            f"📵 100% Screen-Free Motor Skills | 📍 Tampa, FL Creator\n"
             f"✨ Prime Fast Delivery | 🎁 Free Printable Pack: {landing_url}"
         )
         return caption, comment
@@ -161,14 +161,14 @@ def format_promotional_copy(base_caption, platform, asin="B0HPZ647J6"):
     )
     footer = (
         f"{divider}\n"
-        f"📵 100% Screen-Free • Builds Motor Skills & Focus\n"
-        f"📍 Tampa, Florida • 🇺🇸 Printed in USA with Prime\n"
+        f"📵 100% Screen-Free • Builds Motor Skills & Bedtime Focus\n"
+        f"📍 Tampa-based Creator • Single-Sided No-Bleed Pages\n"
         f"📦 FAST PRIME DELIVERY: {amazon_url}\n"
         f"🎁 FREE ACTIVITY PACK: {landing_url}"
     )
     caption = f"{header}\n\n{base_caption}\n\n{footer}"
     comment = (
         f"🛒 Direct Amazon Purchase Link: {amazon_url}\n"
-        f"📵 100% Screen-Free Motor Skills Development | 🇺🇸 Printed in USA with Fast Prime delivery!"
+        f"📵 100% Screen-Free Motor Skills Development | 📍 Tampa-based Creator with Fast Prime delivery!"
     )
     return caption, comment
