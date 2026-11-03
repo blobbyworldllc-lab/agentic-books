@@ -1,0 +1,30 @@
+name: Autonomous Social & Marketing Publisher
+
+on:
+  schedule:
+    # Trigger daily at 14:00 UTC (9:00 AM EST)
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Dispatch across Buffer Grid
+        env:
+          BUFFER_API_KEY_ACCOUNT_1: ${{ secrets.BUFFER_API_KEY_ACCOUNT_1 }}
+          BUFFER_API_KEY_ACCOUNT_2: ${{ secrets.BUFFER_API_KEY_ACCOUNT_2 }}
+        run: |
+          python pipeline/social/dual_buffer_dispatcher.py
