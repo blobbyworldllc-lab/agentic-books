@@ -105,6 +105,6 @@ Push (SendUserMessage) only for: a book launched, a book Live, a gate failure or
   1. A prominent, highlighted Amazon purchase link at the top of the description/caption.
   2. A dedicated first comment published directly underneath containing the direct Amazon purchase link so it is immediately visible and clickable for users viewing the comments.
 - PLATFORM SPECIFICS:
-  - Instagram: Direct Amazon buy link on top line of caption (`🛒 BUY ON AMAZON: https://www.amazon.com/dp/{asin}`), followed by story rhyme, with purchase link reiterated at bottom and dedicated purchase link in the first comment.
-  - Threads, Facebook, X, Pinterest, YouTube, TikTok: Direct Amazon buy link on top line of description + direct buy link in first comment.
+  - Instagram: High-contrast 2026 icon header block (`✨ AVAILABLE NOW ON AMAZON PRIME ✨` / `🛒 TAP TO ORDER HERE ➔ https://www.amazon.com/dp/{asin}`), story rhyme body, clean footer box, and dedicated first comment (`🛒 DIRECT AMAZON PURCHASE LINK: 👉 https://www.amazon.com/dp/{asin}`).
+  - Threads, Facebook, X, Pinterest, YouTube, TikTok: Direct Amazon buy link on top line with 2026 icon block + direct buy link in first comment.
 - ENFORCEMENT: Enforced programmatically at code level via `format_promotional_copy()` and `validate_post_content(..., require_amazon_link=True)` in `pipeline/safety_guard.py` and across all dispatchers (`dual_buffer_dispatcher.py`, `buffer_dispatcher.py`).

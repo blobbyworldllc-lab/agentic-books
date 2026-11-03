@@ -117,28 +117,47 @@ def format_promotional_copy(base_caption, platform, asin="B0HPZ647J6"):
     """
     Hard Rule (Zero Exceptions, Any Book):
     Formats post description/caption and generates dedicated first comment.
-    Both MUST carry the direct Amazon purchase link.
+    Both MUST carry the direct Amazon purchase link with high-visibility modern 2026 icons.
     Returns: (formatted_caption, first_comment)
     """
     amazon_url = f"https://www.amazon.com/dp/{asin}"
     landing_url = "https://blobbyworldllc-lab.github.io/agentic-books/"
+    divider = "━━━━━━━━━━━━━━━━━━━━"
     
     # 1. Instagram / IG formatting:
-    # Amazon buy link prominently on top, full book description, direct link & bio reminder,
-    # plus dedicated first comment with direct Amazon purchase link.
+    # High-contrast 2026 header block with clean directional icons,
+    # followed by the story copy, footer CTA box, and dedicated first comment.
     if platform.lower() in ["instagram", "ig"]:
-        caption = (
-            f"🛒 BUY ON AMAZON: {amazon_url}\n"
-            f"🎁 Free Activity Pack & Details: {landing_url}\n\n"
-            f"{base_caption}\n\n"
-            f"👉 Amazon Purchase Link: {amazon_url}\n"
+        header = (
+            f"✨ AVAILABLE NOW ON AMAZON PRIME ✨\n"
+            f"🛒 TAP TO ORDER HERE ➔ {amazon_url}\n"
+            f"{divider}"
+        )
+        footer = (
+            f"{divider}\n"
+            f"📦 FAST PRIME DELIVERY ➔ {amazon_url}\n"
+            f"🎁 FREE ACTIVITY PACK ➔ {landing_url}\n"
             f"👉 Also available via bio: @blobbyworldofficial"
         )
-        comment = f"🛒 Purchase on Amazon: {amazon_url} | Free Printable Pack: {landing_url}"
+        caption = f"{header}\n\n{base_caption}\n\n{footer}"
+        comment = (
+            f"🛒 DIRECT AMAZON PURCHASE LINK:\n"
+            f"👉 {amazon_url}\n\n"
+            f"✨ Prime Fast Delivery | 🎁 Free Printable Pack: {landing_url}"
+        )
         return caption, comment
 
     # 2. All other platforms (Threads, Facebook, X, Pinterest, YouTube, TikTok)
-    # Direct highlighted link at top of description + dedicated link in first comment
-    caption = f"🛒 BUY ON AMAZON PRIME: {amazon_url}\n🎁 FREE PRINTABLE PACK: {landing_url}\n\n{base_caption}\n\n🛒 Purchase Link: {amazon_url}"
-    comment = f"✨ Direct Purchase Link: {amazon_url} (Available on Amazon with Prime delivery!)"
+    header = (
+        f"✨ AVAILABLE NOW ON AMAZON PRIME ✨\n"
+        f"🛒 ORDER HERE ➔ {amazon_url}\n"
+        f"{divider}"
+    )
+    footer = (
+        f"{divider}\n"
+        f"📦 FAST PRIME DELIVERY: {amazon_url}\n"
+        f"🎁 FREE ACTIVITY PACK: {landing_url}"
+    )
+    caption = f"{header}\n\n{base_caption}\n\n{footer}"
+    comment = f"🛒 Direct Amazon Purchase Link: {amazon_url} (Available with Fast Prime delivery!)"
     return caption, comment
