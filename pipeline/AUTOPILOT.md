@@ -75,5 +75,5 @@ Push (SendUserMessage) only for: a book launched, a book Live, a gate failure or
 ## Meta / Instagram Advertising & Account Protection Rules (2026-11-03)
 - STRICT 100% ORGANIC: We NEVER run paid Meta/Instagram ads. The pipeline uses strictly organic posting.
 - NO DIRECT AMAZON AFFILIATE/COMMERCE LINKS IN POST BODIES: Meta flags external commerce/Amazon URLs in brand-new professional accounts as potential affiliate spam. Always point post calls-to-action to the brand bio (@blobbyworldofficial) or the official GitHub Pages landing page.
-- CADENCE LIMIT: Maximum 1 post per day per social channel. Never burst or spam identical copy across multiple shareNow calls.
+- CADENCE STANDARD: Distribute 4 to 5 high-quality, varied posts throughout the day across distinct formats (e.g., Morning Story/Reel, Afternoon Activity Tip, Evening Countdown Rhyme, Teacher/Parent Printable Feature). Space posts by at least 2-3 hours and rotate distinct creative angles.
 - BUSINESS ASSET INTEGRITY: If Meta flags ad restrictions on a new professional account, verify in Account Quality that identity confirmation is complete and keep ad features unused (the organic publishing capability remains active).
