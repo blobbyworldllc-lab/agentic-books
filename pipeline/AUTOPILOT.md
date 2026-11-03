@@ -77,3 +77,11 @@ Push (SendUserMessage) only for: a book launched, a book Live, a gate failure or
 - NO DIRECT AMAZON AFFILIATE/COMMERCE LINKS IN POST BODIES: Meta flags external commerce/Amazon URLs in brand-new professional accounts as potential affiliate spam. Always point post calls-to-action to the brand bio (@blobbyworldofficial) or the official GitHub Pages landing page.
 - CADENCE STANDARD: Distribute 4 to 5 high-quality, varied posts throughout the day across distinct formats (e.g., Morning Story/Reel, Afternoon Activity Tip, Evening Countdown Rhyme, Teacher/Parent Printable Feature). Space posts by at least 2-3 hours and rotate distinct creative angles.
 - BUSINESS ASSET INTEGRITY: If Meta flags ad restrictions on a new professional account, verify in Account Quality that identity confirmation is complete and keep ad features unused (the organic publishing capability remains active).
+
+## Human-Realistic Spacing & Ramp-Up Protocol (2026-11-03)
+- ORGANIC JITTER / NATURAL TIMING: Never post on exact round minute intervals (e.g., avoid 8:00, 8:30, 9:00). Introduce natural pseudo-random jitter (e.g. 37 min, 52 min, 43 min apart) to mirror authentic human behavior.
+- SAFE RAMP-UP SCHEDULE:
+  - Day 1 (Post-reinstatement recovery): 3 to 5 posts maximum across the entire day.
+  - Day 2 onwards: Steady cruise at 4 to 5 high-quality, varied posts per day.
+- NO COPY REPETITION: Every single post carries its own unique day rhyme, distinctive caption, and varying image/video creative. Zero duplicate text.
+- MULTI-PLATFORM STAGGERING: Stagger releases across platforms (e.g. do not fire YouTube, Instagram, Threads, and TikTok simultaneously in the same minute).
