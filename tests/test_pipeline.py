@@ -38,22 +38,26 @@ class TestPipelineSafety(unittest.TestCase):
         with self.assertRaises(PipelineSafetyViolation):
             validate_post_content("Pip goes on a fight adventure with weapons", "instagram")
 
-    def test_instagram_link_protection(self):
-        # Raw amazon links must be blocked on IG
+    def test_mandatory_amazon_links_all_platforms(self):
+        # Hard Rule: Amazon purchase links MUST be included and valid across all platforms, including Instagram
+        from pipeline.safety_guard import format_promotional_copy
+        
+        for platform in ["instagram", "ig", "threads", "facebook", "twitter", "pinterest", "tiktok"]:
+            caption, comment = format_promotional_copy("Day 2: Pip finds warm mittens!", platform, asin="B0HPZ647J6")
+            # Verify Amazon link is in caption
+            self.assertIn("https://www.amazon.com/dp/B0HPZ647J6", caption, f"Missing Amazon link in caption on {platform}")
+            # Verify Amazon link is in comment
+            self.assertIn("https://www.amazon.com/dp/B0HPZ647J6", comment, f"Missing Amazon link in comment on {platform}")
+            # Verify caption passes code-level safety validation with require_amazon_link=True
+            self.assertTrue(validate_post_content(caption, platform, require_amazon_link=True))
+
+    def test_missing_amazon_link_rejected_when_enforced(self):
+        # Posts missing the Amazon link must be rejected when require_amazon_link is enforced
         with self.assertRaises(PipelineSafetyViolation):
-            validate_post_content("Buy on Amazon now: https://www.amazon.com/dp/B0HPZ647J6", "instagram")
-
+            validate_post_content("Just a cute day rhyme with no purchase link!", "instagram", require_amazon_link=True)
+            
         with self.assertRaises(PipelineSafetyViolation):
-            validate_post_content("Grab it here: https://amzn.to/3xyz", "ig")
-
-        # Compliant bio link CTA must pass
-        valid = validate_post_content("Day 2: Pip finds warm mittens! Tap @blobbyworldofficial for link in bio.", "instagram")
-        self.assertTrue(valid)
-
-    def test_non_ig_direct_links_allowed(self):
-        # Direct links allowed on Twitter, Facebook, YouTube
-        self.assertTrue(validate_post_content("Buy on Amazon: https://www.amazon.com/dp/B0HPZ647J6", "twitter"))
-        self.assertTrue(validate_post_content("Buy on Amazon: https://www.amazon.com/dp/B0HPZ647J6", "facebook"))
+            validate_post_content("Just a cute day rhyme with no purchase link!", "threads", require_amazon_link=True)
 
 class TestGrowthEngine(unittest.TestCase):
     def test_momentum_analysis(self):

@@ -133,3 +133,4 @@ Full plan with captions, hashtags, schedule and video script: `output/marketing/
 | 2026-11-01 | Built $0 launch campaign (plan PDF, free printable pack, 5 social graphics). Nothing posted yet. Packaged this project folder. |
 | 2026-11-01 | Wrote catalog strategy + weekly playbook (docs/WEEKLY_PLAYBOOK.md); scheduled Friday 6pm ET weekly research/launch-kit run (cloud task). |
 | 2026-11-03 | Decision: Amazon KDP only. Lulu and IngramSpark rejected (royalty at $9.99: KDP ~$3.12, Lulu store ~$2.87, Lulu retail ~$0, Ingram ~$0.59 at 55% / ~$2.08 at 40%). Do not host elsewhere. |
+| 2026-11-03 | Hard Rule Enforced: Every post across ALL platforms (including Instagram) and all future books MUST include the Amazon purchase link in the description and in the first comment. Updated pipeline/safety_guard.py and dispatchers. |

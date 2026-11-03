@@ -104,8 +104,8 @@ def safe_dispatch_post(token, channel_id, base_text, service, image_url=None, vi
     # 2. Hard Rule: Format highlighted description link + comment copy
     text, first_comment = format_promotional_copy(base_text, service, asin=asin)
     
-    # 3. Code-level content & link safety validation
-    validate_post_content(text, service)
+    # 3. Code-level content & mandatory Amazon link validation
+    validate_post_content(text, service, require_amazon_link=True)
     
     mutation = """mutation CreatePost($input: CreatePostInput!) {
       createPost(input: $input) {
@@ -141,7 +141,15 @@ def safe_dispatch_post(token, channel_id, base_text, service, image_url=None, vi
         post_input["metadata"] = {
             "instagram": {
                 "type": "post",
-                "shouldShareToFeed": True
+                "shouldShareToFeed": True,
+                "firstComment": first_comment
+            }
+        }
+    elif service == "facebook":
+        post_input["metadata"] = {
+            "facebook": {
+                "type": "post",
+                "firstComment": first_comment
             }
         }
 
@@ -152,6 +160,22 @@ def safe_dispatch_post(token, channel_id, base_text, service, image_url=None, vi
         timeout=15
     )
     result = r.json()
+    
+    # If firstComment requires paid plan on this Buffer account tier, gracefully fall back to caption-only
+    err_msg = ((result.get("data") or {}).get("createPost") or {}).get("message", "")
+    if "First comment requires a paid plan" in err_msg:
+        if service == "instagram":
+            post_input["metadata"]["instagram"].pop("firstComment", None)
+        elif service == "facebook":
+            post_input["metadata"]["facebook"].pop("firstComment", None)
+            
+        r = requests.post(
+            "https://api.buffer.com/graphql",
+            json={"query": mutation, "variables": {"input": post_input}},
+            headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+            timeout=15
+        )
+        result = r.json()
     
     # Record execution on success
     if (result.get("data") or {}).get("createPost", {}).get("post"):

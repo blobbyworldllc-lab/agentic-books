@@ -81,7 +81,7 @@ def get_channels():
     ch_res = gql_request(query, {"orgId": org_id})
     return ch_res.get("data", {}).get("channels", [])
 
-def create_post(channel_id, text, image_url=None, service="instagram", board_id=None, save_as_draft=False):
+def create_post(channel_id, text, image_url=None, service="instagram", board_id=None, save_as_draft=False, first_comment=None):
     mutation = """
     mutation CreatePost($input: CreatePostInput!) {
         createPost(input: $input) {
@@ -120,6 +120,8 @@ def create_post(channel_id, text, image_url=None, service="instagram", board_id=
                 "shouldShareToFeed": True
             }
         }
+        if first_comment:
+            post_input["metadata"]["instagram"]["firstComment"] = first_comment
     elif service == "pinterest" and board_id:
         post_input["metadata"] = {
             "pinterest": {
@@ -129,7 +131,13 @@ def create_post(channel_id, text, image_url=None, service="instagram", board_id=
             }
         }
     
-    return gql_request(mutation, {"input": post_input})
+    res = gql_request(mutation, {"input": post_input})
+    err_msg = ((res.get("data") or {}).get("createPost") or {}).get("message", "")
+    if "First comment requires a paid plan" in err_msg and service == "instagram":
+        post_input["metadata"]["instagram"].pop("firstComment", None)
+        res = gql_request(mutation, {"input": post_input})
+
+    return res
 
 def dispatch_all():
     channels = get_channels()

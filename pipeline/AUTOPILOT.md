@@ -88,7 +88,6 @@ Push (SendUserMessage) only for: a book launched, a book Live, a gate failure or
 
 ## Meta / Instagram Advertising & Account Protection Rules (2026-11-03)
 - STRICT 100% ORGANIC: We NEVER run paid Meta/Instagram ads. The pipeline uses strictly organic posting.
-- NO DIRECT AMAZON AFFILIATE/COMMERCE LINKS IN POST BODIES: Meta flags external commerce/Amazon URLs in brand-new professional accounts as potential affiliate spam. Always point post calls-to-action to the brand bio (@blobbyworldofficial) or the official GitHub Pages landing page.
 - CADENCE STANDARD: Distribute 4 to 5 high-quality, varied posts throughout the day across distinct formats (e.g., Morning Story/Reel, Afternoon Activity Tip, Evening Countdown Rhyme, Teacher/Parent Printable Feature). Space posts by at least 2-3 hours and rotate distinct creative angles.
 - BUSINESS ASSET INTEGRITY: If Meta flags ad restrictions on a new professional account, verify in Account Quality that identity confirmation is complete and keep ad features unused (the organic publishing capability remains active).
 
@@ -100,12 +99,12 @@ Push (SendUserMessage) only for: a book launched, a book Live, a gate failure or
 - NO COPY REPETITION: Every single post carries its own unique day rhyme, distinctive caption, and varying image/video creative. Zero duplicate text.
 - MULTI-PLATFORM STAGGERING: Stagger releases across platforms (e.g. do not fire YouTube, Instagram, Threads, and TikTok simultaneously in the same minute).
 
-
-## Description & First-Comment Amazon Purchase Link Standard (2026-11-03)
-- HARD RULE: Every promotional post across all channels must feature:
+## Universal Mandatory Amazon Purchase Link Standard (2026-11-03)
+- HARD UNIVERSAL RULE (Zero Exceptions, Any Book in Future):
+  Every single promotional post across ALL platforms without exception (Instagram, Threads, Facebook, X, Pinterest, YouTube, TikTok) MUST feature:
   1. A prominent, highlighted Amazon purchase link at the top of the description/caption.
-  2. A dedicated first comment published directly underneath containing the direct Amazon purchase link so it is immediately clickable for users reading comments.
+  2. A dedicated first comment published directly underneath containing the direct Amazon purchase link so it is immediately visible and clickable for users viewing the comments.
 - PLATFORM SPECIFICS:
-  - Threads, Facebook, X, Pinterest, YouTube: Direct Amazon buy link on top line of description + direct buy link in first comment.
-  - Instagram: Caption directs users to the clickable link in bio (`@blobbyworldofficial`); comment underneath provides the full Amazon URL and landing page for reference.
-- ENFORCEMENT: Enforced programmatically via `format_promotional_copy()` in `pipeline/safety_guard.py`.
+  - Instagram: Direct Amazon buy link on top line of caption (`🛒 BUY ON AMAZON: https://www.amazon.com/dp/{asin}`), followed by story rhyme, with purchase link reiterated at bottom and dedicated purchase link in the first comment.
+  - Threads, Facebook, X, Pinterest, YouTube, TikTok: Direct Amazon buy link on top line of description + direct buy link in first comment.
+- ENFORCEMENT: Enforced programmatically at code level via `format_promotional_copy()` and `validate_post_content(..., require_amazon_link=True)` in `pipeline/safety_guard.py` and across all dispatchers (`dual_buffer_dispatcher.py`, `buffer_dispatcher.py`).

@@ -2,7 +2,7 @@
 
 Hard rules enforced at the code execution level:
  1. Random Non-Uniform Spacing: Enforces `random.randint(20, 100)` minute deltas.
- 2. Strict Link Protection: Blocks raw Amazon affiliate/commerce URLs in Instagram feed post captions (forces bio/landing page links).
+ 2. Mandatory Amazon Links (Zero Exceptions): Every post across EVERY platform (Instagram, Facebook, Pinterest, Threads, X, YouTube, TikTok) MUST include the direct Amazon purchase link in the post description/caption AND in the first comment.
  3. Daily Cadence Throttle: Limits max 5 posts per channel per 24-hour rolling window.
  4. Zero Copy Duplication: Cryptographic hash comparison ensures no duplicate post text within 7 days.
  5. Content Policy Filter: Rejects trademarked/copyrighted terms, violence, or non-kid-safe keywords.
@@ -47,7 +47,7 @@ def compute_random_spacing(min_minutes=20, max_minutes=100):
     """Generates a non-uniform random delta to defeat pattern detection."""
     return random.randint(min_minutes, max_minutes)
 
-def validate_post_content(text, platform):
+def validate_post_content(text, platform, require_amazon_link=False):
     """Enforces content safety and platform link rules at code level."""
     lower_text = text.lower()
     
@@ -56,14 +56,12 @@ def validate_post_content(text, platform):
         if term in lower_text:
             raise PipelineSafetyViolation(f"[CODE REJECT] Prohibited term '{term}' detected. Violates IP/Safety gate.")
 
-    # 2. Instagram & Meta Link Protection
-    if platform.lower() in ["instagram", "ig"]:
-        # Block raw amazon commerce URLs in IG feed captions to prevent account restriction
-        if "amazon.com/dp/" in lower_text or "amzn.to/" in lower_text or "amazon.com/gp/" in lower_text:
+    # 2. Mandatory Amazon link check if enforced
+    if require_amazon_link:
+        if "amazon.com/dp/" not in lower_text and "amzn.to/" not in lower_text and "amazon.com/gp/" not in lower_text:
             raise PipelineSafetyViolation(
-                "[CODE REJECT] Raw Amazon commerce link detected in Instagram caption. "
-                "Meta restricts new business ad assets on raw affiliate/commerce links. "
-                "Must point to @blobbyworldofficial bio or official landing page."
+                f"[CODE REJECT] Missing mandatory Amazon purchase link on {platform}. "
+                "Hard Rule: Every post must include the Amazon purchase link in post copy."
             )
 
     # 3. Duplicate text check (rolling 7-day window)
@@ -117,20 +115,30 @@ def check_daily_cadence(platform, max_posts=5):
 
 def format_promotional_copy(base_caption, platform, asin="B0HPZ647J6"):
     """
-    Hard Rule: Formats post description and generates first comment containing Amazon buy link.
+    Hard Rule (Zero Exceptions, Any Book):
+    Formats post description/caption and generates dedicated first comment.
+    Both MUST carry the direct Amazon purchase link.
     Returns: (formatted_caption, first_comment)
     """
     amazon_url = f"https://www.amazon.com/dp/{asin}"
     landing_url = "https://blobbyworldllc-lab.github.io/agentic-books/"
     
-    # 1. Instagram / IG formatting (caption directs to bio, comment holds amazon link)
+    # 1. Instagram / IG formatting:
+    # Amazon buy link prominently on top, full book description, direct link & bio reminder,
+    # plus dedicated first comment with direct Amazon purchase link.
     if platform.lower() in ["instagram", "ig"]:
-        caption = f"{base_caption}\n\n👉 Tap @blobbyworldofficial for the direct purchase link in bio!\n🎁 Free Activity Pack: {landing_url}"
-        comment = f"🛒 Buy Pip's Christmas Countdown on Amazon: {amazon_url} | Free Printable Pack: {landing_url}"
+        caption = (
+            f"🛒 BUY ON AMAZON: {amazon_url}\n"
+            f"🎁 Free Activity Pack & Details: {landing_url}\n\n"
+            f"{base_caption}\n\n"
+            f"👉 Amazon Purchase Link: {amazon_url}\n"
+            f"👉 Also available via bio: @blobbyworldofficial"
+        )
+        comment = f"🛒 Purchase on Amazon: {amazon_url} | Free Printable Pack: {landing_url}"
         return caption, comment
 
-    # 2. All other platforms (Threads, Facebook, X, Pinterest, YouTube)
+    # 2. All other platforms (Threads, Facebook, X, Pinterest, YouTube, TikTok)
     # Direct highlighted link at top of description + dedicated link in first comment
-    caption = f"🛒 BUY ON AMAZON PRIME: {amazon_url}\n🎁 FREE PRINTABLE PACK: {landing_url}\n\n{base_caption}"
-    comment = f"✨ Direct Purchase Link: {amazon_url} (Available on Amazon Paperback with Prime delivery!)"
+    caption = f"🛒 BUY ON AMAZON PRIME: {amazon_url}\n🎁 FREE PRINTABLE PACK: {landing_url}\n\n{base_caption}\n\n🛒 Purchase Link: {amazon_url}"
+    comment = f"✨ Direct Purchase Link: {amazon_url} (Available on Amazon with Prime delivery!)"
     return caption, comment
