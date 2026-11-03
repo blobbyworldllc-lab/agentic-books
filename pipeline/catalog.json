@@ -38,6 +38,57 @@
         }
       ],
       "last_checked": "2026-11-03T01:41:23.807412+00:00"
+    },
+    {
+      "slug": "glitch-boy-theme-park-of-doom",
+      "folder": null,
+      "title": "Glitch Boy and the Theme Park of Doom",
+      "series": "Glitch Boy Adventure",
+      "type": "legacy",
+      "status": "live",
+      "legacy": true,
+      "formats": {
+        "kindle": {
+          "asin": "B0H59JJGHX",
+          "price": 1.99,
+          "submitted": "2026-06-14",
+          "kdp_select": true
+        },
+        "paperback": {
+          "asin": "B0H5BPQ521",
+          "price": 11.99,
+          "submitted": "2026-06-15"
+        }
+      },
+      "asin": "B0H59JJGHX",
+      "price": 1.99,
+      "metrics": [],
+      "last_checked": null
+    },
+    {
+      "slug": "glitch-boy-multiplayer-mayhem",
+      "folder": null,
+      "title": "Glitch Boy and the Multiplayer Mayhem",
+      "series": "Glitch Boy Adventure",
+      "type": "legacy",
+      "status": "live",
+      "legacy": true,
+      "formats": {
+        "kindle": {
+          "asin": "B0H88BPJ2M",
+          "price": 1.99,
+          "submitted": "2026-07-09",
+          "kdp_select": true
+        },
+        "paperback": {
+          "status": "draft",
+          "note": "unfinished on KDP since 2026-07-09"
+        }
+      },
+      "asin": "B0H88BPJ2M",
+      "price": 1.99,
+      "metrics": [],
+      "last_checked": null
     }
   ]
 }
