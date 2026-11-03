@@ -27,9 +27,17 @@
           "rating": null,
           "review_count": null,
           "price": 9.99
+        },
+        {
+          "timestamp": "2026-11-03T01:41:23.807412+00:00",
+          "bsr": null,
+          "category_ranks": [],
+          "rating": null,
+          "review_count": null,
+          "price": 9.99
         }
       ],
-      "last_checked": "2026-11-02T00:50:24.894036+00:00"
+      "last_checked": "2026-11-03T01:41:23.807412+00:00"
     }
   ]
 }
