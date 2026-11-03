@@ -1,279 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blobby World Official — Children's Books & Adventures</title>
-  <meta name="description" content="Official home of Blobby World children's books, Pip's Christmas Countdown, and the Glitch Boy Adventure Series.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #c22929;
-      --navy: #15254d;
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --accent: #2e7d32;
-      --gaming: #6366f1;
-      --gaming-dark: #4338ca;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--navy);
-      line-height: 1.5;
-      padding: 24px 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .main-wrapper {
-      max-width: 760px;
-      width: 100%;
-    }
-    /* Brand Header */
-    .brand-header {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-    .brand-badge {
-      display: inline-block;
-      background: var(--navy);
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 6px 16px;
-      border-radius: 20px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .brand-title {
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--navy);
-      letter-spacing: -0.5px;
-    }
-    .brand-tagline {
-      font-size: 1.15rem;
-      color: #64748b;
-      margin-top: 4px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blobby World Official: coloring books and adventure books for kids</title>
+<meta name="description" content="Coloring books for ages 3 to 6 and the Glitch Boy adventure series for ages 7 to 11, by Blobby World Official.">
+<meta property="og:title" content="Blobby World Official">
+<meta property="og:description" content="Coloring books for little hands. Adventures for big readers.">
+<meta property="og:image" content="cover-web.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --snow:#f5f8fc;
+  --ice:#dfeaf7;
+  --ink:#14213d;
+  --ink-soft:#4a5875;
+  --pip:#c22929;
+  --pip-deep:#a11f1f;
+  --night:#0b0f1e;
+  --night-2:#151a33;
+  --glitch:#8b8dff;
+  --glitch-cyan:#46e0d0;
+  --glitch-pink:#ff5fa2;
+  --line-dark:rgba(255,255,255,.14);
+  --display:'Fredoka',ui-rounded,'SF Pro Rounded',-apple-system,sans-serif;
+  --text:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --wrap:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
+body{font-family:var(--text);background:var(--snow);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid #2f6fed;outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
 
-    /* Section Headers */
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin: 32px 0 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+/* Nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(245,248,252,.78);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(20,33,61,.08)}
+.nav-in{height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.mark{white-space:nowrap;font-family:var(--display);font-weight:600;font-size:1.15rem;text-decoration:none;letter-spacing:-.01em}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{white-space:nowrap;font-size:.85rem;text-decoration:none;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--ink)}
 
-    /* Book Cards */
-    .book-card {
-      background: var(--card);
-      border-radius: 24px;
-      padding: 28px 24px;
-      box-shadow: 0 10px 25px rgba(21, 37, 77, 0.07);
-      margin-bottom: 20px;
-      border: 2px solid #f1f5f9;
-      position: relative;
-    }
-    .featured-card {
-      border: 2px solid #fed7aa;
-      background: linear-gradient(180deg, #fff 0%, #fffbf5 100%);
-    }
-    .badge {
-      display: inline-block;
-      font-weight: 700;
-      font-size: 0.8rem;
-      padding: 4px 12px;
-      border-radius: 16px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-    .badge-preschool { background: #fee2e2; color: var(--primary); }
-    .badge-gaming { background: #e0e7ff; color: var(--gaming-dark); }
-    
-    h3.book-title {
-      font-size: 1.6rem;
-      color: var(--navy);
-      line-height: 1.25;
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
-    p.book-lead {
-      font-size: 1.05rem;
-      color: #4a5568;
-      margin-bottom: 18px;
-    }
-    .book-content-row {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    @media (max-width: 600px) {
-      .book-content-row { flex-direction: column; text-align: center; }
-    }
-    .cover-thumb {
-      width: 140px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-      flex-shrink: 0;
-    }
-    .book-summary {
-      font-size: 0.95rem;
-      color: #64748b;
-      line-height: 1.5;
-    }
-    .btn-group {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 22px;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-    }
-    .btn-primary:hover { background: #a82020; transform: translateY(-2px); }
-    .btn-amazon {
-      background: #ff9900;
-      color: #111;
-    }
-    .btn-amazon:hover { background: #e68a00; transform: translateY(-2px); }
-    .btn-kindle {
-      background: #0284c7;
-      color: #fff;
-    }
-    .btn-kindle:hover { background: #0369a1; transform: translateY(-2px); }
+/* Hero */
+.hero{padding:72px 0 40px;text-align:center}
+.hero h1{font-family:var(--display);font-weight:600;font-size:clamp(2.5rem,7.2vw,5.6rem);line-height:1.02;letter-spacing:-.03em;max-width:20ch;margin:0 auto}
+.hero p.sub{font-size:clamp(1.05rem,2vw,1.35rem);color:var(--ink-soft);max-width:44ch;margin:20px auto 0}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:36px 0 72px}
+.tile{position:relative;overflow:hidden;border-radius:30px;min-height:660px;padding:44px 36px 0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.tile h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,3.6vw,2.7rem);letter-spacing:-.02em;line-height:1.08}
+.tile p{margin-top:8px;font-size:1.05rem;max-width:32ch}
+.tile .links{margin-top:18px;display:flex;gap:22px;font-size:1.02rem}
+.tile .links a{text-decoration:none;font-weight:600}
+.tile .links a:hover{text-decoration:underline}
+.tile-pip{background:linear-gradient(180deg,#e8f1fb 0%,#cfe2f6 100%)}
+.tile-pip p{color:var(--ink-soft)}
+.tile-pip .links a{color:var(--pip)}
+.tile-pip img{position:absolute;bottom:-90px;left:50%;width:min(280px,60%);transform:translateX(-50%) rotate(-4deg);border-radius:6px;box-shadow:0 30px 60px rgba(20,33,61,.28)}
+.tile-glitch{background:radial-gradient(120% 90% at 50% 100%,#2a2e73 0%,var(--night) 62%);color:#fff}
+.tile-glitch p{color:#b9bde0}
+.tile-glitch .links a{color:#c9caff}
+.tile-glitch .stack{position:absolute;bottom:20px;left:50%;width:min(420px,86%);height:340px;transform:translateX(-50%)}
+.tile-glitch .stack .cover{position:absolute;bottom:0;width:46%}
+.tile-glitch .stack .cover:first-child{left:3%;transform:rotate(-6deg)}
+.tile-glitch .stack .cover:last-child{right:3%;transform:rotate(5deg)}
 
-    /* Footer */
-    .brand-footer {
-      margin-top: 40px;
-      text-align: center;
-      padding: 24px 16px;
-      border-top: 1px solid #e2e8f0;
-      color: #64748b;
-      font-size: 0.9rem;
-    }
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-    .social-link {
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .social-link:hover { color: var(--primary); }
-  </style>
+/* Book cover stand-in (swaps to the real image if present) */
+.cover{position:relative;aspect-ratio:2/3;border-radius:6px;overflow:hidden;box-shadow:0 26px 50px rgba(0,0,0,.45);background:linear-gradient(160deg,#343aa6 0%,#161a44 55%,#0b0f1e 100%)}
+.cover::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 2px,transparent 2px 8px);mix-blend-mode:overlay}
+.cover-art{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:12% 9%;font-family:var(--display);color:#fff}
+.cover-art b{font-weight:700;font-size:clamp(1.15rem,3.2vw,2.2rem);line-height:.98;letter-spacing:-.01em;text-shadow:2px 0 var(--glitch-pink),-2px 0 var(--glitch-cyan)}
+.cover-art span{margin-top:8px;font-weight:500;font-size:clamp(.6rem,1.4vw,.95rem);opacity:.9}
+.cover.mayhem{background:linear-gradient(160deg,#6a2b8f 0%,#231446 55%,#0b0f1e 100%)}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Sections */
+.band{padding:96px 0}
+.band-light{background:#fff}
+.band-dark{background:var(--night);color:#fff}
+.section-head{max-width:760px}
+.section-head h2{font-family:var(--display);font-weight:600;font-size:clamp(2.2rem,5.4vw,4rem);letter-spacing:-.025em;line-height:1.04}
+.section-head p{margin-top:16px;font-size:1.2rem;color:var(--ink-soft);max-width:46ch}
+.band-dark .section-head p{color:#b9bde0}
+
+/* Coloring feature */
+.feature{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;align-items:center;margin-top:64px}
+.feature .jacket img{width:100%;max-width:440px;margin:0 auto;border-radius:6px;box-shadow:0 40px 80px rgba(20,33,61,.3)}
+.feature h3{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,3.6vw,2.7rem);letter-spacing:-.02em;line-height:1.08}
+.feature .lead{margin-top:14px;font-size:1.15rem;color:var(--ink-soft);max-width:46ch}
+.facts{margin-top:28px;list-style:none;border-top:1px solid rgba(20,33,61,.12)}
+.facts li{padding:14px 0;border-bottom:1px solid rgba(20,33,61,.12);display:flex;gap:16px;font-size:1.02rem}
+.facts strong{font-weight:600;min-width:7.5em}
+.facts span{color:var(--ink-soft)}
+.actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border-radius:999px;font-size:1rem;font-weight:600;text-decoration:none;border:1.5px solid transparent;transition:background-color .18s,color .18s,border-color .18s}
+.btn-pip{background:var(--pip);color:#fff}
+.btn-pip:hover{background:var(--pip-deep)}
+.btn-line{border-color:var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-white{background:#fff;color:var(--night)}
+.btn-white:hover{background:#e6e7ff}
+.btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--night)}
+.btn[aria-disabled="true"]{border-color:var(--line-dark);color:#8a8fb8;pointer-events:none}
+.more{margin-top:56px;color:var(--ink-soft);font-size:1rem}
+
+/* Little Star */
+.star-spot{position:absolute;right:4.5%;top:92px;width:30px;height:30px;border:0;background:none;cursor:pointer;opacity:.5;transition:opacity .2s,transform .4s}
+.star-spot:hover,.star-spot:focus-visible{opacity:1;transform:rotate(20deg) scale(1.2)}
+.star-spot svg{width:100%;height:100%;display:block}
+.band-pip{position:relative}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:14px 22px;border-radius:999px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:30}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.found{transform:scale(2.6) rotate(360deg)!important;opacity:1!important;transition:transform .9s cubic-bezier(.2,.8,.2,1)!important}
+
+/* Adventure */
+.shelf{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px}
+.book{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:28px;align-items:center;padding:32px;border:1px solid var(--line-dark);border-radius:28px;background:linear-gradient(180deg,var(--night-2),var(--night))}
+.book .cover{width:100%}
+.book h3{font-family:var(--display);font-weight:600;font-size:1.65rem;letter-spacing:-.015em;line-height:1.12}
+.book .vol{font-size:.9rem;color:var(--glitch);font-weight:600;margin-bottom:6px}
+.book p{margin-top:10px;color:#b9bde0;font-size:1rem}
+.book .actions{margin-top:20px;gap:10px}
+.book .btn{min-height:44px;padding:0 20px;font-size:.95rem}
+.glitch-title{display:inline-block;text-shadow:3px 0 var(--glitch-pink),-3px 0 var(--glitch-cyan)}
+.glitch-title:hover{animation:jitter .5s steps(2,end) 2}
+@keyframes jitter{0%{transform:translate(0)}25%{transform:translate(-3px,1px)}50%{transform:translate(3px,-1px)}75%{transform:translate(-2px,-1px)}100%{transform:translate(0)}}
+
+/* Footer */
+footer{padding:48px 0 56px;color:var(--ink-soft);font-size:.9rem}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+.foot ul{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--ink);text-decoration:underline}
+
+@media (max-width:860px){
+  .tiles{grid-template-columns:1fr}
+  .tile{min-height:600px}
+  .feature{grid-template-columns:1fr;gap:40px}
+  .shelf{grid-template-columns:1fr}
+  .nav-links{gap:16px}
+  .band{padding:72px 0}
+}
+@media (max-width:480px){
+  .nav-links li:last-child{display:none}
+  .book{grid-template-columns:1fr;padding:24px}
+  .book .cover{max-width:200px;margin:0 auto}
+  .facts li{flex-direction:column;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
 </head>
 <body>
-  <div class="main-wrapper">
-    <!-- Brand Header -->
-    <header class="brand-header">
-      <div class="brand-logo-badge">Official Catalog Hub</div>
-      <h1 class="brand-title">Blobby World Official</h1>
-      <p class="brand-tagline">Adventure books, holiday countdowns, and emotional resilience stories for kids</p>
-    </header>
 
-    <!-- Section 1: Seasonal Toddler & Preschool Collection -->
-    <h2 class="section-title">🎄 Holiday & Preschool Activity Books (Ages 3–6)</h2>
-    
-    <article class="book-card featured-card" id="pips-christmas-countdown">
-      <div class="badge badge-preschool">Ages 3–6 • Advent Countdown</div>
-      <h3 class="book-title">Pip's Christmas Countdown</h3>
-      <p class="book-lead">25 daily rhyming stories & big bold coloring pages. Follow Pip the puppy as he counts down to Christmas Day!</p>
-      
-      <div class="book-content-row">
-        <img src="cover.jpg" alt="Pip's Christmas Countdown" class="cover-thumb">
-        <div class="book-summary">
-          <p>Each page features easy read-aloud rhymes and toddler-friendly coloring illustrations with hidden stars to find. Includes full 110-page paperback on Amazon Prime plus free printable starter sheets!</p>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="mark" href="#top">Blobby World</a>
+    <ul class="nav-links">
+      <li><a href="#coloring">Coloring books</a></li>
+      <li><a href="#adventure">Adventure books</a></li>
+      <li><a href="#free">Free printables</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <h1>Coloring books for little hands. Adventures for big readers.</h1>
+    <p class="sub">Original books by Blobby World Official, sold on Amazon.</p>
+
+    <div class="tiles">
+      <article class="tile tile-pip">
+        <h2>Pip's Christmas Countdown</h2>
+        <p>25 nights of rhymes and coloring pages. Ages 3 to 6.</p>
+        <div class="links"><a href="#coloring">Learn more</a><a href="https://www.amazon.com/dp/B0HPZ647J6" target="_blank" rel="noopener">Buy on Amazon</a></div>
+        <img src="cover-web.jpg" width="500" height="669" alt="Cover of Pip's Christmas Countdown, with a baby penguin in a red beanie and scarf">
+      </article>
+
+      <article class="tile tile-glitch">
+        <h2>The Glitch Boy series</h2>
+        <p>Chapter books about gaming, big feelings and teamwork. Ages 7 to 11.</p>
+        <div class="links"><a href="#adventure">Learn more</a><a href="https://www.amazon.com/dp/B0H5BPQ521" target="_blank" rel="noopener">Buy on Amazon</a></div>
+        <div class="stack" aria-hidden="true">
+          <div class="cover"><div class="cover-art"><b>Glitch Boy</b><span>and the Theme Park of Doom</span></div><img src="glitch-theme-park.jpg" alt="" onerror="this.remove()"></div>
+          <div class="cover mayhem"><div class="cover-art"><b>Glitch Boy</b><span>and the Multiplayer Mayhem</span></div><img src="glitch-multiplayer.jpg" alt="" onerror="this.remove()"></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="band band-light band-pip" id="coloring">
+    <button class="star-spot" id="star" type="button" aria-label="Little Star is hiding here. Select to find her.">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l6.2 13.2 14.3 1.8-10.5 9.9 2.7 14.2L24 34.9 11.3 42.1l2.7-14.2L3.5 18l14.3-1.8z" fill="#ffd23f" stroke="#14213d" stroke-width="2.4" stroke-linejoin="round"/><circle cx="19" cy="22" r="1.8" fill="#14213d"/><circle cx="29" cy="22" r="1.8" fill="#14213d"/><path d="M19.5 27.5q4.5 4 9 0" fill="none" stroke="#14213d" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Coloring books</h2>
+        <p>Big, bold pages for small hands, with a short rhyme on every page to read aloud.</p>
+      </div>
+
+      <div class="feature">
+        <div class="jacket"><img src="cover-web.jpg" width="500" height="669" loading="lazy" alt="Pip's Christmas Countdown paperback cover"></div>
+        <div>
+          <h3>Pip's Christmas Countdown</h3>
+          <p class="lead">Follow Pip the baby penguin through 25 nights to Christmas, plus 25 bonus winter adventures. Color one page a night.</p>
+          <ul class="facts">
+            <li><strong>Pages</strong><span>110 pages, 8.5 by 11 inches</span></li>
+            <li><strong>Printing</strong><span>Art on one side only, so markers never bleed through</span></li>
+            <li><strong>The game</strong><span>Little Star hides on every page. Can you find her?</span></li>
+            <li><strong>Extras</strong><span>Countdown tracker, a letter to Santa and a coloring champion certificate</span></li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-pip" href="https://www.amazon.com/dp/B0HPZ647J6" target="_blank" rel="noopener">Buy the paperback, $9.99</a>
+            <a class="btn btn-line" id="free" href="Pip_Free_Printable_Pack.pdf" download>Download free printables</a>
+          </div>
         </div>
       </div>
+      <p class="more">More Pip coloring books are on the way.</p>
+    </div>
+  </section>
 
-      <div class="btn-group">
-        <a href="Pip_Free_Printable_Pack.pdf" download class="btn btn-primary">
-          🎁 Free 4-Page Printable Pack (PDF)
-        </a>
-        <a href="https://www.amazon.com/dp/B0HPZ647J6" target="_blank" rel="noopener" class="btn btn-amazon">
-          🛒 Buy Paperback on Amazon ($9.99)
-        </a>
-      </div>
-    </article>
-
-    <!-- Section 2: Glitch Boy Adventure Series -->
-    <h2 class="section-title">🎮 Glitch Boy Adventure Series (Ages 7–11)</h2>
-
-    <!-- Book 1: Theme Park of Doom -->
-    <article class="book-card" id="glitch-boy-1">
-      <div class="badge badge-gaming">Book 1 • Gaming & Resilience (Ages 7–11)</div>
-      <h3 class="book-title">Glitch Boy and the Theme Park of Doom</h3>
-      <p class="book-lead">For gamer kids who ever feel anxious or overwhelmed. Leo's superpowers glitch when stress takes over!</p>
-      
-      <div class="book-summary" style="margin-bottom: 18px;">
-        <p>Leo loves video games, but when real-life anxiety hits, his gaming superpowers glitch in the worst ways. An action-packed chapter book helping young readers learn to pause, breathe, regulate emotions, and save the day!</p>
+  <section class="band band-dark" id="adventure">
+    <div class="wrap">
+      <div class="section-head">
+        <h2><span class="glitch-title">Glitch Boy</span> adventures</h2>
+        <p>Leo loves video games. When real-life stress hits, his gaming powers glitch. Fast chapter books for gamer kids who are learning to pause, breathe and play as a team.</p>
       </div>
 
-      <div class="btn-group">
-        <a href="https://www.amazon.com/dp/B0H5BPQ521" target="_blank" rel="noopener" class="btn btn-amazon">
-          📖 Paperback on Amazon ($11.99)
-        </a>
-        <a href="https://www.amazon.com/dp/B0H59JJGHX" target="_blank" rel="noopener" class="btn btn-kindle">
-          📱 Kindle Edition ($1.99)
-        </a>
-      </div>
-    </article>
+      <div class="shelf">
+        <article class="book" id="glitch-boy-1">
+          <div class="cover"><div class="cover-art"><b>Glitch Boy</b><span>and the Theme Park of Doom</span></div><img src="glitch-theme-park.jpg" alt="Cover of Glitch Boy and the Theme Park of Doom" onerror="this.remove()"></div>
+          <div>
+            <div class="vol">Book 1: handling big feelings</div>
+            <h3>Glitch Boy and the Theme Park of Doom</h3>
+            <p>When anxiety hits, Leo's superpowers glitch in the worst ways. He has to slow down, breathe and save the day.</p>
+            <div class="actions">
+              <a class="btn btn-white" href="https://www.amazon.com/dp/B0H5BPQ521" target="_blank" rel="noopener">Paperback, $11.99</a>
+              <a class="btn btn-ghost" href="https://www.amazon.com/dp/B0H59JJGHX" target="_blank" rel="noopener">Kindle, $1.99</a>
+            </div>
+          </div>
+        </article>
 
-    <!-- Book 2: Multiplayer Mayhem -->
-    <article class="book-card" id="glitch-boy-2">
-      <div class="badge badge-gaming">Book 2 • Teamwork & Communication</div>
-      <h3 class="book-title">Glitch Boy and the Multiplayer Mayhem</h3>
-      <p class="book-lead">The sequel to Glitch Boy! Leo faces team play, cooperation challenges, and leveling up friendship.</p>
-      
-      <div class="book-summary" style="margin-bottom: 18px;">
-        <p>Solo play is easy, but multiplayer requires trust, patience, and team communication. Join Leo on his second high-stakes adventure in the Glitch Boy saga.</p>
+        <article class="book" id="glitch-boy-2">
+          <div class="cover mayhem"><div class="cover-art"><b>Glitch Boy</b><span>and the Multiplayer Mayhem</span></div><img src="glitch-multiplayer.jpg" alt="Cover of Glitch Boy and the Multiplayer Mayhem" onerror="this.remove()"></div>
+          <div>
+            <div class="vol">Book 2: teamwork</div>
+            <h3>Glitch Boy and the Multiplayer Mayhem</h3>
+            <p>Playing solo is easy. Playing with a team takes trust, patience and good communication. Leo levels up his friendships.</p>
+            <div class="actions">
+              <a class="btn btn-white" href="https://www.amazon.com/dp/B0H88BPJ2M" target="_blank" rel="noopener">Kindle, $1.99</a>
+              <a class="btn btn-ghost" href="#adventure" aria-disabled="true" tabindex="-1">Paperback coming soon</a>
+            </div>
+          </div>
+        </article>
       </div>
+    </div>
+  </section>
+</main>
 
-      <div class="btn-group">
-        <a href="https://www.amazon.com/dp/B0H88BPJ2M" target="_blank" rel="noopener" class="btn btn-kindle">
-          📱 Kindle Edition on Amazon ($1.99)
-        </a>
-      </div>
-    </article>
-
-    <!-- Footer -->
-    <footer class="brand-footer">
-      <p>© Blobby World Official (Bizatree LLC). All books available on Amazon Worldwide.</p>
-      <div class="social-links">
-        <a href="https://www.youtube.com/@blobbyworldofficial" target="_blank" rel="noopener" class="social-link">YouTube (@blobbyworldofficial)</a>
-        <a href="https://www.instagram.com/blobbyworldofficial/" target="_blank" rel="noopener" class="social-link">Instagram</a>
-        <a href="https://www.facebook.com/people/Blobby-World-Official/61596066783600/" target="_blank" rel="noopener" class="social-link">Facebook</a>
-        <a href="https://www.threads.net/@blobbyworldofficial" target="_blank" rel="noopener" class="social-link">Threads</a>
-        <a href="https://www.pinterest.com/blobbyworldllc/" target="_blank" rel="noopener" class="social-link">Pinterest</a>
-      </div>
-    </footer>
+<footer>
+  <div class="wrap foot">
+    <p>&copy; 2026 Blobby World Official, a Bizatree LLC imprint. Books are sold on Amazon.</p>
+    <ul>
+      <li><a href="https://www.youtube.com/@blobbyworldofficial" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://www.instagram.com/blobbyworldofficial/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.facebook.com/people/Blobby-World-Official/61596066783600/" target="_blank" rel="noopener">Facebook</a></li>
+      <li><a href="https://www.threads.net/@blobbyworldofficial" target="_blank" rel="noopener">Threads</a></li>
+      <li><a href="https://www.pinterest.com/blobbyworldllc/" target="_blank" rel="noopener">Pinterest</a></li>
+    </ul>
   </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">You found Little Star!</div>
+<script>
+(function(){
+  var s=document.getElementById('star'),t=document.getElementById('toast');
+  if(!s||!t)return;
+  s.addEventListener('click',function(){
+    s.classList.add('found');t.classList.add('on');
+    setTimeout(function(){t.classList.remove('on');s.classList.remove('found')},2600);
+  });
+})();
+</script>
 </body>
 </html>
