@@ -113,3 +113,24 @@ def check_daily_cadence(platform, max_posts=5):
             "Pacing enforced to prevent account suspension."
         )
     return True
+
+
+def format_promotional_copy(base_caption, platform, asin="B0HPZ647J6"):
+    """
+    Hard Rule: Formats post description and generates first comment containing Amazon buy link.
+    Returns: (formatted_caption, first_comment)
+    """
+    amazon_url = f"https://www.amazon.com/dp/{asin}"
+    landing_url = "https://blobbyworldllc-lab.github.io/agentic-books/"
+    
+    # 1. Instagram / IG formatting (caption directs to bio, comment holds amazon link)
+    if platform.lower() in ["instagram", "ig"]:
+        caption = f"{base_caption}\n\n👉 Tap @blobbyworldofficial for the direct purchase link in bio!\n🎁 Free Activity Pack: {landing_url}"
+        comment = f"🛒 Buy Pip's Christmas Countdown on Amazon: {amazon_url} | Free Printable Pack: {landing_url}"
+        return caption, comment
+
+    # 2. All other platforms (Threads, Facebook, X, Pinterest, YouTube)
+    # Direct highlighted link at top of description + dedicated link in first comment
+    caption = f"🛒 BUY ON AMAZON PRIME: {amazon_url}\n🎁 FREE PRINTABLE PACK: {landing_url}\n\n{base_caption}"
+    comment = f"✨ Direct Purchase Link: {amazon_url} (Available on Amazon Paperback with Prime delivery!)"
+    return caption, comment

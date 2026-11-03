@@ -85,3 +85,13 @@ Push (SendUserMessage) only for: a book launched, a book Live, a gate failure or
   - Day 2 onwards: Steady cruise at 4 to 5 high-quality, varied posts per day.
 - NO COPY REPETITION: Every single post carries its own unique day rhyme, distinctive caption, and varying image/video creative. Zero duplicate text.
 - MULTI-PLATFORM STAGGERING: Stagger releases across platforms (e.g. do not fire YouTube, Instagram, Threads, and TikTok simultaneously in the same minute).
+
+
+## Description & First-Comment Amazon Purchase Link Standard (2026-11-03)
+- HARD RULE: Every promotional post across all channels must feature:
+  1. A prominent, highlighted Amazon purchase link at the top of the description/caption.
+  2. A dedicated first comment published directly underneath containing the direct Amazon purchase link so it is immediately clickable for users reading comments.
+- PLATFORM SPECIFICS:
+  - Threads, Facebook, X, Pinterest, YouTube: Direct Amazon buy link on top line of description + direct buy link in first comment.
+  - Instagram: Caption directs users to the clickable link in bio (`@blobbyworldofficial`); comment underneath provides the full Amazon URL and landing page for reference.
+- ENFORCEMENT: Enforced programmatically via `format_promotional_copy()` in `pipeline/safety_guard.py`.

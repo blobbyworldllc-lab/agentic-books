@@ -25,6 +25,7 @@ from pipeline.safety_guard import (
     check_daily_cadence,
     record_post_execution,
     compute_random_spacing,
+    format_promotional_copy,
     PipelineSafetyViolation
 )
 
@@ -95,12 +96,15 @@ def get_all_active_channels():
         grid["Account_2"] = {"token": t2, "channels": query_org_channels(t2)}
     return grid
 
-def safe_dispatch_post(token, channel_id, text, service, image_url=None, video_url=None, share_now=False):
-    """Enforces safety guards before executing any mutation."""
+def safe_dispatch_post(token, channel_id, base_text, service, image_url=None, video_url=None, share_now=False, asin="B0HPZ647J6"):
+    """Enforces safety guards, formatted buy description, and link comment before executing."""
     # 1. Code-level cadence check
     check_daily_cadence(service, max_posts=5)
     
-    # 2. Code-level content & link safety validation
+    # 2. Hard Rule: Format highlighted description link + comment copy
+    text, first_comment = format_promotional_copy(base_text, service, asin=asin)
+    
+    # 3. Code-level content & link safety validation
     validate_post_content(text, service)
     
     mutation = """mutation CreatePost($input: CreatePostInput!) {
