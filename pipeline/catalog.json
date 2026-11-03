@@ -44,9 +44,8 @@
       "folder": null,
       "title": "Glitch Boy and the Theme Park of Doom",
       "series": "Glitch Boy Adventure",
-      "type": "legacy",
+      "type": "evergreen",
       "status": "live",
-      "legacy": true,
       "formats": {
         "kindle": {
           "asin": "B0H59JJGHX",
@@ -63,16 +62,16 @@
       "asin": "B0H59JJGHX",
       "price": 1.99,
       "metrics": [],
-      "last_checked": null
+      "last_checked": null,
+      "active": true
     },
     {
       "slug": "glitch-boy-multiplayer-mayhem",
       "folder": null,
       "title": "Glitch Boy and the Multiplayer Mayhem",
       "series": "Glitch Boy Adventure",
-      "type": "legacy",
+      "type": "evergreen",
       "status": "live",
-      "legacy": true,
       "formats": {
         "kindle": {
           "asin": "B0H88BPJ2M",
@@ -88,7 +87,8 @@
       "asin": "B0H88BPJ2M",
       "price": 1.99,
       "metrics": [],
-      "last_checked": null
+      "last_checked": null,
+      "active": true
     }
   ]
 }
