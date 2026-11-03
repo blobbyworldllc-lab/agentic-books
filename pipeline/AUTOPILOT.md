@@ -79,7 +79,7 @@ Push (SendUserMessage) only for: a book launched, a book Live, a gate failure or
 - BUSINESS ASSET INTEGRITY: If Meta flags ad restrictions on a new professional account, verify in Account Quality that identity confirmation is complete and keep ad features unused (the organic publishing capability remains active).
 
 ## Human-Realistic Spacing & Ramp-Up Protocol (2026-11-03)
-- ORGANIC JITTER / NATURAL TIMING: Never post on exact round minute intervals (e.g., avoid 8:00, 8:30, 9:00). Introduce natural pseudo-random jitter (e.g. 37 min, 52 min, 43 min apart) to mirror authentic human behavior.
+- RANDOM DELAY FUNCTION (`random.randint(20, 100)` minutes): All scheduled posts must compute dynamic intervals using a pseudo-random delta between 20 and 100 minutes (e.g., Post 1 + 27m, Post 2 + 84m, Post 3 + 38m, Post 4 + 91m). Uniform intervals are strictly prohibited to ensure security heuristics cannot detect an automated periodicity.
 - SAFE RAMP-UP SCHEDULE:
   - Day 1 (Post-reinstatement recovery): 3 to 5 posts maximum across the entire day.
   - Day 2 onwards: Steady cruise at 4 to 5 high-quality, varied posts per day.
