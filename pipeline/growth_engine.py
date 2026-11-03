@@ -15,28 +15,52 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 # Marketing Angles Matrix for Pip's Christmas Countdown
 MARKETING_ANGLES = [
     {
-        "theme": "Advent Calendar Alternative",
-        "hook": "Tired of chocolate advent calendars? Count down to Christmas with 25 daily rhyming stories & coloring pages!",
-        "target_audience": "Parents seeking non-candy advent traditions",
-        "keywords": ["advent calendar alternative for kids", "toddler christmas countdown", "christmas activity book"]
+        "theme": "100% Screen-Free Focus & Motor Skills",
+        "hook": "Ditch the screen tantrums this holiday season! 100% screen-free activity book engineered to develop pencil grip, bilateral coordination, and calming bedtime focus for kids ages 3–6.",
+        "target_audience": "Parents, occupational therapists, and mindful educators",
+        "keywords": ["screen-free toddler activities", "fine motor skills coloring book", "calm bedtime activities for kids"],
+        "location_tag": "Tampa, Florida",
+        "badge": "📵 Screen-Free Essential • Fine Motor Skills Development"
     },
     {
-        "theme": "Classroom & Homeschool Pack",
-        "hook": "Preschool & Kindergarten teachers: grab the free 4-page holiday printable pack for your morning circle time!",
-        "target_audience": "Educators, daycare providers, homeschoolers",
-        "keywords": ["preschool christmas printables", "kindergarten coloring sheets", "classroom holiday crafts"]
+        "theme": "Local Tampa, FL Creator & Made in USA",
+        "hook": "Support local creators! Designed with love right here in Tampa, Florida and printed locally in the USA with guaranteed Amazon Prime fast delivery before Christmas.",
+        "target_audience": "Florida locals, American-made supporters, gift shoppers",
+        "keywords": ["made in usa coloring book", "tampa florida kids gifts", "prime holiday shipping"],
+        "location_tag": "Tampa, Florida, USA",
+        "badge": "🇺🇸 Designed in Tampa, FL • Printed in USA"
     },
     {
-        "theme": "Budget Stocking Stuffer ($9.99)",
-        "hook": "The ultimate $9.99 holiday stocking stuffer: 110 pages of screen-free festive fun for ages 3-6!",
-        "target_audience": "Grandparents & gift shoppers under a budget",
-        "keywords": ["stocking stuffers for toddlers under 10", "cheap christmas gifts for preschoolers"]
+        "theme": "25-Night Bedtime Wind-Down Ritual",
+        "hook": "Tired of chocolate advent calendars or bedtime iPad struggles? Count down to Christmas with 25 gentle rhyming bedtime stories & big easy coloring pages featuring Pip the penguin!",
+        "target_audience": "Parents seeking meaningful, non-candy advent traditions",
+        "keywords": ["advent calendar alternative for kids", "toddler christmas countdown", "christmas bedtime storybook"],
+        "location_tag": "United States",
+        "badge": "⭐ 25-Night Calming Bedtime Advent Ritual"
     },
     {
-        "theme": "Screen-Free Holiday Travel Fun",
-        "hook": "Road tripping or flying for the holidays? Keep little hands busy and screen-free with Pip the puppy!",
-        "target_audience": "Holiday travelers with toddlers",
-        "keywords": ["travel activity book for kids", "screen-free toddler road trip activities"]
+        "theme": "Interactive Visual Scavenger Hunt ('Find Little Star')",
+        "hook": "More than just coloring! Little Star plays hide-and-seek on every single page, training toddler patience, visual tracking, and cognitive focus.",
+        "target_audience": "Parents of active toddlers and preschoolers needing engaging tasks",
+        "keywords": ["hidden picture book for toddlers", "interactive coloring book", "preschool visual tracking"],
+        "location_tag": "Tampa, Florida",
+        "badge": "🔍 Interactive Hidden Object Game on Every Page"
+    },
+    {
+        "theme": "The $9.99 Gift Parents & Grandparents Love",
+        "hook": "The ultimate $9.99 stocking stuffer and Christmas Eve box treasure: 110 heavy-duty single-sided pages. No batteries, no sugar, no mess!",
+        "target_audience": "Grandparents, aunts, uncles, budget-conscious holiday shoppers",
+        "keywords": ["stocking stuffers for toddlers under 10", "cheap christmas gifts for preschoolers", "christmas eve box ideas"],
+        "location_tag": "United States",
+        "badge": "🎁 Budget Stocking Stuffer ($9.99) • Single-Sided No Bleed"
+    },
+    {
+        "theme": "Classroom, Daycare & Homeschool Printable Pack",
+        "hook": "Preschool & Kindergarten teachers: download our 100% free 4-page holiday printable pack for circle time and motor-skill centers!",
+        "target_audience": "Educators, daycare providers, homeschool co-ops",
+        "keywords": ["preschool christmas printables", "kindergarten coloring sheets", "classroom holiday crafts"],
+        "location_tag": "Tampa, Florida",
+        "badge": "🍎 Educator Approved • Free Printable Activity Pack"
     }
 ]
 

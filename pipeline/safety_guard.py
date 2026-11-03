@@ -51,9 +51,9 @@ def validate_post_content(text, platform, require_amazon_link=False):
     """Enforces content safety and platform link rules at code level."""
     lower_text = text.lower()
     
-    # 1. Prohibited terms check
+    # 1. Prohibited terms check with word boundaries (avoids false positives like 'skills' matching 'kill')
     for term in PROHIBITED_TERMS:
-        if term in lower_text:
+        if re.search(r"\b" + re.escape(term) + r"\b", lower_text):
             raise PipelineSafetyViolation(f"[CODE REJECT] Prohibited term '{term}' detected. Violates IP/Safety gate.")
 
     # 2. Mandatory Amazon link check if enforced
@@ -126,7 +126,8 @@ def format_promotional_copy(base_caption, platform, asin="B0HPZ647J6"):
     
     # 1. Instagram / IG formatting:
     # High-contrast 2026 header block with clean directional icons,
-    # followed by the story copy, footer CTA box, and dedicated first comment.
+    # screen-free & fine-motor developmental benefits, Tampa/Made in USA geotags,
+    # and dedicated first comment.
     if platform.lower() in ["instagram", "ig"]:
         header = (
             f"✨ AVAILABLE NOW ON AMAZON PRIME ✨\n"
@@ -135,14 +136,19 @@ def format_promotional_copy(base_caption, platform, asin="B0HPZ647J6"):
         )
         footer = (
             f"{divider}\n"
-            f"📦 FAST PRIME DELIVERY ➔ {amazon_url}\n"
+            f"📵 100% SCREEN-FREE • MOTOR SKILLS & BEDTIME FOCUS\n"
+            f"📍 Tampa, Florida • 🇺🇸 Printed in USA with Prime Delivery\n"
+            f"📦 FAST PRIME SHIPPING ➔ {amazon_url}\n"
             f"🎁 FREE ACTIVITY PACK ➔ {landing_url}\n"
             f"👉 Also available via bio: @blobbyworldofficial"
         )
         caption = f"{header}\n\n{base_caption}\n\n{footer}"
         comment = (
+            f"━━━━━━━━━━━━━━━━━━━━\n"
             f"🛒 DIRECT AMAZON PURCHASE LINK:\n"
-            f"👉 {amazon_url}\n\n"
+            f"👉 {amazon_url}\n"
+            f"━━━━━━━━━━━━━━━━━━━━\n"
+            f"📵 100% Screen-Free Motor Skills | 🇺🇸 Made in USA\n"
             f"✨ Prime Fast Delivery | 🎁 Free Printable Pack: {landing_url}"
         )
         return caption, comment
@@ -155,9 +161,14 @@ def format_promotional_copy(base_caption, platform, asin="B0HPZ647J6"):
     )
     footer = (
         f"{divider}\n"
+        f"📵 100% Screen-Free • Builds Motor Skills & Focus\n"
+        f"📍 Tampa, Florida • 🇺🇸 Printed in USA with Prime\n"
         f"📦 FAST PRIME DELIVERY: {amazon_url}\n"
         f"🎁 FREE ACTIVITY PACK: {landing_url}"
     )
     caption = f"{header}\n\n{base_caption}\n\n{footer}"
-    comment = f"🛒 Direct Amazon Purchase Link: {amazon_url} (Available with Fast Prime delivery!)"
+    comment = (
+        f"🛒 Direct Amazon Purchase Link: {amazon_url}\n"
+        f"📵 100% Screen-Free Motor Skills Development | 🇺🇸 Printed in USA with Fast Prime delivery!"
+    )
     return caption, comment
