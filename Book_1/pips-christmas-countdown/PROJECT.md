@@ -132,3 +132,4 @@ Full plan with captions, hashtags, schedule and video script: `output/marketing/
 | 2026-10-31 | Niche research → chose toddler/preschool Christmas countdown story coloring book. Wrote 50 captions. Generated 50 pages + color cover in Gemini via Chrome. Built interior (110 pp) and full-wrap cover. Created KDP paperback, uploaded, Previewer approved with no issues, priced $9.99, **submitted for publication**. |
 | 2026-11-01 | Built $0 launch campaign (plan PDF, free printable pack, 5 social graphics). Nothing posted yet. Packaged this project folder. |
 | 2026-11-01 | Wrote catalog strategy + weekly playbook (docs/WEEKLY_PLAYBOOK.md); scheduled Friday 6pm ET weekly research/launch-kit run (cloud task). |
+| 2026-11-03 | Decision: Amazon KDP only. Lulu and IngramSpark rejected (royalty at $9.99: KDP ~$3.12, Lulu store ~$2.87, Lulu retail ~$0, Ingram ~$0.59 at 55% / ~$2.08 at 40%). Do not host elsewhere. |
