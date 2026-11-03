@@ -1,0 +1,41 @@
+name: Autonomous Sales & Rank Monitor
+
+on:
+  schedule:
+    # Run once daily at 02:00 UTC (9:00 PM EST)
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run sales and rank monitor
+        run: |
+          python pipeline/sales_monitor.py
+
+      - name: Commit and push changes if updated
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [[ -n $(git status -s pipeline/catalog.json) ]]; then
+            git add pipeline/catalog.json
+            git commit -m "chore(catalog): daily Amazon BSR and rank update [skip ci]"
+            git pull --rebase origin main
+            git push origin main
+          else
+            echo "No metrics change detected. Working tree clean."
+          fi
