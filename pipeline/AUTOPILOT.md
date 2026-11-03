@@ -71,3 +71,9 @@ Push (SendUserMessage) only for: a book launched, a book Live, a gate failure or
 - Buffer (Pinterest, Instagram, X) and the Meta Graph publisher (Facebook) are the posting rails. pipeline/social/buffer_dispatcher.py holds the Book 1 payload ONLY and refuses to rerun; each new book gets its own payload file queued during the Fri-Sat window (addToQueue, about one post per channel per day, never a burst).
 - launch_watcher.py does not trigger social posts; it records the ASIN and flips prepared YouTube videos.
 - pipeline/sales_monitor.py (Windows task; self-throttles to one check per 20+ hours) records public Amazon rank/rating/review count only. It does NOT show units sold; real sales still come from KDP Reports in the Friday review. BSR/rating stay null until the first sale/review.
+
+## Meta / Instagram Advertising & Account Protection Rules (2026-11-03)
+- STRICT 100% ORGANIC: We NEVER run paid Meta/Instagram ads. The pipeline uses strictly organic posting.
+- NO DIRECT AMAZON AFFILIATE/COMMERCE LINKS IN POST BODIES: Meta flags external commerce/Amazon URLs in brand-new professional accounts as potential affiliate spam. Always point post calls-to-action to the brand bio (@blobbyworldofficial) or the official GitHub Pages landing page.
+- CADENCE LIMIT: Maximum 1 post per day per social channel. Never burst or spam identical copy across multiple shareNow calls.
+- BUSINESS ASSET INTEGRITY: If Meta flags ad restrictions on a new professional account, verify in Account Quality that identity confirmation is complete and keep ad features unused (the organic publishing capability remains active).
