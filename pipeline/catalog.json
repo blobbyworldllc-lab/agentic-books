@@ -86,8 +86,17 @@
       },
       "asin": "B0H88BPJ2M",
       "price": 1.99,
-      "metrics": [],
-      "last_checked": null,
+      "metrics": [
+        {
+          "timestamp": "2026-11-04T12:09:24.781210+00:00",
+          "bsr": null,
+          "category_ranks": [],
+          "rating": null,
+          "review_count": null,
+          "price": 1.99
+        }
+      ],
+      "last_checked": "2026-11-04T12:09:24.781210+00:00",
       "active": true
     }
   ]
