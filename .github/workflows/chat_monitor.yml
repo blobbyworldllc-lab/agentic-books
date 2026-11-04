@@ -1,0 +1,31 @@
+name: Autonomous Community Chat & Response Monitor
+
+on:
+  schedule:
+    # Runs every 15 minutes around the clock
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  monitor_and_respond:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install requests pytest
+
+      - name: Run Chat Engine Verification Tests
+        run: |
+          pytest tests/test_chat_engine.py
+
+      - name: Execute Inbox Daemon Polling Cycle
+        run: |
+          python pipeline/chat/inbox_daemon.py
