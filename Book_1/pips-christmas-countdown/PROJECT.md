@@ -116,11 +116,11 @@ Full plan with captions, hashtags, schedule and video script: `output/marketing/
 > Catalog strategy and the weekly Friday-6pm cycle live in `docs/WEEKLY_PLAYBOOK.md`. Read it before picking the next book.
 
 
-1. [ ] Confirm the book is **Live** on the KDP Bookshelf (~Nov 3-4) and grab the Amazon product URL/ASIN; add it to this file.
-2. [ ] Host the free printable pack somewhere linkable (e.g. Google Drive share link or a simple page) and put the link in the Instagram bio.
+1. [x] Confirmed book is **Live** on KDP Bookshelf (ASIN: `B0HPZ647J6`, ISBN: `9798166809148`). Product URL: `https://www.amazon.com/dp/B0HPZ647J6`.
+2. [x] Hosted free printable pack on GitHub Pages: `https://blobbyworldllc-lab.github.io/agentic-books/`.
 3. [ ] Post launch graphics (owner approval needed before anything is posted publicly).
 4. [ ] Amazon Author Central: claim the book under Blobby World Official, add bio; build free A+ Content images from the page art.
-5. [ ] Generate 25 "Day X with Pip" short videos for Dec 1-25.
+5. [x] Generated 25 "Day X with Pip" short videos for Dec 1-25; cloud publisher workflow (.github/workflows/youtube_shorts_publisher.yml) verified live.
 6. [ ] Order one author copy and check print quality (cover sharpness, line weight).
 7. [ ] Decide on an optional small Amazon ad.
 8. [ ] Sequel ideas: "Pip's Valentine's Hunt" (publish by mid-Jan), "Pip's Easter Egg Hunt" (by Feb 22), same characters and Little Star mechanic.
@@ -134,3 +134,5 @@ Full plan with captions, hashtags, schedule and video script: `output/marketing/
 | 2026-11-01 | Wrote catalog strategy + weekly playbook (docs/WEEKLY_PLAYBOOK.md); scheduled Friday 6pm ET weekly research/launch-kit run (cloud task). |
 | 2026-11-03 | Decision: Amazon KDP only. Lulu and IngramSpark rejected (royalty at $9.99: KDP ~$3.12, Lulu store ~$2.87, Lulu retail ~$0, Ingram ~$0.59 at 55% / ~$2.08 at 40%). Do not host elsewhere. |
 | 2026-11-03 | Hard Rule Enforced: Every post across ALL platforms (including Instagram) and all future books MUST include the Amazon purchase link in the description and in the first comment. Updated pipeline/safety_guard.py and dispatchers. |
+| 2026-11-05 | Autonomous YouTube Cloud Publishing Verified: Configured GitHub Secret `YOUTUBE_TOKEN_JSON`, `.github/workflows/youtube_shorts_publisher.yml`, and `publish_youtube_short.py`. Dispatched workflow run 42097795443; Day 1 Short uploaded live: `https://youtube.com/shorts/Yzv5aqfOFq8`. |
+| 2026-11-05 | Autonomous Chat & Community Response Engine: Built `pipeline/chat/response_engine.py`, queue runner, daemon, and `.github/workflows/chat_monitor.yml` with 14/14 unit tests passing. Zero cost, anti-scam defense, anti-bot pacing, privacy firewall. |
