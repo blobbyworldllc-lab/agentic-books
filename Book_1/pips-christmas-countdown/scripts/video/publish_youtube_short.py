@@ -19,7 +19,10 @@ def get_youtube_client(custom_token_path=None):
     token_path = custom_token_path or os.environ.get("YOUTUBE_TOKEN_PATH") or DEFAULT_TOKEN_PATH
     if not os.path.exists(token_path):
         raise FileNotFoundError(f"OAuth token not found at {token_path}. In GitHub Actions, ensure YOUTUBE_TOKEN_PATH points to restored secret.")
-    creds = Credentials.from_authorized_user_file(token_path, [
+    
+    # Load with utf-8-sig to safely handle BOM or cross-platform line breaks
+    token_data = json.loads(Path(token_path).read_text(encoding="utf-8-sig"))
+    creds = Credentials.from_authorized_user_info(token_data, [
         'https://www.googleapis.com/auth/youtube.upload',
         'https://www.googleapis.com/auth/youtube'
     ])
