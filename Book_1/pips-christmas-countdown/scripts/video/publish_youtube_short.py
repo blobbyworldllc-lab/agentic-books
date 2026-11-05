@@ -10,15 +10,16 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from google.oauth2.credentials import Credentials
 
-TOKEN_PATH = r"C:\Users\movov\Videos\BlobbyWorld\blobby_pipeline\token.json"
+DEFAULT_TOKEN_PATH = r"C:\Users\movov\Videos\BlobbyWorld\blobby_pipeline\token.json"
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SHORTS_DIR = BASE_DIR / "output" / "marketing" / "shorts"
 LANDING_URL = "https://blobbyworldllc-lab.github.io/agentic-books/"
 
-def get_youtube_client():
-    if not os.path.exists(TOKEN_PATH):
-        raise FileNotFoundError(f"OAuth token not found at {TOKEN_PATH}")
-    creds = Credentials.from_authorized_user_file(TOKEN_PATH, [
+def get_youtube_client(custom_token_path=None):
+    token_path = custom_token_path or os.environ.get("YOUTUBE_TOKEN_PATH") or DEFAULT_TOKEN_PATH
+    if not os.path.exists(token_path):
+        raise FileNotFoundError(f"OAuth token not found at {token_path}. In GitHub Actions, ensure YOUTUBE_TOKEN_PATH points to restored secret.")
+    creds = Credentials.from_authorized_user_file(token_path, [
         'https://www.googleapis.com/auth/youtube.upload',
         'https://www.googleapis.com/auth/youtube'
     ])
