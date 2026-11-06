@@ -37,17 +37,14 @@
           "price": 9.99
         },
         {
-<<<<<<< Updated upstream
           "timestamp": "2026-11-06T08:43:07.394244+00:00",
           "bsr": null,
           "category_ranks": [],
           "rating": null,
           "review_count": null,
           "price": 9.99
-        }
-      ],
-      "last_checked": "2026-11-06T08:43:07.394244+00:00"
-=======
+        },
+        {
           "timestamp": "2026-11-06T23:05:39.816147+00:00",
           "bsr": null,
           "category_ranks": [],
@@ -57,7 +54,6 @@
         }
       ],
       "last_checked": "2026-11-06T23:05:39.816147+00:00"
->>>>>>> Stashed changes
     },
     {
       "slug": "glitch-boy-theme-park-of-doom",
