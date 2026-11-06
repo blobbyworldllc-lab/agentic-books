@@ -139,3 +139,5 @@ Full plan with captions, hashtags, schedule and video script: `output/marketing/
 | 2026-11-06 | YouTube Public Shorts Blitz: Published Day 1 (https://youtube.com/shorts/Sv9TLCSltko) and Day 2 (https://youtube.com/shorts/EiQbIh2mXdY) public to channel BLOBBY WORLD OFFICIAL via GitHub Actions. |
 | 2026-11-06 | Multi-Channel Social Blast: Scheduled promotional posts with mandatory Amazon buy links across Instagram, Threads, X/Twitter, and TikTok via dual-account Buffer pipeline. |
 | 2026-11-06 | Amazon A+ Content Generated: Created high-res 970x600 banner and three 300x300 module graphics + step-by-step submission guide in `output/marketing/a_plus_content/`. |
+| 2026-11-06 | Immediate Live Multi-Channel Publishing: Dispatched immediate live posts (`shareNow`) across Threads, X, Instagram, and TikTok with direct Amazon links and free printable pack links. |
+| 2026-11-06 | YouTube Public Shorts Expansion: Uploaded and published Day 3 Short public (https://youtube.com/shorts/SpShO8G9tSo). Days 1, 2, and 3 are fully public and active on channel BLOBBY WORLD OFFICIAL. |
