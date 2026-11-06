@@ -90,5 +90,16 @@ class TestDualBufferTokens(unittest.TestCase):
         self.assertTrue(len(t1) > 20)
         self.assertTrue(len(t2) > 20)
 
+class TestCommunityTracker(unittest.TestCase):
+    def test_database_and_recommendations(self):
+        from pipeline.growth.community_tracker import load_database, get_next_recommended_groups, check_daily_limit
+        db = load_database()
+        self.assertIn("categories", db)
+        self.assertGreater(len(db["categories"]), 3)
+        recs = get_next_recommended_groups(limit=3)
+        self.assertEqual(len(recs), 3)
+        can_post, count = check_daily_limit()
+        self.assertTrue(isinstance(can_post, bool))
+
 if __name__ == "__main__":
     unittest.main()

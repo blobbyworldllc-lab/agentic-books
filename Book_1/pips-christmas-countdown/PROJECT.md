@@ -141,3 +141,4 @@ Full plan with captions, hashtags, schedule and video script: `output/marketing/
 | 2026-11-06 | Amazon A+ Content Generated: Created high-res 970x600 banner and three 300x300 module graphics + step-by-step submission guide in `output/marketing/a_plus_content/`. |
 | 2026-11-06 | Immediate Live Multi-Channel Publishing: Dispatched immediate live posts (`shareNow`) across Threads, X, Instagram, and TikTok with direct Amazon links and free printable pack links. |
 | 2026-11-06 | YouTube Public Shorts Expansion: Uploaded and published Day 3 Short public (https://youtube.com/shorts/SpShO8G9tSo). Days 1, 2, and 3 are fully public and active on channel BLOBBY WORLD OFFICIAL. |
+| 2026-11-06 | Scaled Community Growth Engine: Built `docs/COMMUNITY_DISTRIBUTION_TARGETS.md` with 100+ targeted Facebook and Reddit parenting communities, search query operators, non-spam value copy, and `pipeline/growth/community_tracker.py` with 15/15 unit tests passing. |

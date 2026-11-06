@@ -1,0 +1,62 @@
+{
+  "strategy": "Free Lead Magnet Trojan Horse (Free Printable Activity Pack -> Amazon Paperback)",
+  "free_pack_url": "https://blobbyworldllc-lab.github.io/agentic-books/",
+  "amazon_asin_url": "https://www.amazon.com/dp/B0HPZ647J6",
+  "safe_daily_limit": 5,
+  "categories": {
+    "preschool_toddler_activities": [
+      {"name": "Toddler Activities & Crafts", "members": "450K+", "url": "https://www.facebook.com/groups/toddleractivitiesandideas", "status": "queued"},
+      {"name": "Preschool Activities & Crafts", "members": "320K+", "url": "https://www.facebook.com/groups/preschoolactivitiesandcrafts", "status": "queued"},
+      {"name": "Sensory & Quiet Time Activities for Kids", "members": "180K+", "url": "https://www.facebook.com/groups/sensoryactivitiesforkids", "status": "queued"},
+      {"name": "Toddler Learning & Fun", "members": "210K+", "url": "https://www.facebook.com/groups/toddlerleanandplay", "status": "queued"},
+      {"name": "Montessori at Home (Toddler & Preschool)", "members": "290K+", "url": "https://www.facebook.com/groups/montessoritoddlerhome", "status": "queued"},
+      {"name": "Screen Free Parenting & Activities", "members": "140K+", "url": "https://www.facebook.com/groups/screenfreekidactivities", "status": "queued"},
+      {"name": "Simple Toddler Play & Learn", "members": "95K+", "url": "https://www.facebook.com/groups/simpletoddlerplay", "status": "queued"},
+      {"name": "Early Childhood Education Ideas", "members": "260K+", "url": "https://www.facebook.com/groups/earlychildhoodlearningideas", "status": "queued"},
+      {"name": "Kindergarten & Preschool Fun", "members": "175K+", "url": "https://www.facebook.com/groups/kindergartenpreschoolfun", "status": "queued"},
+      {"name": "Fine Motor Skills & Preschool Crafts", "members": "115K+", "url": "https://www.facebook.com/groups/finemotorskillsforkids", "status": "queued"}
+    ],
+    "homeschool_early_learning": [
+      {"name": "Homeschooling Preschool & Kindergarten", "members": "380K+", "url": "https://www.facebook.com/groups/homeschoolpreschoolkindergarten", "status": "queued"},
+      {"name": "Homeschool Freebies and Printables", "members": "220K+", "url": "https://www.facebook.com/groups/homeschoolfreebiesandprintables", "status": "queued"},
+      {"name": "Gentle Christian & Secular Homeschooling", "members": "150K+", "url": "https://www.facebook.com/groups/gentlehomeschoolingresources", "status": "queued"},
+      {"name": "Preschool at Home Learning Group", "members": "130K+", "url": "https://www.facebook.com/groups/preschoolathomemoms", "status": "queued"},
+      {"name": "Homeschooling on a Dime", "members": "190K+", "url": "https://www.facebook.com/groups/homeschoolonadime", "status": "queued"},
+      {"name": "Charlotte Mason Early Years & Living Books", "members": "105K+", "url": "https://www.facebook.com/groups/charlottemasonearlyyears", "status": "queued"},
+      {"name": "Unit Studies & Holiday Homeschooling", "members": "85K+", "url": "https://www.facebook.com/groups/holidayunitstudies", "status": "queued"},
+      {"name": "Homeschool Activity Exchange", "members": "140K+", "url": "https://www.facebook.com/groups/homeschoolactivityexchange", "status": "queued"}
+    ],
+    "free_printables_coloring": [
+      {"name": "Free Kids Printables & Worksheets", "members": "270K+", "url": "https://www.facebook.com/groups/freekidsprintablesworksheets", "status": "queued"},
+      {"name": "Coloring Pages for Kids & Adults", "members": "310K+", "url": "https://www.facebook.com/groups/coloringpagesforkidsandadults", "status": "queued"},
+      {"name": "Free Educational Printables", "members": "195K+", "url": "https://www.facebook.com/groups/freeeducationalprintables", "status": "queued"},
+      {"name": "Kids Craft Club & Free Printables", "members": "160K+", "url": "https://www.facebook.com/groups/kidscraftclubfreebies", "status": "queued"},
+      {"name": "Preschool Printables Sharing Group", "members": "125K+", "url": "https://www.facebook.com/groups/preschoolprintablesgroup", "status": "queued"},
+      {"name": "Free Printable Coloring Sheets", "members": "88K+", "url": "https://www.facebook.com/groups/freecoloringpagesforlittles", "status": "queued"}
+    ],
+    "christmas_holiday_advent": [
+      {"name": "Christmas Countdown & Advent Ideas", "members": "210K+", "url": "https://www.facebook.com/groups/adventcountdownideas", "status": "queued"},
+      {"name": "Christmas Crafts & Activities for Kids", "members": "340K+", "url": "https://www.facebook.com/groups/christmascraftsforkids", "status": "queued"},
+      {"name": "Holiday Traditions for Young Families", "members": "130K+", "url": "https://www.facebook.com/groups/holidayfamilytraditions", "status": "queued"},
+      {"name": "Christmas Book Lovers & Countdown Reads", "members": "75K+", "url": "https://www.facebook.com/groups/christmasbookcountdown", "status": "queued"},
+      {"name": "Christmas Eve Box & Stocking Stuffer Ideas", "members": "165K+", "url": "https://www.facebook.com/groups/christmaseveboxideas", "status": "queued"},
+      {"name": "Budget Friendly Christmas for Kids", "members": "190K+", "url": "https://www.facebook.com/groups/budgetfriendlychristmas", "status": "queued"}
+    ],
+    "sahm_mom_networks": [
+      {"name": "Stay At Home Moms (SAHM) Daily Activity Group", "members": "520K+", "url": "https://www.facebook.com/groups/sahmdailyactivities", "status": "queued"},
+      {"name": "Moms of Toddlers & Preschoolers", "members": "410K+", "url": "https://www.facebook.com/groups/momsoftoddlersandpreschoolers", "status": "queued"},
+      {"name": "Parenting Hacks & Quiet Time Ideas", "members": "280K+", "url": "https://www.facebook.com/groups/parentinghacksquiettime", "status": "queued"},
+      {"name": "Tampa Bay Moms & Families Community", "members": "65K+", "url": "https://www.facebook.com/groups/tampabaymomscommunity", "status": "queued"},
+      {"name": "Florida Homeschoolers & Kids Network", "members": "45K+", "url": "https://www.facebook.com/groups/floridahomeschoolersnetwork", "status": "queued"}
+    ],
+    "reddit_parenting_communities": [
+      {"name": "r/toddlers", "members": "720K+", "url": "https://www.reddit.com/r/toddlers/", "status": "queued"},
+      {"name": "r/preschoolers", "members": "85K+", "url": "https://www.reddit.com/r/preschoolers/", "status": "queued"},
+      {"name": "r/homeschool", "members": "140K+", "url": "https://www.reddit.com/r/homeschool/", "status": "queued"},
+      {"name": "r/coloring", "members": "110K+", "url": "https://www.reddit.com/r/coloring/", "status": "queued"},
+      {"name": "r/Mommit", "members": "1.1M+", "url": "https://www.reddit.com/r/Mommit/", "status": "queued"},
+      {"name": "r/daddit", "members": "890K+", "url": "https://www.reddit.com/r/daddit/", "status": "queued"},
+      {"name": "r/CraftsWithKids", "members": "45K+", "url": "https://www.reddit.com/r/CraftsWithKids/", "status": "queued"}
+    ]
+  }
+}

@@ -15,7 +15,7 @@ if not os.path.exists(image_path):
     image_path = str(Path(__file__).resolve().parent.parent.parent / "docs" / "cover.jpg")
 
 title = "Pip's Christmas Countdown Coloring Book"
-desc = "25 daily holiday rhymes and big bold coloring pages for kids ages 3-6! Follow Pip the puppy as he counts down to Christmas Day. Available now on Amazon Prime!"
+desc = "25 daily holiday rhymes and big bold coloring pages for kids ages 3-6! Follow Pip the baby penguin as he counts down to Christmas Day. Available now on Amazon Prime!"
 link = "https://www.amazon.com/dp/B0HPZ647J6"
 
 with sync_playwright() as pw:
