@@ -37,6 +37,7 @@
           "price": 9.99
         },
         {
+<<<<<<< Updated upstream
           "timestamp": "2026-11-06T08:43:07.394244+00:00",
           "bsr": null,
           "category_ranks": [],
@@ -46,6 +47,17 @@
         }
       ],
       "last_checked": "2026-11-06T08:43:07.394244+00:00"
+=======
+          "timestamp": "2026-11-06T23:05:39.816147+00:00",
+          "bsr": null,
+          "category_ranks": [],
+          "rating": 5.0,
+          "review_count": 3,
+          "price": 9.99
+        }
+      ],
+      "last_checked": "2026-11-06T23:05:39.816147+00:00"
+>>>>>>> Stashed changes
     },
     {
       "slug": "glitch-boy-theme-park-of-doom",
@@ -69,8 +81,22 @@
       },
       "asin": "B0H59JJGHX",
       "price": 1.99,
-      "metrics": [],
-      "last_checked": null,
+      "metrics": [
+        {
+          "timestamp": "2026-11-06T23:05:41.940318+00:00",
+          "bsr": null,
+          "category_ranks": [
+            {
+              "category": "Kindle Store",
+              "rank": 2590535
+            }
+          ],
+          "rating": 4.8,
+          "review_count": 2529,
+          "price": 1.99
+        }
+      ],
+      "last_checked": "2026-11-06T23:05:41.940318+00:00",
       "active": true
     },
     {
@@ -102,9 +128,22 @@
           "rating": null,
           "review_count": null,
           "price": 1.99
+        },
+        {
+          "timestamp": "2026-11-06T23:05:43.714735+00:00",
+          "bsr": null,
+          "category_ranks": [
+            {
+              "category": "Kindle Store",
+              "rank": 4692487
+            }
+          ],
+          "rating": 4.8,
+          "review_count": 53,
+          "price": 1.99
         }
       ],
-      "last_checked": "2026-11-04T12:09:24.781210+00:00",
+      "last_checked": "2026-11-06T23:05:43.714735+00:00",
       "active": true
     }
   ]
