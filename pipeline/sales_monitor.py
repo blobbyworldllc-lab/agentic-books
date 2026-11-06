@@ -57,15 +57,23 @@ def parse_amazon_metrics(asin):
                 "rank": int(rank_str.replace(',', ''))
             })
 
-    # Extract rating
-    rating_match = re.search(r'([0-9\.]+)\s+out of 5 stars', content)
-    if rating_match:
-        metrics["rating"] = float(rating_match.group(1))
+    # Extract rating (ignoring sponsored adReviewLinks)
+    rating_matches = re.finditer(r'([0-9\.]+)\s+out of 5 stars', content)
+    for rm in rating_matches:
+        surrounding = content[max(0, rm.start() - 100):min(len(content), rm.end() + 100)]
+        if "adReviewLink" in surrounding or "sponsored" in surrounding.lower():
+            continue
+        metrics["rating"] = float(rm.group(1))
+        break
 
-    # Extract review count
-    review_match = re.search(r'([0-9,]+)\s+(?:global\s+)?ratings', content, re.IGNORECASE)
-    if review_match:
-        metrics["review_count"] = int(review_match.group(1).replace(',', ''))
+    # Extract review count (ignoring sponsored adReviewLinks)
+    review_matches = re.finditer(r'([0-9,]+)\s+(?:global\s+)?ratings', content, re.IGNORECASE)
+    for rvm in review_matches:
+        surrounding = content[max(0, rvm.start() - 100):min(len(content), rvm.end() + 100)]
+        if "adReviewLink" in surrounding or "sponsored" in surrounding.lower():
+            continue
+        metrics["review_count"] = int(rvm.group(1).replace(',', ''))
+        break
 
     # Extract price
     price_match = re.search(r'class="a-price-whole">([0-9]+)<span class="a-price-decimal">\.</span></span><span class="a-price-fraction">([0-9]+)</span>', content)

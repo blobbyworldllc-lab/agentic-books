@@ -48,8 +48,8 @@
           "timestamp": "2026-11-06T23:05:39.816147+00:00",
           "bsr": null,
           "category_ranks": [],
-          "rating": 5.0,
-          "review_count": 3,
+          "rating": null,
+          "review_count": null,
           "price": 9.99
         }
       ],
