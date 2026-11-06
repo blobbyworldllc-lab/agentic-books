@@ -153,7 +153,26 @@ def format_promotional_copy(base_caption, platform, asin="B0HPZ647J6"):
         )
         return caption, comment
 
-    # 2. All other platforms (Threads, Facebook, X, Pinterest, YouTube, TikTok)
+    # 2. X / Twitter (Strict 280 char limit)
+    if platform.lower() in ["twitter", "x"]:
+        caption = (
+            f"✨ Pip's Christmas Countdown is LIVE on Amazon! 🐧🎄\n"
+            f"{base_caption[:70]}\n\n"
+            f"🛒 ORDER: {amazon_url}\n"
+            f"🎁 Free Pack: {landing_url}"
+        )
+        comment = f"🛒 Direct Amazon Link: {amazon_url}"
+        return caption, comment
+
+    # 3. Threads (Strict 500 char limit)
+    if platform.lower() == "threads":
+        header = f"✨ Pip's Christmas Countdown is LIVE on Amazon! 🐧🎄\n🛒 Order: {amazon_url}\n{divider}"
+        footer = f"{divider}\n📵 100% Screen-Free • Single-Sided Pages\n🎁 Free Pack: {landing_url}"
+        caption = f"{header}\n\n{base_caption}\n\n{footer}"
+        comment = f"🛒 Direct Amazon Link: {amazon_url}"
+        return caption, comment
+
+    # 4. All other platforms (Facebook, Pinterest, YouTube, TikTok)
     header = (
         f"✨ AVAILABLE NOW ON AMAZON PRIME ✨\n"
         f"🛒 ORDER HERE ➔ {amazon_url}\n"
