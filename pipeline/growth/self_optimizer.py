@@ -17,7 +17,7 @@ sys.path.insert(0, str(REPO_ROOT))
 
 from pipeline.stealth_browser.pinterest_publisher import publish_pin, check_can_publish as can_pin
 from pipeline.stealth_browser.fb_group_poster import post_to_facebook_group, is_facebook_logged_in
-from pipeline.stealth_browser.community_distributor import get_next_target_community, record_distribution_event
+from pipeline.stealth_browser.community_distributor import get_next_target_community, record_distribution_event, record_attempt
 
 LEARNINGS_FILE = REPO_ROOT / "pipeline" / "growth" / "growth_learnings.json"
 OPTIMIZER_LOG = REPO_ROOT / "pipeline" / "growth" / "self_optimizer.log"
@@ -118,6 +118,7 @@ def run_self_improvement_cycle():
                     record_distribution_event(target)
                     actions_taken.append(f"Published community seed post to Facebook group: {group['name']}")
                 else:
+                    record_attempt(target, reason=msg)
                     logging.info(f"[COMMUNITY RESULT] {msg}")
                     actions_taken.append(f"Inspected Facebook group {group['name']}: {msg}")
             except Exception as e:

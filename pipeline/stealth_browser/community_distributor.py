@@ -81,10 +81,12 @@ def get_next_target_community():
     db = load_database()
     history = load_history()
     posted_urls = {item["url"] for item in history.get("posted_groups", [])}
+    attempted_urls = {item["url"] for item in history.get("attempted_groups", [])}
+    skip_urls = posted_urls.union(attempted_urls)
     
     for category, groups in db.get("categories", {}).items():
         for group in groups:
-            if group["url"] not in posted_urls:
+            if group["url"] not in skip_urls:
                 template = MESSAGE_TEMPLATES.get(category, MESSAGE_TEMPLATES["preschool"])
                 return {
                     "category": category,
@@ -93,6 +95,18 @@ def get_next_target_community():
                 }, "OK"
                 
     return None, "All communities in catalog have been seeded"
+
+def record_attempt(target_data, reason="inaccessible"):
+    history = load_history()
+    if "attempted_groups" not in history:
+        history["attempted_groups"] = []
+    history["attempted_groups"].append({
+        "url": target_data["group"]["url"],
+        "name": target_data["group"]["name"],
+        "reason": reason,
+        "timestamp": datetime.now(timezone.utc).isoformat()
+    })
+    save_history(history)
 
 def record_distribution_event(target_data):
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -115,6 +129,7 @@ if __name__ == "__main__":
     if target:
         print(f"Next Target Community: [{target['category']}] {target['group']['name']} ({target['group']['members']})")
         print(f"URL: {target['group']['url']}")
-        print(f"Tailored Copy:\n{target['copy']}")
+        copy_clean = target['copy'].encode('ascii', errors='replace').decode('ascii')
+        print(f"Tailored Copy:\n{copy_clean}")
     else:
         print(f"Status: {status}")
