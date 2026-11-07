@@ -101,5 +101,24 @@ class TestCommunityTracker(unittest.TestCase):
         can_post, count = check_daily_limit()
         self.assertTrue(isinstance(can_post, bool))
 
+class TestStealthDistribution(unittest.TestCase):
+    def test_pinterest_catalog_and_limits(self):
+        from pipeline.stealth_browser.pinterest_publisher import check_can_publish, get_next_pin_to_publish, PIN_CATALOG
+        can_pub, count = check_can_publish()
+        self.assertTrue(isinstance(can_pub, bool))
+        self.assertGreaterEqual(len(PIN_CATALOG), 3)
+        next_pin = get_next_pin_to_publish()
+        self.assertIsNotNone(next_pin)
+        self.assertIn("https://www.amazon.com/dp/B0HPZ647J6", next_pin["link"])
+        self.assertIn("https://www.amazon.com/dp/B0HPZ647J6", next_pin["desc"])
+
+    def test_community_distributor_payload(self):
+        from pipeline.stealth_browser.community_distributor import get_next_target_community
+        target, status = get_next_target_community()
+        if target:
+            self.assertIn("copy", target)
+            self.assertIn("https://blobbyworldllc-lab.github.io/agentic-books/", target["copy"])
+            self.assertIn("https://www.amazon.com/dp/B0HPZ647J6", target["copy"])
+
 if __name__ == "__main__":
     unittest.main()
