@@ -61,21 +61,27 @@ def post_to_facebook_group(group_url, copy_text, group_name="Unknown Group", hea
         composer.first.click()
         human_delay(2.0, 3.5)
         
-        # Active text area
-        text_area = page.locator('div[contenteditable="true"][role="textbox"], div[aria-label*="What\'s on your mind"]')
-        if text_area.count() > 0:
-            print("[OK] Human-typing promotional copy...")
-            human_type(page, 'div[contenteditable="true"][role="textbox"]', copy_text)
-            human_delay(2.0, 3.0)
-            
-            # Post button
-            post_btn = page.locator('div[aria-label="Post"][role="button"], button:has-text("Post")')
-            if post_btn.count() > 0:
-                print("[OK] Submitting post to group...")
-                post_btn.first.click()
-                human_delay(6.0, 9.0)
-                print(f"[SUCCESS] Successfully published live post to {group_name}!")
-                return True, "Published"
+        # Active text area (scope to modal dialog if present to avoid background comments)
+        dialog = page.locator('div[role="dialog"]')
+        if dialog.count() > 0:
+            target_input = 'div[role="dialog"] div[contenteditable="true"][role="textbox"]'
+            target_btn = 'div[role="dialog"] div[aria-label="Post"][role="button"], div[role="dialog"] div[role="button"]:has-text("Post")'
+        else:
+            target_input = 'div[contenteditable="true"][role="textbox"], div[aria-label*="What\'s on your mind"]'
+            target_btn = 'div[aria-label="Post"][role="button"], button:has-text("Post")'
+
+        print("[OK] Human-typing promotional copy into modal...")
+        human_type(page, target_input, copy_text)
+        human_delay(2.5, 4.0)
+        
+        # Post button
+        post_btn = page.locator(target_btn)
+        if post_btn.count() > 0:
+            print("[OK] Submitting post to group...")
+            post_btn.first.click()
+            human_delay(6.0, 9.0)
+            print(f"[SUCCESS] Successfully published live post to {group_name}!")
+            return True, "Published"
                 
         return False, "Post button not found"
 
