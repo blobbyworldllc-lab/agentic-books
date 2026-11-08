@@ -18,20 +18,23 @@ PROFILE_NAME = "community_profile"
 
 LEAD_MAGNET_URL = "https://blobbyworldllc-lab.github.io/agentic-books/"
 AMAZON_BUY_LINK = "https://www.amazon.com/dp/B0HPZ647J6"
+VIDEO_PREVIEW_URL = "https://youtube.com/shorts/SsBNKohRrVQ"
 
 MESSAGE_TEMPLATES = {
     "preschool": (
-        "Hi parents and teachers! 🎨 If you're looking for screen-free holiday countdown ideas, "
+        "Hi parents and teachers! If you're looking for screen-free holiday countdown ideas, "
         "I wanted to share a free 4-page Christmas countdown coloring pack (featuring Pip the baby penguin and Biscuit the puppy)! "
         "Every page has a mini 'Find Little Star' seek-and-find game hidden in the art.\n\n"
-        f"You can grab the free printable PDF here: {LEAD_MAGNET_URL}\n"
-        f"(And the full 110-page paperback with 50 designs is on Amazon Prime: {AMAZON_BUY_LINK})\n\n"
+        f"Watch the 15-second countdown preview short: {VIDEO_PREVIEW_URL}\n"
+        f"Grab the free printable PDF here: {LEAD_MAGNET_URL}\n"
+        f"Get the complete 110-page paperback on Amazon Prime: {AMAZON_BUY_LINK}\n\n"
         "Hope your little ones enjoy it!"
     ),
     "homeschool": (
         "Free holiday activity resource for preschool and kindergarten homeschoolers: "
         "4 printable Christmas countdown activity pages designed with thick bold lines for pencil control "
         "and a 'Find Little Star' seek-and-find visual observation game on each page.\n\n"
+        f"Watch the quick video activity preview: {VIDEO_PREVIEW_URL}\n"
         f"Download the free PDF starter kit: {LEAD_MAGNET_URL}\n"
         f"Full 50-design book available on Amazon: {AMAZON_BUY_LINK}\n\n"
         "Happy holiday planning!"
@@ -39,12 +42,14 @@ MESSAGE_TEMPLATES = {
     "printables": (
         "Sharing our free Christmas countdown coloring printable pack! "
         "Cute penguin & puppy illustrations with seek-and-find activities for toddlers & preschoolers.\n\n"
+        f"Watch the countdown preview: {VIDEO_PREVIEW_URL}\n"
         f"Free PDF download: {LEAD_MAGNET_URL}\n"
         f"Full 110-page paperback on Amazon: {AMAZON_BUY_LINK}"
     ),
     "christmas_traditions": (
         "Start a peaceful bedtime countdown tradition this December! "
         "Here is a free 4-page sample of our Christmas countdown coloring pages featuring Pip the penguin.\n\n"
+        f"Watch the bedtime countdown short: {VIDEO_PREVIEW_URL}\n"
         f"Free printable pack: {LEAD_MAGNET_URL}\n"
         f"Order the complete 110-page paperback on Amazon: {AMAZON_BUY_LINK}"
     )

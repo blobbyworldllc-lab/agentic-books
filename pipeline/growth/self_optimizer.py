@@ -18,6 +18,7 @@ sys.path.insert(0, str(REPO_ROOT))
 from pipeline.stealth_browser.pinterest_publisher import publish_pin, check_can_publish as can_pin
 from pipeline.stealth_browser.fb_group_poster import post_to_facebook_group, is_facebook_logged_in
 from pipeline.stealth_browser.community_distributor import get_next_target_community, record_distribution_event, record_attempt
+from pipeline.stealth_browser.reddit_distributor import post_next_reddit_thread, is_reddit_logged_in
 
 LEARNINGS_FILE = REPO_ROOT / "pipeline" / "growth" / "growth_learnings.json"
 OPTIMIZER_LOG = REPO_ROOT / "pipeline" / "growth" / "self_optimizer.log"
@@ -137,6 +138,19 @@ def run_self_improvement_cycle():
                 actions_taken.append(f"Pinterest status: {p_res}")
         except Exception as e:
             logging.error(f"Pinterest error: {e}")
+
+    # 3. Autonomous Reddit Community Seeding Push
+    try:
+        if is_reddit_logged_in():
+            r_success, r_msg = post_next_reddit_thread(headless=True)
+            if r_success:
+                actions_taken.append(f"Published Reddit discussion: {r_msg}")
+            else:
+                actions_taken.append(f"Reddit status: {r_msg}")
+        else:
+            logging.info("Reddit profile not logged in (run LOGIN_REDDIT.bat to initialize session).")
+    except Exception as e:
+        logging.error(f"Reddit distributor error: {e}")
             
     # 3. Record Iteration Audit
     iteration_entry = {
