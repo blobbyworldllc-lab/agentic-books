@@ -7,35 +7,13 @@
 
 ---
 
-## 1. Top YouTube Shorts Video Links (For Forum Previews & Sharing)
+## 1. Official Animated YouTube Shorts (Real Cartoon Animations)
 
-| Day | Video Title / Hook | Direct YouTube Link |
+| Video Title / Hook | Type | Direct YouTube Link |
 |---|---|---|
-| **Day 1** | Can Your Toddler Find the Star? | `https://youtube.com/shorts/SsBNKohRrVQ` |
-| **Day 2** | Pip Goes Ice Skating! Toddler Christmas Activity | `https://youtube.com/shorts/Hg896pYbok0` |
-| **Day 3** | Pip Decorates the Tree! | `https://youtube.com/shorts/xWBESnLYuvU` |
-| **Day 4** | Winter Sledding Adventure! Screen-Free Bedtime | `https://youtube.com/shorts/mZRKEG0p5eQ` |
-| **Day 5** | Baking Christmas Cookies! | `https://youtube.com/shorts/2HX2XnZ4ans` |
-| **Day 6** | Snowman Building Fun! Preschool Holiday Activity | `https://youtube.com/shorts/6YfrtBRPVMU` |
-| **Day 7** | Cozy Holiday Bedtime! Seek & Find Christmas Story | `https://youtube.com/shorts/WcDDhIRW1Nc` |
-| **Day 8** | Christmas Eve Box Idea! | `https://youtube.com/shorts/0NKyG6QnqXg` |
-| **Day 9** | Pip's Sledding Race! Christmas Coloring Book | `https://youtube.com/shorts/txPH06sWgeM` |
-| **Day 10** | Hot Cocoa by the Tree! Cozy Christmas Coloring | `https://youtube.com/shorts/-PPfi_siVEA` |
-| **Day 11** | Finding Little Star! Preschool Observation Game | `https://youtube.com/shorts/8X4UzGLkzcE` |
-| **Day 12** | Christmas Caroling Fun! Bedtime Countdown | `https://youtube.com/shorts/Thz0j_nOpGI` |
-| **Day 13** | Building a Snow Fort! 25 Nights to Christmas | `https://youtube.com/shorts/-yN7sHV2gu4` |
-| **Day 14** | Wrapping Holiday Gifts! Screen-Free Activity | `https://youtube.com/shorts/vqs11QGmOpo` |
-| **Day 15** | Winter Wonderland Walk! Christmas Coloring Pages | `https://youtube.com/shorts/gXvoOPQMUWo` |
-| **Day 16** | Pip Meets Biscuit the Puppy! | `https://youtube.com/shorts/05_Z3pqcCbo` |
-| **Day 17** | Hanging the Stockings! | `https://youtube.com/shorts/c-UbLHKi51w` |
-| **Day 18** | Ice Skating with Friends! | `https://youtube.com/shorts/WJFHdCR2_fA` |
-| **Day 19** | North Pole Mail Delivery! | `https://youtube.com/shorts/gTK73CpKuMc` |
-| **Day 20** | Christmas Light Glow! Quiet Time Coloring | `https://youtube.com/shorts/G0KbCJyKAaA` |
-| **Day 21** | Singing Holiday Songs! Screen-Free Routine | `https://youtube.com/shorts/2WFS-d5bYXo` |
-| **Day 22** | The Cozy Fireplace! 25 Nights to Christmas | `https://youtube.com/shorts/1p2SSdqkVm8` |
-| **Day 23** | Almost Christmas Eve! Find Little Star Game | `https://youtube.com/shorts/qqW9APJdyqw` |
-| **Day 24** | Christmas Eve Magic! Bedtime Story | `https://youtube.com/shorts/9xGed4wuv_o` |
-| **Day 25** | Merry Christmas, Pip! 50 Holiday Coloring Pages | `https://youtube.com/shorts/cgOHoFYgH9k` |
+| **Pip Goes Sledding! Cutest Christmas Sled Ride** | Animated Cartoon Short | `https://youtube.com/shorts/GQVy5gtN9fQ` |
+| **Pip Goes Ice Skating! Toddler Christmas Fun** | Animated Cartoon Short | `https://youtube.com/shorts/YRBgBnru2zI` |
+| **Pip Decorates the Christmas Tree! Holiday Bedtime Magic** | Animated Cartoon Short | `https://youtube.com/shorts/HehOYFG4mUQ` |
 
 ---
 
@@ -49,8 +27,8 @@ Hi everyone! If you're looking for screen-free holiday quiet time ideas for Dece
 
 Each illustration has a mini 'Find Little Star' seek-and-find observation game hidden in the art.
 
-🎬 Quick 15-second countdown video preview:
-https://youtube.com/shorts/SsBNKohRrVQ
+🎬 Watch the animated Pip Christmas cartoon short:
+https://youtube.com/shorts/GQVy5gtN9fQ
 
 🎁 Download the free 4-page starter PDF:
 https://blobbyworldllc-lab.github.io/agentic-books/
@@ -70,8 +48,8 @@ For anyone doing preschool or kindergarten holiday unit studies, here is a free 
 - Rhyming story captions for early reading
 - Visual observation 'Find Little Star' puzzle on each page
 
-🎬 Video activity preview:
-https://youtube.com/shorts/SsBNKohRrVQ
+🎬 Watch Pip's animated winter adventure:
+https://youtube.com/shorts/YRBgBnru2zI
 
 🎁 Free instant PDF:
 https://blobbyworldllc-lab.github.io/agentic-books/
@@ -88,8 +66,8 @@ Wanted to share a preview of our new holiday coloring project for little ones: '
 
 50 festive illustrations featuring Pip the baby penguin and Biscuit the puppy, all printed single-sided to prevent marker bleed.
 
-🎬 Watch the coloring countdown short:
-https://youtube.com/shorts/txPH06sWgeM
+🎬 Watch the animated Pip cartoon short:
+https://youtube.com/shorts/HehOYFG4mUQ
 
 🎁 Free 4-page starter PDF:
 https://blobbyworldllc-lab.github.io/agentic-books/

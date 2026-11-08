@@ -18,7 +18,7 @@ PROFILE_NAME = "community_profile"
 
 LEAD_MAGNET_URL = "https://blobbyworldllc-lab.github.io/agentic-books/"
 AMAZON_BUY_LINK = "https://www.amazon.com/dp/B0HPZ647J6"
-VIDEO_PREVIEW_URL = "https://youtube.com/shorts/SsBNKohRrVQ"
+VIDEO_PREVIEW_URL = "https://youtube.com/shorts/GQVy5gtN9fQ"
 
 MESSAGE_TEMPLATES = {
     "preschool": (
