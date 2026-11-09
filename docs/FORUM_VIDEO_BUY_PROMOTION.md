@@ -11,9 +11,10 @@
 
 | Video Title / Hook | Type | Direct YouTube Link |
 |---|---|---|
-| **Pip Goes Sledding! Cutest Christmas Sled Ride** | Animated Cartoon Short | `https://youtube.com/shorts/GQVy5gtN9fQ` |
-| **Pip Goes Ice Skating! Toddler Christmas Fun** | Animated Cartoon Short | `https://youtube.com/shorts/YRBgBnru2zI` |
-| **Pip Decorates the Christmas Tree! Holiday Bedtime Magic** | Animated Cartoon Short | `https://youtube.com/shorts/HehOYFG4mUQ` |
+| **Pip Goes Sledding! Cutest Christmas Sled Ride** | Animated Cartoon Short | `https://youtube.com/shorts/HfQJeqQ23jg` |
+| **Pip Goes Ice Skating! Toddler Christmas Fun** | Animated Cartoon Short | `https://youtube.com/shorts/NuFvuM8Q2bg` |
+| **Pip Decorates the Christmas Tree! Holiday Bedtime Magic** | Animated Cartoon Short | `https://youtube.com/shorts/yxkljv_Y5F4` |
+| **Pip Colors a Christmas Snowflake!** | Animated Cartoon Short | `https://youtube.com/shorts/v24c4QH0XWQ` |
 
 ---
 
@@ -28,7 +29,7 @@ Hi everyone! If you're looking for screen-free holiday quiet time ideas for Dece
 Each illustration has a mini 'Find Little Star' seek-and-find observation game hidden in the art.
 
 🎬 Watch the animated Pip Christmas cartoon short:
-https://youtube.com/shorts/GQVy5gtN9fQ
+https://youtube.com/shorts/HfQJeqQ23jg
 
 🎁 Download the free 4-page starter PDF:
 https://blobbyworldllc-lab.github.io/agentic-books/
@@ -49,7 +50,7 @@ For anyone doing preschool or kindergarten holiday unit studies, here is a free 
 - Visual observation 'Find Little Star' puzzle on each page
 
 🎬 Watch Pip's animated winter adventure:
-https://youtube.com/shorts/YRBgBnru2zI
+https://youtube.com/shorts/NuFvuM8Q2bg
 
 🎁 Free instant PDF:
 https://blobbyworldllc-lab.github.io/agentic-books/
@@ -67,7 +68,7 @@ Wanted to share a preview of our new holiday coloring project for little ones: '
 50 festive illustrations featuring Pip the baby penguin and Biscuit the puppy, all printed single-sided to prevent marker bleed.
 
 🎬 Watch the animated Pip cartoon short:
-https://youtube.com/shorts/HehOYFG4mUQ
+https://youtube.com/shorts/yxkljv_Y5F4
 
 🎁 Free 4-page starter PDF:
 https://blobbyworldllc-lab.github.io/agentic-books/

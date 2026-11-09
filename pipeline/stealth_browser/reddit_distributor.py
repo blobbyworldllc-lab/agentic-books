@@ -19,7 +19,7 @@ PROFILE_NAME = "reddit_profile"
 
 LEAD_MAGNET_URL = "https://blobbyworldllc-lab.github.io/agentic-books/"
 AMAZON_BUY_LINK = "https://www.amazon.com/dp/B0HPZ647J6"
-FEATURED_VIDEO_URL = "https://youtube.com/shorts/GQVy5gtN9fQ"
+FEATURED_VIDEO_URL = "https://youtube.com/shorts/HfQJeqQ23jg"
 
 REDDIT_COMMUNITIES = [
     {

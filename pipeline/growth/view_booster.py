@@ -23,12 +23,13 @@ logging.basicConfig(
 
 # Canonical Videos & Watch Loop Configuration
 PIP_VIDEOS = {
-    "GQVy5gtN9fQ": {
+    "HfQJeqQ23jg": {
         "title": "Pip Goes Sledding! 🛷 Cutest Christmas Sled Ride #Shorts",
         "action": "zooms down Snowy Hill on his red wooden sled! Can you hear his cheerful giggles as snowflakes swirl all around?",
         "next_videos": [
-            ("Pip Goes Ice Skating! ⛸️", "https://youtube.com/shorts/YRBgBnru2zI"),
-            ("Pip Decorates the Christmas Tree! 🎄", "https://youtube.com/shorts/HehOYFG4mUQ")
+            ("Pip Goes Ice Skating! ⛸️", "https://youtube.com/shorts/NuFvuM8Q2bg"),
+            ("Pip Decorates the Christmas Tree! 🎄", "https://youtube.com/shorts/yxkljv_Y5F4"),
+            ("Pip Colors a Snowflake! ❄️", "https://youtube.com/shorts/v24c4QH0XWQ")
         ],
         "tags": [
             "Blobby World Official",
@@ -47,12 +48,13 @@ PIP_VIDEOS = {
             "find little star game"
         ]
     },
-    "YRBgBnru2zI": {
+    "NuFvuM8Q2bg": {
         "title": "Pip Goes Ice Skating! ⛸️ Toddler Christmas Fun #Shorts",
         "action": "twirls and glides across the frozen pond! Watch his cute little penguin waddle on the slippery ice!",
         "next_videos": [
-            ("Pip Decorates the Christmas Tree! 🎄", "https://youtube.com/shorts/HehOYFG4mUQ"),
-            ("Pip Goes Sledding! 🛷", "https://youtube.com/shorts/GQVy5gtN9fQ")
+            ("Pip Decorates the Christmas Tree! 🎄", "https://youtube.com/shorts/yxkljv_Y5F4"),
+            ("Pip Goes Sledding! 🛷", "https://youtube.com/shorts/HfQJeqQ23jg"),
+            ("Pip Colors a Snowflake! ❄️", "https://youtube.com/shorts/v24c4QH0XWQ")
         ],
         "tags": [
             "Blobby World Official",
@@ -71,12 +73,13 @@ PIP_VIDEOS = {
             "find little star game"
         ]
     },
-    "HehOYFG4mUQ": {
+    "yxkljv_Y5F4": {
         "title": "Pip Decorates the Christmas Tree! 🎄 Holiday Bedtime Magic #Shorts",
         "action": "hangs shiny red baubles and glowing stars on the big evergreen Christmas tree with his holiday friends!",
         "next_videos": [
-            ("Pip Goes Sledding! 🛷", "https://youtube.com/shorts/GQVy5gtN9fQ"),
-            ("Pip Goes Ice Skating! ⛸️", "https://youtube.com/shorts/YRBgBnru2zI")
+            ("Pip Goes Sledding! 🛷", "https://youtube.com/shorts/HfQJeqQ23jg"),
+            ("Pip Goes Ice Skating! ⛸️", "https://youtube.com/shorts/NuFvuM8Q2bg"),
+            ("Pip Colors a Snowflake! ❄️", "https://youtube.com/shorts/v24c4QH0XWQ")
         ],
         "tags": [
             "Blobby World Official",
