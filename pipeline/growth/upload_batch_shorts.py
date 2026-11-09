@@ -98,7 +98,7 @@ def upload_day(day_num):
         },
         'status': {
             'privacyStatus': 'public',
-            'selfDeclaredMadeForKids': True
+            'selfDeclaredMadeForKids': False
         }
     }
 
