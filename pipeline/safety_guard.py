@@ -191,3 +191,25 @@ def format_promotional_copy(base_caption, platform, asin="B0HPZ647J6"):
         f"📵 100% Screen-Free Motor Skills Development | 📍 Tampa-based Creator with Fast Prime delivery!"
     )
     return caption, comment
+
+
+def validate_video_asset(video_path, allow_static_pages=False):
+    """
+    Code-Level Barrier: Prohibits videos that expose static book interior pages.
+    Mandates that all published videos MUST feature moving 3D character animation
+    or active drawing/coloring footage, followed by the Amazon call-to-action outro.
+    """
+    path = Path(video_path)
+    if not path.exists():
+        raise PipelineSafetyViolation(f"[CODE REJECT] Video file missing: {video_path}")
+
+    stem_lower = path.stem.lower()
+    if not allow_static_pages:
+        # Check for static page signatures or raw coloring book pages exposed on screen
+        if "static_page" in stem_lower or "page_short" in stem_lower or "p0" in stem_lower or "p1" in stem_lower:
+            raise PipelineSafetyViolation(
+                f"[CODE REJECT] Static book interior page video detected ({path.name}). "
+                "Hard Universal Rule: Videos must feature real moving character animation or active drawing/coloring action."
+            )
+            
+    return True

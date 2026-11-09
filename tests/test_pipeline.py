@@ -138,5 +138,15 @@ class TestStealthDistribution(unittest.TestCase):
         self.assertTrue(Path(outro_path).exists())
         self.assertGreater(Path(outro_path).stat().st_size, 100000)
 
+
+    def test_prohibit_static_book_pages_in_video(self):
+        from pipeline.safety_guard import validate_video_asset, PipelineSafetyViolation
+        # Simulated static page video
+        with self.assertRaises(PipelineSafetyViolation):
+            validate_video_asset("output/marketing/shorts/static_page_short_01.mp4")
+            
+        with self.assertRaises(PipelineSafetyViolation):
+            validate_video_asset("output/marketing/shorts/pip_countdown_p01.mp4")
+
 if __name__ == "__main__":
     unittest.main()
