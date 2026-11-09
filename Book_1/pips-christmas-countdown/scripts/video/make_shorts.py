@@ -123,7 +123,14 @@ def build_single_video(day_num: int):
     )
     res = os.system(cmd)
     if res == 0:
-        print(f"[OK] Video ready: {final_mp4}")
+        print(f"[OK] Video body ready: {final_mp4}")
+        # Append beautiful festive Amazon call-to-action outro card
+        try:
+            from pipeline.growth.attach_amazon_outro import append_outro_to_video
+            append_outro_to_video(final_mp4)
+            print(f"[OK] Appended Amazon call-to-action outro to: {final_mp4}")
+        except Exception as e:
+            print(f"[WARN] Could not append outro: {e}")
     else:
         print(f"[ERROR] Failed to compile Day {day_num}")
 

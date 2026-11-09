@@ -131,5 +131,12 @@ class TestStealthDistribution(unittest.TestCase):
             self.assertIn(PRIMARY_PLAYLIST_ID, desc)
             self.assertIn("https://blobbyworldllc-lab.github.io/agentic-books/", desc)
 
+
+    def test_amazon_outro_asset(self):
+        from pipeline.growth.attach_amazon_outro import OUTRO_VIDEO_PATH, ensure_master_outro
+        outro_path = ensure_master_outro()
+        self.assertTrue(Path(outro_path).exists())
+        self.assertGreater(Path(outro_path).stat().st_size, 100000)
+
 if __name__ == "__main__":
     unittest.main()
