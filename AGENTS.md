@@ -19,13 +19,14 @@ Read `pipeline/AUTOPILOT.md` first: it is the single source of truth for the boo
    - Agents must never generate ad-hoc multiline `python -c "..."` command-line one-liners, which trigger interactive security confirmations for new strings.
    - Instead, write one-off diagnostic or test code directly into `<appDataDir>\brain\<conversation-id>/scratch/` files or use native file tools (`view_file`, `write_to_file`, `replace_file_content`, `list_dir`, `grep_search`) to ensure completely uninterrupted autonomous execution.
 
-4. **Real Moving 3D Character Animation Only (Zero Static Page Exposures)**:
-   - Every promotional video across all channels (YouTube Shorts, Instagram Reels, TikTok, Facebook, Pinterest) MUST feature real moving 3D character animation (e.g. Pip sledding, ice skating, decorating the tree) or active drawing/coloring/printing motion.
-   - Never expose raw static book/coloring pages on screen as video slides.
-   - Every video must conclude with the festive Amazon call-to-action outro card and voiceover: *"Check the description to buy our book on Amazon!"*.
+4. **Universal Dynamic Video Standard (Zero Static Page Exposures & Pure Soothing Music)**:
+   - Every promotional video across all channels (YouTube Shorts, Instagram Reels, TikTok, Facebook, Pinterest) for ANY book must feature real moving 3D character animation or active drawing/coloring/printing motion. Never expose raw static interior book pages on screen as video slides.
+   - The video must seamlessly crossfade (0.5s dissolve) into a dynamic Amazon Call-to-Action Outro card generated dynamically via `pipeline/growth/dynamic_video_engine.py`.
+   - The card dynamically binds to the specific book's ASIN (`amazon.com/dp/{asin}`), Title, Subtitle, Bullet Highlights, and Golden "BUY NOW ON AMAZON" button.
+   - Audio must remain 100% pure, uninterrupted, soothing background music box chimes with ZERO spoken voiceover intrusion (preserving the calm bedtime atmosphere and preventing viewer sales resistance).
 
-5. **Mandatory Amazon Buy Links on ALL Social Posts (Zero Exceptions)**:
-   - Every promotional post across ALL platforms (including Instagram, Threads, Facebook, X, Pinterest, YouTube, TikTok) for ANY book must contain the prominent direct Amazon purchase link in the post description/caption AND a dedicated comment containing the direct Amazon purchase link (`https://www.amazon.com/dp/B0HPZ647J6`).
+5. **Mandatory Dynamic Amazon Buy Links on ALL Social Posts (Zero Exceptions)**:
+   - Every promotional post across ALL platforms (including Instagram, Threads, Facebook, X, Pinterest, YouTube, TikTok) for ANY book must contain the prominent direct Amazon purchase link (`https://www.amazon.com/dp/{asin}`) in the post description/caption AND a dedicated comment containing the direct Amazon purchase link.
 
 6. **Table & Color-Coded Tick Mark Formatting**:
    - Always format explanations, status reports, and execution summaries in structured markdown tables with color-coded tick marks (✅ Green, 🟡 Yellow, ❌ Red) for instant clarity.
