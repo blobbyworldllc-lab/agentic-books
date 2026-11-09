@@ -1,13 +1,8 @@
 """
 Autonomous YouTube OAuth & Comment Poster Runner
-Starts a local OAuth flow on port 8095 for 600s with youtube.force-ssl scope.
-Once approved, updates token.json and automatically posts first comments
-with direct Amazon Prime purchase links to all live YouTube Shorts.
 """
 import os
 import sys
-import webbrowser
-import subprocess
 from pathlib import Path
 from google_auth_oauthlib.flow import InstalledAppFlow
 
@@ -29,27 +24,16 @@ def run_auth_and_post():
 
     flow = InstalledAppFlow.from_client_secrets_file(
         str(CLIENT_SECRETS_FILE),
-        scopes=SCOPES,
-        redirect_uri="http://localhost:8095/"
+        scopes=SCOPES
     )
 
-    auth_url, _ = flow.authorization_url(prompt="consent")
-    print(f"\n[OAUTH] Authorization URL generated:\n{auth_url}\n", flush=True)
-
-    # Launch in default system browser
-    try:
-        os.startfile(auth_url)
-        print("[OAUTH] Launched authorization URL in system browser via ShellExecute.", flush=True)
-    except Exception as e:
-        print(f"[OAUTH] Could not launch browser automatically: {e}", flush=True)
-
-    print("[OAUTH] Waiting for approval on http://localhost:8095/ (timeout: 600s)...", flush=True)
+    print("[OAUTH] Starting local server on http://localhost:8095/ and opening system browser...", flush=True)
     try:
         creds = flow.run_local_server(
             port=8095,
             prompt="consent",
+            open_browser=True,
             timeout_seconds=600,
-            open_browser=False,
             success_message="YouTube comment authorization successful! You can now close this tab."
         )
 
@@ -59,6 +43,7 @@ def run_auth_and_post():
 
         # Automatically post comments to all live shorts
         print("\n[POSTING] Triggering automated comment posting across all live Shorts...", flush=True)
+        sys.path.insert(0, str(REPO_ROOT))
         from pipeline.growth.youtube_comment_poster import post_all_comments
         results = post_all_comments()
         print(f"[COMPLETE] Comment posting results: {results}", flush=True)
