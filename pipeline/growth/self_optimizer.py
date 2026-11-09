@@ -20,6 +20,7 @@ from pipeline.stealth_browser.fb_group_poster import post_to_facebook_group, is_
 from pipeline.stealth_browser.community_distributor import get_next_target_community, record_distribution_event, record_attempt
 from pipeline.stealth_browser.reddit_distributor import post_next_reddit_thread, is_reddit_logged_in
 from pipeline.growth.view_booster import run_view_booster
+from pipeline.growth.amazon_video_promoter import check_listing_visuals
 
 LEARNINGS_FILE = REPO_ROOT / "pipeline" / "growth" / "growth_learnings.json"
 OPTIMIZER_LOG = REPO_ROOT / "pipeline" / "growth" / "self_optimizer.log"
@@ -161,7 +162,14 @@ def run_self_improvement_cycle():
     except Exception as e:
         logging.error(f"View Booster error: {e}")
 
-    # 5. Record Iteration Audit
+    # 5. Autonomous Amazon Listing Video & A+ Content Scan
+    try:
+        amz_status = check_listing_visuals()
+        actions_taken.append(f"Amazon Listing Audit: vids={amz_status.get('video_count', 0)}, aplus={amz_status.get('aplus_live', False)}")
+    except Exception as e:
+        logging.error(f"Amazon listing scan error: {e}")
+
+    # 6. Record Iteration Audit
     iteration_entry = {
         "timestamp": now_iso,
         "diagnosed_bottlenecks": [b["issue"] for b in bottlenecks],
