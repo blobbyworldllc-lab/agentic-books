@@ -120,5 +120,16 @@ class TestStealthDistribution(unittest.TestCase):
             self.assertIn("https://blobbyworldllc-lab.github.io/agentic-books/", target["copy"])
             self.assertIn("https://www.amazon.com/dp/B0HPZ647J6", target["copy"])
 
+
+    def test_view_booster_configuration(self):
+        from pipeline.growth.view_booster import PIP_VIDEOS, build_optimized_description, PRIMARY_PLAYLIST_ID
+        self.assertEqual(len(PIP_VIDEOS), 3)
+        for vid, cfg in PIP_VIDEOS.items():
+            self.assertGreaterEqual(len(cfg["tags"]), 10)
+            desc = build_optimized_description(vid, cfg)
+            self.assertIn("https://www.amazon.com/dp/B0HPZ647J6", desc)
+            self.assertIn(PRIMARY_PLAYLIST_ID, desc)
+            self.assertIn("https://blobbyworldllc-lab.github.io/agentic-books/", desc)
+
 if __name__ == "__main__":
     unittest.main()

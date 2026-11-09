@@ -19,6 +19,7 @@ from pipeline.stealth_browser.pinterest_publisher import publish_pin, check_can_
 from pipeline.stealth_browser.fb_group_poster import post_to_facebook_group, is_facebook_logged_in
 from pipeline.stealth_browser.community_distributor import get_next_target_community, record_distribution_event, record_attempt
 from pipeline.stealth_browser.reddit_distributor import post_next_reddit_thread, is_reddit_logged_in
+from pipeline.growth.view_booster import run_view_booster
 
 LEARNINGS_FILE = REPO_ROOT / "pipeline" / "growth" / "growth_learnings.json"
 OPTIMIZER_LOG = REPO_ROOT / "pipeline" / "growth" / "self_optimizer.log"
@@ -152,12 +153,20 @@ def run_self_improvement_cycle():
     except Exception as e:
         logging.error(f"Reddit distributor error: {e}")
             
-    # 3. Record Iteration Audit
+    # 4. Autonomous YouTube VSEO, Watch Loop & View Acceleration Push
+    try:
+        booster_results = run_view_booster()
+        for b_res in booster_results:
+            actions_taken.append(f"View Booster: {b_res}")
+    except Exception as e:
+        logging.error(f"View Booster error: {e}")
+
+    # 5. Record Iteration Audit
     iteration_entry = {
         "timestamp": now_iso,
         "diagnosed_bottlenecks": [b["issue"] for b in bottlenecks],
         "actions_taken": actions_taken,
-        "next_focus": "Optimize YouTube Shorts metadata for high-intent search queries and distribute free starter PDF to preschool homeschool forums."
+        "next_focus": "Maintain search ranking across playlists, accelerate Pinterest pin indexing, and monitor KDP rank velocity."
     }
     
     learnings["iterations"].append(iteration_entry)
