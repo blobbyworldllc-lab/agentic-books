@@ -51,9 +51,17 @@
           "rating": null,
           "review_count": null,
           "price": 9.99
+        },
+        {
+          "timestamp": "2026-11-10T08:55:38.350093+00:00",
+          "bsr": 226221,
+          "category_ranks": [],
+          "rating": null,
+          "review_count": null,
+          "price": 9.99
         }
       ],
-      "last_checked": "2026-11-06T23:05:39.816147+00:00"
+      "last_checked": "2026-11-10T08:55:38.350093+00:00"
     },
     {
       "slug": "glitch-boy-theme-park-of-doom",
@@ -90,9 +98,22 @@
           "rating": 4.8,
           "review_count": 2529,
           "price": 1.99
+        },
+        {
+          "timestamp": "2026-11-10T08:55:40.128177+00:00",
+          "bsr": null,
+          "category_ranks": [
+            {
+              "category": "Kindle Store",
+              "rank": 2587034
+            }
+          ],
+          "rating": 4.4,
+          "review_count": null,
+          "price": 1.99
         }
       ],
-      "last_checked": "2026-11-06T23:05:41.940318+00:00",
+      "last_checked": "2026-11-10T08:55:40.128177+00:00",
       "active": true
     },
     {
@@ -137,9 +158,22 @@
           "rating": 4.8,
           "review_count": 53,
           "price": 1.99
+        },
+        {
+          "timestamp": "2026-11-10T08:55:41.629684+00:00",
+          "bsr": null,
+          "category_ranks": [
+            {
+              "category": "Kindle Store",
+              "rank": 4712726
+            }
+          ],
+          "rating": null,
+          "review_count": null,
+          "price": 1.99
         }
       ],
-      "last_checked": "2026-11-06T23:05:43.714735+00:00",
+      "last_checked": "2026-11-10T08:55:41.629684+00:00",
       "active": true
     }
   ]
