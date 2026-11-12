@@ -106,6 +106,9 @@ def safe_dispatch_post(token, channel_id, base_text, service, image_url=None, vi
     
     # 3. Code-level content & mandatory Amazon link validation
     validate_post_content(text, service, require_amazon_link=True)
+    if image_url:
+        from pipeline.safety_guard import validate_media_format
+        validate_media_format(image_url, service)
     
     mutation = """mutation CreatePost($input: CreatePostInput!) {
       createPost(input: $input) {

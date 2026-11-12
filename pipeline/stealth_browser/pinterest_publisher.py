@@ -15,65 +15,54 @@ REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 HISTORY_FILE = REPO_ROOT / "pipeline" / "growth" / "pinterest_history.json"
 PROFILE_NAME = "pinterest_profile"
 
+SHORTS_DIR = REPO_ROOT / "Book_1" / "pips-christmas-countdown" / "output" / "marketing" / "shorts"
+
 PIN_CATALOG = [
     {
-        "id": "pin_1_coloring_pages",
-        "image": str(REPO_ROOT / "docs" / "pin_1_coloring_pages.png"),
-        "title": "Free Christmas Countdown Coloring Pages for Kids Ages 3-6 (Printable PDF)",
+        "id": "video_pin_1_sledding",
+        "image": str(SHORTS_DIR / "pip_sledding_amazon_short.mp4"),
+        "title": "Pip Goes Sledding! Cute Christmas Countdown Coloring Adventure (Ages 3-6)",
         "desc": (
-            "Cute penguin Christmas countdown coloring pages for toddlers & preschoolers (ages 3–6)! "
-            "25 nights to Christmas + 25 bonus winter adventures. "
-            "Features 'Find Little Star' seek-and-find game on every single page! "
-            "Download the free 4-page starter pack or order the 110-page paperback on Amazon Prime: "
-            "https://www.amazon.com/dp/B0HPZ647J6"
-        ),
-        "link": "https://www.amazon.com/dp/B0HPZ647J6",
-        "board": "Christmas Coloring Pages for Kids"
-    },
-    {
-        "id": "pin_2_a_plus_module1",
-        "image": str(REPO_ROOT / "Book_1" / "pips-christmas-countdown" / "output" / "marketing" / "a_plus_content" / "a_plus_module1_300x300.png"),
-        "title": "25 Nights Christmas Countdown Coloring Book for Toddlers & Preschoolers",
-        "desc": (
-            "Make December bedtime magical! 25 countdown nights + 25 winter wonderland scenes "
-            "featuring Pip the baby penguin and Biscuit the puppy. Single-sided designs prevent marker bleed! "
+            "Watch Pip the baby penguin zoom through the snow on his winter sled! "
+            "From the 110-page paperback 'Pip's Christmas Countdown' featuring 25 bedtime countdown nights "
+            "and a 'Find Little Star' seek-and-find game on every page. "
             "Available on Amazon Prime: https://www.amazon.com/dp/B0HPZ647J6"
         ),
         "link": "https://www.amazon.com/dp/B0HPZ647J6",
         "board": "Christmas Coloring Pages for Kids"
     },
     {
-        "id": "pin_3_find_little_star",
-        "image": str(REPO_ROOT / "Book_1" / "pips-christmas-countdown" / "output" / "marketing" / "a_plus_content" / "a_plus_module2_300x300.png"),
-        "title": "Find Little Star Game: Christmas Activity & Coloring Book for Toddlers",
+        "id": "video_pin_2_skating",
+        "image": str(SHORTS_DIR / "pip_skating_amazon_short.mp4"),
+        "title": "Pip Goes Ice Skating! Toddler Bedtime Christmas Coloring Book",
         "desc": (
-            "Seek-and-find activity built into every holiday illustration! Kids search for Little Star "
-            "on all 50 full-page coloring designs. Keeps hands busy and screen-free all holiday season! "
-            "Get the paperback on Amazon Prime: https://www.amazon.com/dp/B0HPZ647J6"
-        ),
-        "link": "https://www.amazon.com/dp/B0HPZ647J6",
-        "board": "Christmas Coloring Pages for Kids"
-    },
-    {
-        "id": "pin_4_single_sided_no_bleed",
-        "image": str(REPO_ROOT / "Book_1" / "pips-christmas-countdown" / "output" / "marketing" / "a_plus_content" / "a_plus_module3_300x300.png"),
-        "title": "Single-Sided No Bleed Christmas Coloring Pages for Kids Ages 3-6",
-        "desc": (
-            "Every coloring page has a clean blank reverse page so markers, crayons, and watercolors won't bleed through! "
-            "110 pages of festive holiday fun for preschoolers. "
+            "Pip the little penguin glides across the frozen pond! "
+            "Screen-free bedtime coloring countdown with single-sided pages preventing marker bleed. "
             "Order on Amazon Prime: https://www.amazon.com/dp/B0HPZ647J6"
         ),
         "link": "https://www.amazon.com/dp/B0HPZ647J6",
         "board": "Christmas Coloring Pages for Kids"
     },
     {
-        "id": "pin_5_banner_countdown",
-        "image": str(REPO_ROOT / "Book_1" / "pips-christmas-countdown" / "output" / "marketing" / "a_plus_content" / "a_plus_banner_970x600.png"),
-        "title": "Pip's Christmas Countdown: Complete 50-Design Holiday Coloring Adventure",
+        "id": "video_pin_3_tree",
+        "image": str(SHORTS_DIR / "pip_tree_amazon_short.mp4"),
+        "title": "Pip Decorates the Tree! 25-Night Christmas Countdown for Toddlers",
         "desc": (
-            "The ultimate December countdown tradition for toddlers and preschoolers (ages 3–6). "
-            "Featuring Pip the baby penguin! Get the 110-page paperback with fast Prime shipping: "
-            "https://www.amazon.com/dp/B0HPZ647J6"
+            "Pip decorates the holiday Christmas tree with sparkling ornaments! "
+            "Complete 50-design coloring adventure with seek-and-find star game for ages 3-6. "
+            "Available on Amazon Prime: https://www.amazon.com/dp/B0HPZ647J6"
+        ),
+        "link": "https://www.amazon.com/dp/B0HPZ647J6",
+        "board": "Christmas Coloring Pages for Kids"
+    },
+    {
+        "id": "video_pin_4_snowflake",
+        "image": str(SHORTS_DIR / "pip_3d_coloring_amazon_pure_soothing.mp4"),
+        "title": "Soothing Christmas Coloring: Pip's Winter Wonderland Activity Book",
+        "desc": (
+            "Peaceful, soothing bedtime coloring with pure music box chimes. "
+            "Give the gift of creative, screen-free holiday joy for toddlers and preschoolers! "
+            "Get the paperback on Amazon Prime: https://www.amazon.com/dp/B0HPZ647J6"
         ),
         "link": "https://www.amazon.com/dp/B0HPZ647J6",
         "board": "Christmas Coloring Pages for Kids"
@@ -104,10 +93,7 @@ def get_next_pin_to_publish():
     for item in PIN_CATALOG:
         if item["id"] not in published_ids and os.path.exists(item["image"]):
             return item
-    # If all published, return first valid item for scheduled rotation
-    for item in PIN_CATALOG:
-        if os.path.exists(item["image"]):
-            return item
+    # If all published, do NOT repeat/repost duplicates
     return None
 
 def publish_pin(pin_data=None, headless=True):
