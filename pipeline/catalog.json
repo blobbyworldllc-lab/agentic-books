@@ -59,9 +59,17 @@
           "rating": null,
           "review_count": null,
           "price": 9.99
+        },
+        {
+          "timestamp": "2026-11-12T08:56:29.741113+00:00",
+          "bsr": null,
+          "category_ranks": [],
+          "rating": 5.0,
+          "review_count": null,
+          "price": 9.99
         }
       ],
-      "last_checked": "2026-11-10T08:55:38.350093+00:00"
+      "last_checked": "2026-11-12T08:56:29.741113+00:00"
     },
     {
       "slug": "glitch-boy-theme-park-of-doom",
