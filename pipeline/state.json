@@ -2,8 +2,8 @@
   "stage": 4,
   "stage_name": "build",
   "current_book": "Book_2/bug-safari-mazes",
-  "last_run": "2026-11-07",
-  "notes": "Book 1 LIVE on Amazon (ASIN B0HPZ647J6, verified 2026-11-01, 0 reviews). Claude work window: Fri 6pm ET to Sat 11:59pm ET only. Pending for Book 1: update scheduled YouTube Short descriptions (Days 2-25) to the ASIN link; pre-schedule Pinterest/IG/FB posts in the next window. First new cycle starts Fri 2026-11-06 6:07pm ET. 2026-11-07: Friday research run never started; Sat run built Book_2 puzzle interior (94pp, 80 verified mazes). Next: cover, listing, gate, KDP. Cover (spine 0.212in) and kdp_listing.md drafted; remaining all need Chrome. 2026-11-07 ~4pm ET run: still no Claude in Chrome tools; nothing advanced.",
+  "last_run": "2026-11-14",
+  "notes": "Book 1 LIVE on Amazon (ASIN B0HPZ647J6, verified 2026-11-01, 0 reviews). Claude work window: Fri 6pm ET to Sat 11:59pm ET only. Pending for Book 1: update scheduled YouTube Short descriptions (Days 2-25) to the ASIN link; pre-schedule Pinterest/IG/FB posts in the next window. First new cycle starts Fri 2026-11-06 6:07pm ET. 2026-11-07: Friday research run never started; Sat run built Book_2 puzzle interior (94pp, 80 verified mazes). Next: cover, listing, gate, KDP. Cover (spine 0.212in) and kdp_listing.md drafted; remaining all need Chrome. 2026-11-07 ~4pm ET run: still no Claude in Chrome tools; nothing advanced. 2026-11-14 Sat run: no Claude in Chrome tools again; nothing advanced.",
   "blockers": [
     "Claude in Chrome not connected in cloud run: Amazon/USPTO gate checks, KDP upload/submit and marketing scheduling need Chrome."
   ],
