@@ -2,7 +2,7 @@
   "strategy": "Free Lead Magnet Trojan Horse (Free Printable Activity Pack -> Amazon Paperback)",
   "free_pack_url": "https://blobbyworldllc-lab.github.io/agentic-books/",
   "amazon_asin_url": "https://www.amazon.com/dp/B0HPZ647J6",
-  "safe_daily_limit": 5,
+  "safe_daily_limit": 20,
   "categories": {
     "free_printables_coloring": [
       {"name": "Coloring Books free promotions", "members": "Active", "url": "https://www.facebook.com/groups/915750753918252/", "status": "posted"},

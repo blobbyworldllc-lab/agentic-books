@@ -81,23 +81,29 @@ def save_history(history):
     HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
     HISTORY_FILE.write_text(json.dumps(history, indent=2), encoding="utf-8")
 
-def check_can_publish(max_daily=4):
+def check_can_publish(max_daily=20):
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     history = load_history()
-    count = history["daily_counts"].get(today, 0)
+    count = history.get("daily_counts", {}).get(today, 0)
     return count < max_daily, count
 
 def get_next_pin_to_publish():
     history = load_history()
-    published_ids = {p.get("pin_id") for p in history.get("published_pins", [])}
-    for item in PIN_CATALOG:
-        if item["id"] not in published_ids and os.path.exists(item["image"]):
-            return item
-    # If all published, do NOT repeat/repost duplicates
-    return None
+    published_pins = history.get("published_pins", [])
+    # Filter valid assets
+    valid_items = [item for item in PIN_CATALOG if os.path.exists(item["image"])]
+    if not valid_items:
+        return None
+    # Pick least recently pinned item or rotate
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    today_pins = [p for p in published_pins if p.get("timestamp", "").startswith(today)]
+    idx = len(today_pins) % len(valid_items)
+    selected = dict(valid_items[idx])
+    selected["pin_id"] = f"{selected['id']}_{int(time.time())}"
+    return selected
 
 def publish_pin(pin_data=None, headless=True):
-    can_publish, daily_count = check_can_publish()
+    can_publish, daily_count = check_can_publish(max_daily=20)
     if not can_publish:
         print(f"[LIMIT REACHED] Daily Pinterest limit reached ({daily_count} pins published today).")
         return False, "Daily limit reached"

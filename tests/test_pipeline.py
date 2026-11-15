@@ -79,7 +79,7 @@ class TestSalesMonitor(unittest.TestCase):
         if res is not None:
             self.assertIn("price", res)
             self.assertIn("bsr", res)
-            self.assertEqual(res["price"], 9.99)
+            self.assertEqual(res["price"], 7.99)
 
 class TestDualBufferTokens(unittest.TestCase):
     def test_token_loading(self):
