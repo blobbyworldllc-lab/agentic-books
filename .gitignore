@@ -10,5 +10,6 @@ pipeline/social/buffer_token.json
 pipeline/social/fb_config.json
 pipeline/browser_profiles/
 pipeline/growth/community_history.json
+pipeline/social/video_syndication_history.json
 .venv/
 env/

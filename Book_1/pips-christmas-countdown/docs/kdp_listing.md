@@ -30,4 +30,4 @@ Categories: Juvenile Nonfiction > Activity Books > Coloring; Juvenile Fiction > 
 Reading age 3-6. Not low-content (has story text). Adult content: No.
 AI disclosure: Text = AI-generated (Claude), images = AI-generated (Google Gemini), cover = AI-generated art (Google Gemini).
 Print: Black & white interior, white paper, 8.5 x 11, no bleed, matte cover. 110 pages.
-Price: $9.99 USD (Amazon.com), other marketplaces auto from USD.
+Price: $7.99 USD (Amazon.com), other marketplaces auto from USD. Royalty: $1.13/copy (50% tier).
