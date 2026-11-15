@@ -1,0 +1,17 @@
+[Unit]
+Description=Agentic Books Autonomous Stealth Community & Pinterest Distributor
+After=network.target
+
+[Service]
+Type=simple
+User=%USER%
+WorkingDirectory=%PROJECT_DIR%
+Environment=PYTHONUNBUFFERED=1
+ExecStart=%PROJECT_DIR%/.venv/bin/python %PROJECT_DIR%/pipeline/stealth_browser/stealth_daemon.py --min-gap-minutes 5.0 --max-gap-minutes 20.0
+Restart=always
+RestartSec=30
+StandardOutput=append:%PROJECT_DIR%/pipeline/growth/stealth_daemon.log
+StandardError=append:%PROJECT_DIR%/pipeline/growth/stealth_daemon.log
+
+[Install]
+WantedBy=multi-user.target

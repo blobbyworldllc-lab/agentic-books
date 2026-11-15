@@ -1,7 +1,7 @@
 """
 Stealth Facebook Group Publisher
-Handles automated navigation, membership verification, and slow-paced human posting
-into targeted parenting and homeschool Facebook communities.
+Handles automated navigation, membership verification, authentic member karma warmup,
+and slow-paced human posting into targeted parenting and homeschool Facebook communities.
 """
 import json
 import logging
@@ -10,10 +10,13 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 from .stealth_engine import StealthBrowserEngine, human_delay, human_type, human_click
+from .community_warmup_engine import handle_group_screening_questions, warm_up_community_karma
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 HISTORY_FILE = REPO_ROOT / "pipeline" / "growth" / "community_history.json"
 PROFILE_NAME = "facebook_profile"
+
+LOGGER = logging.getLogger(__name__)
 
 def is_facebook_logged_in(headless=True):
     """Verifies whether the persistent Facebook browser profile is actively authenticated."""
@@ -21,15 +24,13 @@ def is_facebook_logged_in(headless=True):
         page = engine.page
         page.goto("https://www.facebook.com", wait_until="domcontentloaded", timeout=25000)
         human_delay(2.0, 3.5)
-        
-        # If email input or login button is prominent, not logged in
         has_login = page.locator('input[name="email"], input[id="email"]').count() > 0
         return not has_login
 
-def post_to_facebook_group(group_url, copy_text, group_name="Unknown Group", headless=True):
+def post_to_facebook_group(group_url, copy_text, group_name="Unknown Group", headless=True, warm_up=True):
     """
-    Navigates to Facebook group, checks membership/posting box, types with human delays,
-    and publishes the discussion post.
+    Navigates to Facebook group, checks membership, warms up member karma (likes/comments),
+    types with human delays, and publishes the community post.
     """
     print(f"[START] Navigating to Facebook Group: {group_name} ({group_url})...")
     with StealthBrowserEngine(profile_name=PROFILE_NAME, headless=headless) as engine:
@@ -47,6 +48,14 @@ def post_to_facebook_group(group_url, copy_text, group_name="Unknown Group", hea
         if join_btn.count() > 0:
             print("[INFO] Clicking Join group button...")
             join_btn.first.click()
+            human_delay(2.0, 3.5)
+            # Answer any screening questions / rules agreements autonomously
+            handle_group_screening_questions(page)
+            human_delay(2.0, 4.0)
+
+        # Build legitimate member footprint (Likes & supportive comment) before opening composer
+        if warm_up:
+            warm_up_community_karma(page, max_likes=2, leave_comment=True)
             human_delay(2.0, 4.0)
             
         # Locate post composer
@@ -54,12 +63,12 @@ def post_to_facebook_group(group_url, copy_text, group_name="Unknown Group", hea
             '[aria-label*="Write something"], [aria-label*="Create a public post"], div[role="button"]:has-text("Write something...")'
         )
         if composer.count() == 0:
-            print("[NOTICE] Composer not immediately visible (group may require admin approval or manual answer questions).")
+            print("[NOTICE] Composer not immediately visible (group may require pending admin approval).")
             return False, "Composer not accessible"
             
         print("[OK] Opening post composer modal...")
         composer.first.click()
-        human_delay(2.0, 3.5)
+        human_delay(2.5, 4.0)
         
         # Active text area (scope to modal dialog if present to avoid background comments)
         dialog = page.locator('div[role="dialog"]')
@@ -72,7 +81,7 @@ def post_to_facebook_group(group_url, copy_text, group_name="Unknown Group", hea
 
         print("[OK] Human-typing promotional copy into modal...")
         human_type(page, target_input, copy_text)
-        human_delay(2.5, 4.0)
+        human_delay(2.5, 4.5)
         
         # Post button
         post_btn = page.locator(target_btn)
@@ -80,7 +89,7 @@ def post_to_facebook_group(group_url, copy_text, group_name="Unknown Group", hea
             print("[OK] Submitting post to group...")
             post_btn.first.click()
             human_delay(6.0, 9.0)
-            print(f"[SUCCESS] Successfully published live post to {group_name}!")
+            print(f"[SUCCESS] Successfully published live post to {group_name} with authentic member history!")
             return True, "Published"
                 
         return False, "Post button not found"
