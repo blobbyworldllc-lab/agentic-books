@@ -84,61 +84,72 @@ def create_banner():
     bg.save(out_file, quality=95)
     print(f"Created banner: {out_file}")
 
+FRAMES_DIR = BOOK_DIR / "output" / "marketing" / "3d_frames"
+
+def build_3d_card(src_path, out_file, banner_text, crop_box=(60, 480, 1020, 1440)):
+    im = Image.open(src_path)
+    cropped = im.crop(crop_box)
+    resized = cropped.resize((300, 300), Image.Resampling.LANCZOS)
+    draw = ImageDraw.Draw(resized)
+    banner_h = 44
+    draw.rectangle([0, 300 - banner_h, 300, 300], fill=(11, 37, 69))
+    draw.line([0, 300 - banner_h, 300, 300 - banner_h], fill="#FFD166", width=2)
+    font = get_font(15)
+    bbox = font.getbbox(banner_text)
+    tw = bbox[2] - bbox[0]
+    draw.text(((300 - tw) // 2, 300 - banner_h + 12), banner_text, font=font, fill="#FFFFFF")
+    draw.rectangle([0, 0, 299, 299], outline="#0b2545", width=2)
+    resized.save(out_file, quality=95)
+
 def create_module_1():
-    # 300 x 300 px: Story & Countdown
-    W, H = 300, 300
-    im = Image.new("RGB", (W, H), "#134e4a")
-    draw = ImageDraw.Draw(im)
-    
-    if PAGE_01.exists():
-        p1 = Image.open(PAGE_01).convert("L")
-        p1_thumb = p1.resize((180, 200), Image.Resampling.LANCZOS)
-        im.paste(p1_thumb, (60, 20))
-        
-    draw.rectangle([0, 240, W, H], fill="#0f766e")
-    font = get_font(18)
-    draw.text((25, 255), "25 NIGHTS TO CHRISTMAS", font=font, fill="#FFFFFF")
-    
     out_file = OUT_DIR / "a_plus_module1_300x300.png"
-    im.save(out_file, quality=95)
+    sled_frame = FRAMES_DIR / "sledding_t2s.png"
+    if sled_frame.exists():
+        build_3d_card(sled_frame, out_file, "25 NIGHTS OF ADVENTURE")
+    else:
+        W, H = 300, 300
+        im = Image.new("RGB", (W, H), "#134e4a")
+        draw = ImageDraw.Draw(im)
+        if PAGE_01.exists():
+            p1 = Image.open(PAGE_01).convert("L")
+            im.paste(p1.resize((180, 200), Image.Resampling.LANCZOS), (60, 20))
+        draw.rectangle([0, 240, W, H], fill="#0f766e")
+        draw.text((25, 255), "25 NIGHTS TO CHRISTMAS", font=get_font(18), fill="#FFFFFF")
+        im.save(out_file, quality=95)
     print(f"Created module 1: {out_file}")
 
 def create_module_2():
-    # 300 x 300 px: Find Little Star Game
-    W, H = 300, 300
-    im = Image.new("RGB", (W, H), "#831843")
-    draw = ImageDraw.Draw(im)
-    
-    if PAGE_25.exists():
-        p25 = Image.open(PAGE_25).convert("L")
-        p25_thumb = p25.resize((180, 200), Image.Resampling.LANCZOS)
-        im.paste(p25_thumb, (60, 20))
-        
-    draw.rectangle([0, 240, W, H], fill="#be185d")
-    font = get_font(18)
-    draw.text((20, 255), "FIND LITTLE STAR GAME", font=font, fill="#FFFFFF")
-    
     out_file = OUT_DIR / "a_plus_module2_300x300.png"
-    im.save(out_file, quality=95)
+    skate_frame = FRAMES_DIR / "skating_t2s.png"
+    if skate_frame.exists():
+        build_3d_card(skate_frame, out_file, "SCREEN-FREE BEDTIME MAGIC")
+    else:
+        W, H = 300, 300
+        im = Image.new("RGB", (W, H), "#831843")
+        draw = ImageDraw.Draw(im)
+        if PAGE_25.exists():
+            p25 = Image.open(PAGE_25).convert("L")
+            im.paste(p25.resize((180, 200), Image.Resampling.LANCZOS), (60, 20))
+        draw.rectangle([0, 240, W, H], fill="#be185d")
+        draw.text((20, 255), "FIND LITTLE STAR GAME", font=get_font(18), fill="#FFFFFF")
+        im.save(out_file, quality=95)
     print(f"Created module 2: {out_file}")
 
 def create_module_3():
-    # 300 x 300 px: Single Sided Quality
-    W, H = 300, 300
-    im = Image.new("RGB", (W, H), "#1e293b")
-    draw = ImageDraw.Draw(im)
-    
-    if PAGE_07.exists():
-        p7 = Image.open(PAGE_07).convert("L")
-        p7_thumb = p7.resize((180, 200), Image.Resampling.LANCZOS)
-        im.paste(p7_thumb, (60, 20))
-        
-    draw.rectangle([0, 240, W, H], fill="#334155")
-    font = get_font(18)
-    draw.text((25, 255), "SINGLE-SIDED NO BLEED", font=font, fill="#FFFFFF")
-    
     out_file = OUT_DIR / "a_plus_module3_300x300.png"
-    im.save(out_file, quality=95)
+    tree_frame = FRAMES_DIR / "tree_t2s.png"
+    if tree_frame.exists():
+        build_3d_card(tree_frame, out_file, "FIND LITTLE STAR GAME")
+    else:
+        W, H = 300, 300
+        im = Image.new("RGB", (W, H), "#1e293b")
+        draw = ImageDraw.Draw(im)
+        if PAGE_07.exists():
+            p7 = Image.open(PAGE_07).convert("L")
+            im.paste(p7.resize((180, 200), Image.Resampling.LANCZOS), (60, 20))
+        draw.rectangle([0, 240, W, H], fill="#334155")
+        draw.text((25, 255), "SINGLE-SIDED NO BLEED", font=get_font(18), fill="#FFFFFF")
+        im.save(out_file, quality=95)
     print(f"Created module 3: {out_file}")
 
 def generate_manifest():
