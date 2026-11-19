@@ -27,13 +27,13 @@
 * **Image 1 (Column 1):** `a_plus_module1_300x300.png` *(or `a_plus_module1_600x600.png`)*
   - **Alt Text:** `Pip the baby penguin joyfully riding a red holiday sled with golden bells down a snowy hill`
   - **Headline:** `25 Nights of Adventure`
-  - **Body Text:** Follow Pip the penguin across 25 nightly adventures as he sleds, bakes cookies, and counts down to Christmas.
+  - **Body Text:** Follow Pip the penguin across 25 nightly adventures as he sleds and counts down to Christmas.
 * **Image 2 (Column 2):** `a_plus_module2_300x300.png` *(or `a_plus_module2_600x600.png`)*
   - **Alt Text:** `Pip the baby penguin ice skating across a glowing frozen pond under twilight fairy lights`
   - **Headline:** `Screen-Free Bedtime Magic`
   - **Body Text:** Gentle rhyming stories and soothing holiday scenes designed specifically for calming evening wind-downs.
-* **Image 3 (Column 3):** `a_plus_module3_300x300.png` *(or `a_plus_module3_600x600.png`)*
-  - **Alt Text:** `Pip the baby penguin sitting by a glowing Christmas tree with presents as Little Star floats happily`
+* **Image 3 (Column 3):** `a_plus_module3_linart_findstar_300x300.png` *(or `a_plus_module3_linart_findstar_600x600.png`)*
+  - **Alt Text:** `Black and white interior coloring page of Pip by the Christmas tree with the hidden Little Star seek-and-find game`
   - **Headline:** `Find Little Star Game`
   - **Body Text:** A smiling star hides on every page. Builds observational focus and visual tracking before bed.
 
