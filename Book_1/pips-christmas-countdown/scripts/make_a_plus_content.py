@@ -25,47 +25,60 @@ def get_font(size):
             pass
     return ImageFont.load_default()
 
+import math
+
+def draw_star(draw, x, y, r=7, fill="#FFD166"):
+    points = []
+    for i in range(10):
+        radius = r if i % 2 == 0 else r * 0.45
+        angle = i * math.pi / 5 - math.pi / 2
+        px = x + radius * math.cos(angle)
+        py = y + radius * math.sin(angle)
+        points.append((px, py))
+    draw.polygon(points, fill=fill)
+
 def create_banner():
     # 970 x 600 px banner (Standard Single Image)
     W, H = 970, 600
     bg = Image.new("RGB", (W, H), "#0b2545")
     draw = ImageDraw.Draw(bg)
     
-    # Left side: Cover art preview
+    # Left side: Cover art preview with crisp white card border
     if ART_COVER.exists():
         cover = Image.open(ART_COVER).convert("RGB")
-        cover_w = int(H * 0.85 * (cover.width / cover.height))
-        cover_h = int(H * 0.85)
+        cover_h = int(H * 0.86)
+        cover_w = int(cover_h * (cover.width / cover.height))
         cover_resized = cover.resize((cover_w, cover_h), Image.Resampling.LANCZOS)
         
-        # Paste cover with slight border
-        pos_x = 50
+        pos_x = 45
         pos_y = (H - cover_h) // 2
+        draw.rounded_rectangle([pos_x - 4, pos_y - 4, pos_x + cover_w + 4, pos_y + cover_h + 4], radius=10, fill="#FFFFFF")
         bg.paste(cover_resized, (pos_x, pos_y))
     
     # Right side: Text details
-    font_title = get_font(44)
-    font_sub = get_font(26)
-    font_body = get_font(20)
+    font_title = get_font(32)
+    font_sub = get_font(22)
+    font_body = get_font(18)
     
-    text_x = 480
-    draw.text((text_x, 90), "PIP'S CHRISTMAS COUNTDOWN", font=font_title, fill="#FFD166")
-    draw.text((text_x, 155), "A Story Coloring Book for Ages 3–6", font=font_sub, fill="#FFFFFF")
+    text_x = 460
+    draw.text((text_x, 65), "PIP'S CHRISTMAS COUNTDOWN", font=font_title, fill="#FFD166")
+    draw.text((text_x, 115), "A Story Coloring Book for Ages 3–6", font=font_sub, fill="#FFFFFF")
     
     bullets = [
-        "✨ 25 Nights to Christmas + 25 Bonus Winter Adventures",
-        "⭐ 'Can You Find Little Star?' Hidden Game on Every Page",
-        "📖 Gentle 2-Line Rhyming Read-Aloud on Every Night",
-        "🖍️ Big, Bold Outlines Engineered for Toddler Hands",
-        "📄 Single-Sided Pages — Never Bleeds Through to Next Art",
-        "🎁 Free 25-Star Countdown Tracker + Certificate Inside",
-        "📍 Designed with Love in Tampa, FL by Blobby World"
+        "25 Nights to Christmas + 25 Bonus Winter Adventures",
+        "Hidden 'Find Little Star' Game on Every Page",
+        "Gentle 2-Line Rhyming Read-Aloud on Every Night",
+        "Big, Bold Outlines Engineered for Toddler Hands",
+        "Single-Sided Pages — Never Bleeds Through",
+        "Free 25-Star Countdown Tracker + Certificate Inside",
+        "Designed with Love in Tampa, FL by Blobby World"
     ]
     
-    curr_y = 220
+    curr_y = 175
     for b in bullets:
-        draw.text((text_x, curr_y), b, font=font_body, fill="#E0F2FE")
-        curr_y += 45
+        draw_star(draw, text_x + 10, curr_y + 11, r=7, fill="#FFD166")
+        draw.text((text_x + 28, curr_y), b, font=font_body, fill="#E0F2FE")
+        curr_y += 48
         
     out_file = OUT_DIR / "a_plus_banner_970x600.png"
     bg.save(out_file, quality=95)
