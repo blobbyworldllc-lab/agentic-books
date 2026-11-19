@@ -103,53 +103,68 @@ def build_3d_card(src_path, out_file, banner_text, crop_box=(60, 480, 1020, 1440
 
 def create_module_1():
     out_file = OUT_DIR / "a_plus_module1_300x300.png"
-    sled_frame = FRAMES_DIR / "sledding_t2s.png"
-    if sled_frame.exists():
-        build_3d_card(sled_frame, out_file, "25 NIGHTS OF ADVENTURE")
+    master = OUT_DIR / "a_plus_module1_3d_sledding_fullres.jpg"
+    if master.exists():
+        im = Image.open(master).convert("RGB")
+        im.resize((300, 300), Image.Resampling.LANCZOS).save(out_file, quality=95)
     else:
-        W, H = 300, 300
-        im = Image.new("RGB", (W, H), "#134e4a")
-        draw = ImageDraw.Draw(im)
-        if PAGE_01.exists():
-            p1 = Image.open(PAGE_01).convert("L")
-            im.paste(p1.resize((180, 200), Image.Resampling.LANCZOS), (60, 20))
-        draw.rectangle([0, 240, W, H], fill="#0f766e")
-        draw.text((25, 255), "25 NIGHTS TO CHRISTMAS", font=get_font(18), fill="#FFFFFF")
-        im.save(out_file, quality=95)
+        sled_frame = FRAMES_DIR / "sledding_t2s.png"
+        if sled_frame.exists():
+            build_3d_card(sled_frame, out_file, "25 NIGHTS OF ADVENTURE")
+        else:
+            W, H = 300, 300
+            im = Image.new("RGB", (W, H), "#134e4a")
+            draw = ImageDraw.Draw(im)
+            if PAGE_01.exists():
+                p1 = Image.open(PAGE_01).convert("L")
+                im.paste(p1.resize((180, 200), Image.Resampling.LANCZOS), (60, 20))
+            draw.rectangle([0, 240, W, H], fill="#0f766e")
+            draw.text((25, 255), "25 NIGHTS TO CHRISTMAS", font=get_font(18), fill="#FFFFFF")
+            im.save(out_file, quality=95)
     print(f"Created module 1: {out_file}")
 
 def create_module_2():
     out_file = OUT_DIR / "a_plus_module2_300x300.png"
-    skate_frame = FRAMES_DIR / "skating_t2s.png"
-    if skate_frame.exists():
-        build_3d_card(skate_frame, out_file, "SCREEN-FREE BEDTIME MAGIC")
+    master = OUT_DIR / "a_plus_module2_3d_skating_fullres.jpg"
+    if master.exists():
+        im = Image.open(master).convert("RGB")
+        im.resize((300, 300), Image.Resampling.LANCZOS).save(out_file, quality=95)
     else:
-        W, H = 300, 300
-        im = Image.new("RGB", (W, H), "#831843")
-        draw = ImageDraw.Draw(im)
-        if PAGE_25.exists():
-            p25 = Image.open(PAGE_25).convert("L")
-            im.paste(p25.resize((180, 200), Image.Resampling.LANCZOS), (60, 20))
-        draw.rectangle([0, 240, W, H], fill="#be185d")
-        draw.text((20, 255), "FIND LITTLE STAR GAME", font=get_font(18), fill="#FFFFFF")
-        im.save(out_file, quality=95)
+        skate_frame = FRAMES_DIR / "skating_t2s.png"
+        if skate_frame.exists():
+            build_3d_card(skate_frame, out_file, "SCREEN-FREE BEDTIME MAGIC")
+        else:
+            W, H = 300, 300
+            im = Image.new("RGB", (W, H), "#831843")
+            draw = ImageDraw.Draw(im)
+            if PAGE_25.exists():
+                p25 = Image.open(PAGE_25).convert("L")
+                im.paste(p25.resize((180, 200), Image.Resampling.LANCZOS), (60, 20))
+            draw.rectangle([0, 240, W, H], fill="#be185d")
+            draw.text((20, 255), "FIND LITTLE STAR GAME", font=get_font(18), fill="#FFFFFF")
+            im.save(out_file, quality=95)
     print(f"Created module 2: {out_file}")
 
 def create_module_3():
     out_file = OUT_DIR / "a_plus_module3_300x300.png"
-    tree_frame = FRAMES_DIR / "tree_t2s.png"
-    if tree_frame.exists():
-        build_3d_card(tree_frame, out_file, "FIND LITTLE STAR GAME")
+    master = OUT_DIR / "a_plus_module3_3d_tree_star_fullres.jpg"
+    if master.exists():
+        im = Image.open(master).convert("RGB")
+        im.resize((300, 300), Image.Resampling.LANCZOS).save(out_file, quality=95)
     else:
-        W, H = 300, 300
-        im = Image.new("RGB", (W, H), "#1e293b")
-        draw = ImageDraw.Draw(im)
-        if PAGE_07.exists():
-            p7 = Image.open(PAGE_07).convert("L")
-            im.paste(p7.resize((180, 200), Image.Resampling.LANCZOS), (60, 20))
-        draw.rectangle([0, 240, W, H], fill="#334155")
-        draw.text((25, 255), "SINGLE-SIDED NO BLEED", font=get_font(18), fill="#FFFFFF")
-        im.save(out_file, quality=95)
+        tree_frame = FRAMES_DIR / "tree_t2s.png"
+        if tree_frame.exists():
+            build_3d_card(tree_frame, out_file, "FIND LITTLE STAR GAME")
+        else:
+            W, H = 300, 300
+            im = Image.new("RGB", (W, H), "#1e293b")
+            draw = ImageDraw.Draw(im)
+            if PAGE_07.exists():
+                p7 = Image.open(PAGE_07).convert("L")
+                im.paste(p7.resize((180, 200), Image.Resampling.LANCZOS), (60, 20))
+            draw.rectangle([0, 240, W, H], fill="#334155")
+            draw.text((25, 255), "SINGLE-SIDED NO BLEED", font=get_font(18), fill="#FFFFFF")
+            im.save(out_file, quality=95)
     print(f"Created module 3: {out_file}")
 
 def generate_manifest():
@@ -178,15 +193,18 @@ def generate_manifest():
 ---
 
 ### Module 2: Standard 3 Images & Text
-* **Image 1:** `a_plus_module1_300x300.png`
-  - **Headline:** `25 Nights to Christmas`
-  - **Body:** Follow Pip the penguin across 25 nightly adventures as he prepares for Christmas morning.
-* **Image 2:** `a_plus_module2_300x300.png`
-  - **Headline:** `Hidden Little Star Game`
-  - **Body:** A smiling star hides on every page. Builds observational skills and visual tracking before bed.
-* **Image 3:** `a_plus_module3_300x300.png`
-  - **Headline:** `Zero Marker Bleed-Through`
-  - **Body:** All 50 designs are printed single-sided on high-quality white paper with clean blank backs.
+* **Image 1 (Column 1):** `a_plus_module1_300x300.png`
+  - **Alt Text:** `Pip the baby penguin joyfully riding a red holiday sled with golden bells down a snowy hill`
+  - **Headline:** `25 Nights of Adventure`
+  - **Body:** Follow Pip the penguin across 25 nightly adventures as he sleds, bakes cookies, and counts down to Christmas.
+* **Image 2 (Column 2):** `a_plus_module2_300x300.png`
+  - **Alt Text:** `Pip the baby penguin ice skating across a glowing frozen pond under twilight fairy lights`
+  - **Headline:** `Screen-Free Bedtime Magic`
+  - **Body:** Gentle rhyming stories and soothing holiday scenes designed specifically for calming evening wind-downs.
+* **Image 3 (Column 3):** `a_plus_module3_300x300.png`
+  - **Alt Text:** `Pip the baby penguin sitting by a glowing Christmas tree with presents as Little Star floats happily`
+  - **Headline:** `Find Little Star Game`
+  - **Body:** A smiling star hides on every page. Builds observational focus and visual tracking before bed.
 
 ---
 
