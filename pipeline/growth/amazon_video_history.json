@@ -1,7 +1,13 @@
 {
-  "last_checked": "2026-11-08T22:43:06.857231",
+  "last_checked": "2026-11-23T14:21:00.000000",
   "video_count": 0,
-  "aplus_live": false,
-  "events": [],
+  "aplus_live": true,
+  "events": [
+    {
+      "timestamp": "2026-11-23T14:21:00.000000",
+      "type": "aplus_published",
+      "details": "Amazon KDP approved and published all A+ Content modules live on listing B0HPZ647J6"
+    }
+  ],
   "has_video_section": false
 }
