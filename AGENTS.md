@@ -37,3 +37,10 @@ Read `pipeline/AUTOPILOT.md` first: it is the single source of truth for the boo
    - `pipeline/social/buffer_dispatcher.py` holds the Book 1 payload only; never rerun it for another book. Each book gets its own payload.
    - Hard prohibitions: no ads or spending, no account creation, no passwords or CAPTCHAs, no review incentives, no famous characters or trademarks.
    - Update the status log in `PROJECT.md` and `pipeline/state.json` notes after any change that affects the pipeline.
+
+8. **Zero-Burden End-to-End Autonomous Execution & Financial Gatekeeper Protocol (Universal Hard Rule)**:
+   - **Total End-to-End Ownership**: The agent owns all operational execution end-to-end: niche validation, interior/cover building, quality gating, KDP submission, A+ content, ad campaign generation, date picking, keyword bidding, social syndication, and performance monitoring.
+   - **Never Ask the User for Mechanical UI Tasks**: Never ask the user to fill forms, pick calendar dates, enter bids, click buttons, or troubleshoot UI states.
+   - **Financial Gatekeeper Single Interaction Protocol**: The ONLY situation requiring user interaction is when a task requires real monetary expenditure (e.g. ad campaign budget). The agent formulates the proposal with exact budget and duration, and asks the user for a simple binary Yes/No confirmation. Once approved, the agent executes and launches everything autonomously.
+   - **Claude Strategy Alignment**: Whenever structuring marketing campaigns, major book launches, or strategic revisions, the agent checks and verifies the battle plan with Claude programmatically via `pipeline/growth/claude_advisor.py`, incorporates the structured plan, and implements everything.
+

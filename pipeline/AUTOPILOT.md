@@ -1,6 +1,13 @@
 # Blobby World Book Autopilot (source of truth for every scheduled run)
 
-Owner: Vijay (Bizatree LLC, pen name Blobby World Official). Standing instruction from Vijay (2026-11-01): the whole loop is automated: research -> pick a safe book -> build -> publish on KDP -> run all marketing -> monitor every launched book and improve sales. Publishing and marketing posts are pre-authorized by that instruction, but ONLY when every gate below passes. Fail closed: if any gate is unclear, do not publish; record the blocker and notify.
+Owner: Vijay (Bizatree LLC, pen name Blobby World Official). Standing instruction from Vijay (2026-11-01 / updated 2026-11-26): the whole loop is automated: research -> pick a safe book -> build -> publish on KDP -> run all marketing -> monitor every launched book and improve sales. Publishing and marketing posts are pre-authorized by that instruction, but ONLY when every gate below passes. Fail closed: if any gate is unclear, do not publish; record the blocker and notify.
+
+## ZERO-BURDEN AUTONOMOUS EXECUTION & FINANCIAL GATEKEEPER (Universal Hard Rule)
+1. **Total End-to-End Ownership**: The agent owns all operational execution end-to-end: niche validation, interior/cover building, quality gating, KDP submission, A+ content, ad campaign generation, date picking, keyword bidding, social syndication, and performance monitoring.
+2. **Never Burden the User with UI Tasks**: Never ask Vijay to fill forms, pick calendar dates, enter bids, click buttons, or troubleshoot UI states. The agent executes all browser, script, and API operations autonomously.
+3. **Financial Gatekeeper Single Interaction Protocol**: The ONLY situation requiring Vijay's interaction is when a task requires real monetary expenditure (e.g. ad campaign budget). The agent formulates the proposal with exact budget and duration, and asks for a simple binary Yes/No confirmation. Once approved, the agent executes and launches everything autonomously.
+4. **Claude Strategy Alignment**: Whenever structuring marketing campaigns, major book launches, or strategic revisions, the agent checks and verifies the battle plan with Claude programmatically via `pipeline/growth/claude_advisor.py`, incorporates the structured plan, and implements everything.
+
 
 ## Files
 - pipeline/state.json : the state machine (read first, write last, commit every run).
