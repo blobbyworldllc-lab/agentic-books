@@ -461,6 +461,27 @@
       "board": "Christmas Coloring Pages for Kids",
       "url": "https://www.pinterest.com/pin-creation-tool/",
       "timestamp": "2026-11-26T20:05:48.692843+00:00"
+    },
+    {
+      "pin_id": "video_pin_1_sledding",
+      "title": "Pip Goes Sledding! Cute Christmas Countdown Coloring Adventure (Ages 3-6)",
+      "board": "Christmas Coloring Pages for Kids",
+      "url": "https://www.pinterest.com/pin-creation-tool/",
+      "timestamp": "2026-11-26T20:23:14.366672+00:00"
+    },
+    {
+      "pin_id": "video_pin_2_skating",
+      "title": "Pip Goes Ice Skating! Toddler Bedtime Christmas Coloring Book",
+      "board": "Christmas Coloring Pages for Kids",
+      "url": "https://www.pinterest.com/pin-creation-tool/",
+      "timestamp": "2026-11-26T20:40:40.579278+00:00"
+    },
+    {
+      "pin_id": "video_pin_3_tree",
+      "title": "Pip Decorates the Tree! 25-Night Christmas Countdown for Toddlers",
+      "board": "Christmas Coloring Pages for Kids",
+      "url": "https://www.pinterest.com/pin-creation-tool/",
+      "timestamp": "2026-11-26T20:55:57.878001+00:00"
     }
   ],
   "daily_counts": {
@@ -473,6 +494,6 @@
     "2026-11-20": 4,
     "2026-11-22": 1,
     "2026-11-23": 1,
-    "2026-11-26": 12
+    "2026-11-26": 15
   }
 }
