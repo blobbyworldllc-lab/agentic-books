@@ -1,0 +1,79 @@
+{
+  "last_updated": "2026-11-28T09:28:15-05:00",
+  "account": "Blobby World Official (Sponsored ads - Author)",
+  "currency": "USD",
+  "aggregate_metrics": {
+    "impressions": 2485,
+    "clicks": 6,
+    "ctr_percent": 0.24,
+    "cpc": 0.54,
+    "total_cost": 3.25,
+    "sales": 7.99,
+    "purchases": 1,
+    "roas": 2.46,
+    "acos_percent": 40.68,
+    "branded_searches": 0,
+    "detail_page_views": 0,
+    "purchases_new_to_brand": 0
+  },
+  "sales_breakdown": [
+    {
+      "date": "2026-11-22",
+      "units": 1,
+      "sales_amount": 7.99,
+      "cost": 0.32,
+      "roas": 24.97,
+      "asin": "B0HPZ647J6",
+      "book_title": "Pip's Christmas Countdown"
+    }
+  ],
+  "campaigns": [
+    {
+      "campaign_id": "A0257914GQM1ZCK9OORJ",
+      "name": "Pips Christmas Countdown Promo",
+      "type": "Sponsored Products - Manual targeting",
+      "status": "Delivering",
+      "daily_budget": 5.00,
+      "start_date": "2026-11-25",
+      "end_date": "2026-12-04",
+      "country": "United States",
+      "impressions": 1235,
+      "clicks": 3,
+      "spend": 2.38,
+      "sales": 0.00,
+      "active": true
+    },
+    {
+      "campaign_id": "A04570471YPQS3WQV2Z8R",
+      "name": "Pips_Christmas_Countdown_Launch_Promo",
+      "type": "Sponsored Products - Manual targeting",
+      "status": "Ended",
+      "daily_budget": 5.00,
+      "start_date": "2026-11-15",
+      "end_date": "2026-11-25",
+      "country": "United States",
+      "impressions": 1250,
+      "clicks": 3,
+      "spend": 0.87,
+      "sales": 7.99,
+      "purchases": 1,
+      "active": false
+    }
+  ],
+  "targeting_summary": {
+    "top_performing_targets": [
+      {
+        "target": "christmas countdown book kids",
+        "match_type": "broad",
+        "sales": 7.99,
+        "purchases": 1,
+        "roas": 12.5
+      }
+    ],
+    "review_low_performing_targets": [
+      {
+        "note": "2 of 8 targets have clicks but zero sales in the last 14 days"
+      }
+    ]
+  }
+}
