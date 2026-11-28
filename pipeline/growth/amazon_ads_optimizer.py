@@ -23,9 +23,10 @@ NEGATIVE_PATTERNS = [
 
 HIGH_INTENT_TARGETS = [
     {"keyword": "toddler christmas coloring book", "target_bid": 0.65, "intent": "Core Niche"},
-    {"keyword": "christmas countdown book kids", "target_bid": 0.70, "intent": "Proven Converting Target ($7.99 sale)"},
+    {"keyword": "christmas countdown book kids", "target_bid": 0.65, "intent": "Approved Target"},
     {"keyword": "advent calendar coloring book", "target_bid": 0.65, "intent": "High Relevancy"}
 ]
+
 
 def generate_negative_exclusions():
     """Generates exact negative matches to prevent ad waste on non-book queries."""

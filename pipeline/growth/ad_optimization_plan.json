@@ -11,9 +11,10 @@
     },
     {
       "keyword": "christmas countdown book kids",
-      "target_bid": 0.7,
-      "intent": "Proven Converting Target ($7.99 sale)"
+      "target_bid": 0.65,
+      "intent": "Approved Target"
     },
+
     {
       "keyword": "advent calendar coloring book",
       "target_bid": 0.65,
