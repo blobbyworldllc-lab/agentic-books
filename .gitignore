@@ -14,3 +14,4 @@ pipeline/growth/community_history.json
 pipeline/social/video_syndication_history.json
 .venv/
 env/
+scratch/

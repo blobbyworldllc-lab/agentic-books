@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-11-28T14:35:11.764284+00:00",
+  "asin": "B0HPZ647J6",
+  "current_roas": 2.46,
+  "target_cvr": "16.7%",
+  "optimized_targets": [
+    {
+      "keyword": "toddler christmas coloring book",
+      "target_bid": 0.65,
+      "intent": "Core Niche"
+    },
+    {
+      "keyword": "christmas countdown book kids",
+      "target_bid": 0.7,
+      "intent": "Proven Converting Target ($7.99 sale)"
+    },
+    {
+      "keyword": "advent calendar coloring book",
+      "target_bid": 0.65,
+      "intent": "High Relevancy"
+    }
+  ],
+  "negative_exact_exclusions_count": 28,
+  "sample_negative_exclusions": [
+    "advent calendar toy",
+    "christmas toy",
+    "advent calendar toys",
+    "christmas toys",
+    "advent calendar lego",
+    "christmas lego",
+    "advent calendar plush",
+    "christmas plush"
+  ],
+  "budget_recommendation": "$5.00/day locked (Do not scale budget until CTR improves to >=0.45%)",
+  "expected_ctr_uplift": "+110% (0.24% -> 0.50%+ with high-contrast cover)"
+}
